@@ -22,6 +22,7 @@ Once scaffolded, this file will be updated with the full component and page map.
 | `README.md` | Docs | Case study overview for public visitors |
 | `LICENSE` | Legal | Open source license |
 | `.gitignore` | Config | Node modules, Next.js build, env files excluded |
+| `developer/README.md` | Docs | Developer documentation index — setup, deployment, CI/CD, troubleshooting |
 
 ---
 
