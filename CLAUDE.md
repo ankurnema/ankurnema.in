@@ -20,7 +20,7 @@ This repo is intentionally open-source so others can learn how to:
 
 | Layer | Choice |
 |-------|--------|
-| Framework | Next.js 15 (App Router) |
+| Framework | Next.js 16 (App Router) |
 | Language | TypeScript |
 | Styling | Tailwind CSS |
 | Blog | MDX (Markdown + React components) |
@@ -86,6 +86,7 @@ docs/
 - **Commits:** Conventional Commits format (`feat:`, `fix:`, `docs:`, `chore:`)
 - **Branches:** `feature/`, `fix/`, `content/`, `docs/` prefixes
 - **No hardcoded content** — all services data, navigation, and metadata in config files
+- **Diagrams:** Always use Mermaid syntax (`\`\`\`mermaid`) for all diagrams in documentation and ADR files — no ASCII art diagrams
 
 ---
 
