@@ -1,13 +1,12 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** May 2026 — Phase 1 planning structure added
+> **Last updated:** 2026-05-09 — Phase 1 Prompt 001 scaffold complete
 
 ---
 
 ## Current State
-Next.js project not yet scaffolded. Only repo scaffolding files exist.
-Once scaffolded, this file will be updated with the full component and page map.
+Next.js 16 scaffold complete (Prompt 001, 2026-05-09). Core config files, minimal `src/app/` stubs, and `.mcp.json` exist. Full route stubs and CI/CD pending (Prompts 002–019).
 
 ---
 
@@ -40,12 +39,24 @@ Once scaffolded, this file will be updated with the full component and page map.
 | `developer/learnings/README.md` | Docs | Learnings folder index — what it is, how to add entries, file naming convention |
 | `developer/learnings/001-scaffold-nextjs.md` | Learnings | Prompt 001 discoveries: ESLint version compat, `next lint` removal, flat config, tsconfig auto-patch, npm audit false positives |
 | `docs/ai-efficiency-report.md` | Report | AI session efficiency tracker — token metrics, subscription value ratio, per-phase session log |
+| `package.json` | Config | npm manifest — Next.js 16, React 19, TypeScript 6, Tailwind v4, MDX, sharp; scripts: dev (Turbopack), build, lint, start |
+| `package-lock.json` | Config | npm lock file |
+| `next.config.ts` | Config | Next.js 16 config (TypeScript) — MDX support, pageExtensions |
+| `tsconfig.json` | Config | TypeScript strict mode, `@/*` path alias → `./src/*`, react-jsx |
+| `.nvmrc` | Config | Node 22 |
+| `.prettierrc` | Config | Prettier 3.8 — singleQuote, semi, tabWidth 2, trailingComma es5 |
+| `eslint.config.mjs` | Config | ESLint 9 flat config — native eslint-config-next array (no FlatCompat) |
+| `postcss.config.mjs` | Config | PostCSS — @tailwindcss/postcss (Tailwind v4, no autoprefixer) |
+| `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
+| `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — `@import "tailwindcss"` |
+| `src/app/layout.tsx` | App | Root layout stub — metadata export |
+| `src/app/page.tsx` | App | Home page stub — Coming Soon placeholder |
 
 ---
 
 ## Planned Structure (Post-Scaffold)
 
-> Update this section to "Actual Structure" once Next.js is initialized.
+> Scaffold exists. Routes listed below are still stubs or not yet created — will be built out by Prompts 002–017.
 
 | Path | Type | Description |
 |------|------|-------------|

@@ -9,8 +9,8 @@
 
 | Item | Status |
 |------|--------|
-| Current phase | Pre-development — workspace setup complete |
-| Next.js scaffold | ⏳ Not done |
+| Current phase | Phase 1 — Foundation (in progress) |
+| Next.js scaffold | ✅ Done (Prompt 001, 2026-05-09) |
 | Pages | ⏳ Not done |
 | Blog | ⏳ Not done |
 | CI/CD | ⏳ Not done |
@@ -22,6 +22,7 @@
 
 ## Recent Completions
 
+- [2026-05-09] Scaffolded Next.js 16 with TypeScript, Tailwind v4, ESLint 9, Prettier, MDX, .mcp.json — dev/build/lint all verified (Prompt 001)
 - [2026-05-09] Created `docs/ai-efficiency-report.md` — pre-development baseline with 8 sessions, 2.18 MB transcripts, edit-to-read 1.16, subscription value ratio 0.19x; added session-update rules to CLAUDE.md
 - [2026-05-09] Created phase workflow guideline (`developer/PHASE_WORKFLOW.md`), updated CLAUDE.md (Phase Workflow section), PROMPT_TEMPLATE.md (phase management templates), developer/README.md, AI-REFERENCE.md
 - [2026-05-03] Created ADR-007: App Router over Pages Router (`developer/adr/007-app-router.md`)
@@ -52,8 +53,6 @@
 
 ## Open Items
 
-- [ ] Scaffold Next.js project
-- [ ] Write ADR-001 through ADR-004
 - [ ] Set up GitHub Actions CI/CD
 - [ ] Connect to Vercel
 - [ ] Write README.md as proper case study intro
