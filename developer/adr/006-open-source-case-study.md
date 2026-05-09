@@ -108,16 +108,8 @@ flowchart LR
 
 ### What stays private
 
-The two-repo strategy (see `../../ankurnema-brand/`) keeps all sensitive content out of
-this public repo:
-
-| Stays in this repo (public) | Stays in ankurnema-brand (private) |
-|---|---|
-| Website source code | Pricing details |
-| Published blog posts | Client names and data |
-| ADRs and architecture docs | Blog drafts before publishing |
-| CI/CD pipeline | Business financials |
-| CLAUDE.md (AI usage docs) | SAP approval documents |
+Business operations, client data, and commercial content are kept in a separate private
+repository and never committed here.
 
 ### CONTRIBUTING.md
 
@@ -161,7 +153,7 @@ the project regardless of whether anyone ever reads it.
 
 **Tradeoffs:**
 - Code quality expectation is higher — sloppy commits or broken builds are publicly visible
-- Any business logic must be kept in the private `ankurnema-brand` repo — no exceptions
+- Any business logic must be kept in the private business repo — no exceptions
 - Dependencies must be kept updated (public repo with outdated dependencies looks neglected)
 
 **New files required by this decision:**
