@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
 > **Last updated:** 2026-05-09
-> **Sessions logged:** 8
+> **Sessions logged:** 9
 > **Current phase:** Pre-development (baseline)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -76,7 +76,8 @@ This is the work done before a single line of Next.js was written: planning, AI 
 | S06 | 0.37 MB | 13 | 8 | 3 | 3 | 0.62 | Tech stack refinements |
 | S07 | 0.17 MB | 4 | 5 | 3 | 2 | 1.25 | Phase workflow finalisation |
 | S08 | 0.27 MB | 1 | 0 | 0 | 0 | — | Direct repo exploration |
-| **Total** | **2.18 MB** | **45** | **52** | **18** | **22** | **1.16** | — |
+| S09 | 0.45 MB | 5 | 9 | 2 | 6 | 1.80 | Developed /update-efficiency-report custom skill |
+| **Total** | **2.63 MB** | **50** | **61** | **20** | **28** | **1.22** | — |
 
 > Note: Sessions S01–S07 ran in a parent workspace during the planning phase and covered project-wide setup alongside this repo. Session S08 was the only session opened directly inside this repo. Token estimates include cross-project planning work — pure `ankurnema.in` numbers will be separable once development sessions begin here directly.
 
@@ -84,13 +85,13 @@ This is the work done before a single line of Next.js was written: planning, AI 
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 2.18 MB |
-| Estimated tokens | ~572,000 |
-| API equivalent (Sonnet 4.6) | ~$3.78 |
+| Total transcript | 2.63 MB |
+| Estimated tokens | ~690,000 |
+| API equivalent (Sonnet 4.6) | ~$4.55 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.19x** |
-| Edit-to-Read ratio | **1.16** |
-| Read/(Edit+Bash) ratio | **0.61** |
+| Subscription value ratio | **0.23x** |
+| Edit-to-Read ratio | **1.22** |
+| Read/(Edit+Bash) ratio | **0.56** |
 | User corrections (estimated) | Low — planning sessions, few wrong-turns |
 
 ### Honest Read on These Numbers
@@ -141,7 +142,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 8 (baseline) | 2.18 MB | ~$3.78 | $20 | 0.19x |
+| May 2026 | 9 | 2.63 MB | ~$4.55 | $20 | 0.23x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---
