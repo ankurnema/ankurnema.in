@@ -6,6 +6,7 @@ Developer-facing documentation for the ankurnema.in repo.
 
 | Path | Description |
 |------|-------------|
+| [PHASE_WORKFLOW.md](PHASE_WORKFLOW.md) | Phase-based development workflow — how Claude and the developer collaborate on each phase |
 | [adr/](adr/README.md) | Architecture Decision Records — why each major technical decision was made |
 
 ## What Goes Here

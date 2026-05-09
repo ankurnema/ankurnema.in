@@ -22,6 +22,7 @@
 
 ## Recent Completions
 
+- [2026-05-09] Created phase workflow guideline (`developer/PHASE_WORKFLOW.md`), updated CLAUDE.md (Phase Workflow section), PROMPT_TEMPLATE.md (phase management templates), developer/README.md, AI-REFERENCE.md
 - [2026-05-03] Created ADR-007: App Router over Pages Router (`developer/adr/007-app-router.md`)
 - [2026-05-03] Created ADR-006: Open-source case study (`developer/adr/006-open-source-case-study.md`)
 - [2026-05-03] Created ADR-005: Testing strategy (`developer/adr/005-testing-strategy.md`)

@@ -23,6 +23,7 @@ Once scaffolded, this file will be updated with the full component and page map.
 | `LICENSE` | Legal | Open source license |
 | `.gitignore` | Config | Node modules, Next.js build, env files excluded |
 | `developer/README.md` | Docs | Developer documentation index — setup, deployment, CI/CD, troubleshooting |
+| `developer/PHASE_WORKFLOW.md` | AI config | Phase-based workflow guideline — folder structure, prompt format, Git convention, lifecycle |
 | `developer/adr/` | Docs | Architecture Decision Records directory |
 | `developer/adr/README.md` | Docs | ADR intro in plain English + index of all ADRs |
 | `developer/adr/001-tech-stack.md` | ADR | ADR-001: Next.js 15 + TypeScript + Tailwind CSS + MDX — tech stack decision |

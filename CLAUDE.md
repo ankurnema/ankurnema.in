@@ -90,6 +90,22 @@ docs/
 
 ---
 
+## Phase Workflow
+
+All feature development happens inside a named phase. No code changes without a phase.
+
+**Rules:**
+- Create the phase folder (`developer/phase-N-name/`) before writing any code
+- Start every phase with planning: write `README.md`, `AI-CONTEXT.md`, and all `prompts/` files first
+- Each prompt = one discrete deliverable; execute one at a time
+- Update `CHANGELOG.md` after each prompt execution
+- One phase = one feature branch (`feature/phase-N-name`) = one PR
+- Phases map to the "Project Phases" milestones table above
+
+**Full guide:** `developer/PHASE_WORKFLOW.md` — read this before starting any phase
+
+---
+
 ## ADR Convention
 
 Architecture Decision Records live in `docs/adr/`.
