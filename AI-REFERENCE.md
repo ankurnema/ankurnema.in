@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** May 2026 — pre-scaffold (Next.js not yet initialized)
+> **Last updated:** May 2026 — Phase 1 planning structure added
 
 ---
 
@@ -33,6 +33,10 @@ Once scaffolded, this file will be updated with the full component and page map.
 | `developer/adr/005-testing-strategy.md` | ADR | ADR-005: Full testing strategy — Vitest, React Testing Library, Playwright, axe-playwright, Lighthouse CI |
 | `developer/adr/006-open-source-case-study.md` | ADR | ADR-006: Open-source repo as AI-assisted development case study — rationale, conventions, what stays private |
 | `developer/adr/007-app-router.md` | ADR | ADR-007: Next.js App Router over Pages Router — layout model, RSC, Server Actions, conventions |
+| `developer/phase-1-foundation/README.md` | Phase doc | Phase 1 objective, deliverables, success criteria, out-of-scope for milestone v0.1 |
+| `developer/phase-1-foundation/AI-CONTEXT.md` | AI config | Reading order, key files table, ADR references, phase-specific conventions |
+| `developer/phase-1-foundation/CHANGELOG.md` | Phase log | Dated execution log; one entry added after each prompt is completed |
+| `developer/phase-1-foundation/prompts/README.md` | Phase doc | Prompt index table + status legend; updated as prompts are written and executed |
 | `docs/ai-efficiency-report.md` | Report | AI session efficiency tracker — token metrics, subscription value ratio, per-phase session log |
 
 ---
@@ -58,7 +62,7 @@ Once scaffolded, this file will be updated with the full component and page map.
 | `src/content/blog/` | Content | Published MDX blog posts |
 | `src/components/` | Components | Shared UI components |
 | `src/lib/` | Utilities | Helpers, MDX processing, config |
-| `docs/adr/` | Docs | Architecture Decision Records |
+| `developer/adr/` | Docs | Architecture Decision Records (ADR-001 through ADR-007 already written) |
 | `docs/phases/` | Docs | Phase completion summaries |
 | `.github/workflows/ci.yml` | CI/CD | Lint + build check on PRs |
 | `.github/workflows/deploy.yml` | CI/CD | Deploy to Vercel on merge to main |
