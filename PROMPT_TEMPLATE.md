@@ -104,7 +104,7 @@ Use these exact versions when scaffolding. Verify with `npm show <pkg> version` 
 | `postcss` | 8.5.14 | devDep |
 | `@types/react` | 19.2.14 | devDep |
 | `@types/node` | 25.6.2 | devDep |
-| `eslint` | 10.3.0 | devDep — uses flat config (eslint.config.mjs) |
+| `eslint` | 9.39.4 | devDep — uses flat config (eslint.config.mjs); pinned to 9.x because eslint-plugin-react (bundled by eslint-config-next) does not support ESLint 10 |
 | `eslint-config-next` | 16.2.6 | devDep — must match next version |
 | `prettier` | 3.8.3 | devDep |
 | `@next/mdx` | 16.2.6 | MDX support — must match next version |
@@ -115,7 +115,7 @@ Use these exact versions when scaffolding. Verify with `npm show <pkg> version` 
 
 **Breaking-change notes:**
 - **Tailwind v4:** No `tailwind.config.js`. Configure via `@import "tailwindcss"` in your global CSS. PostCSS plugin is `@tailwindcss/postcss`, not `tailwindcss`. Drop `autoprefixer` — it's built in.
-- **ESLint 10:** Config file is `eslint.config.mjs` (flat config), not `.eslintrc.json`.
+- **ESLint 9 (not 10):** Use ESLint 9.x. ESLint 10 is incompatible with the `eslint-plugin-react` version bundled by `eslint-config-next@16`. Config file is `eslint.config.mjs` (flat config), not `.eslintrc.json`.
 - **Next.js 16:** Config file is `next.config.ts` (TypeScript), not `next.config.js`.
 
 ---

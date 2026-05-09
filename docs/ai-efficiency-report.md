@@ -1,8 +1,8 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
 > **Last updated:** 2026-05-09
-> **Sessions logged:** 9
-> **Current phase:** Pre-development (baseline)
+> **Sessions logged:** 12
+> **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
 ---
@@ -77,7 +77,8 @@ This is the work done before a single line of Next.js was written: planning, AI 
 | S07 | 0.17 MB | 4 | 5 | 3 | 2 | 1.25 | Phase workflow finalisation |
 | S08 | 0.27 MB | 1 | 0 | 0 | 0 | — | Direct repo exploration |
 | S09 | 0.45 MB | 5 | 9 | 2 | 6 | 1.80 | Developed /update-efficiency-report custom skill |
-| **Total** | **2.63 MB** | **50** | **61** | **20** | **28** | **1.22** | — |
+| S10 | 0.10 MB | 1 | 0 | 2 | 1 | 0.00 | Created user-level ~/.claude/commands/update-efficiency-report.md so the command is available globally across all Claude Code sessions |
+| **Total** | **2.73 MB** | **51** | **61** | **22** | **29** | **1.20** | — |
 
 > Note: Sessions S01–S07 ran in a parent workspace during the planning phase and covered project-wide setup alongside this repo. Session S08 was the only session opened directly inside this repo. Token estimates include cross-project planning work — pure `ankurnema.in` numbers will be separable once development sessions begin here directly.
 
@@ -85,13 +86,13 @@ This is the work done before a single line of Next.js was written: planning, AI 
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 2.63 MB |
-| Estimated tokens | ~690,000 |
-| API equivalent (Sonnet 4.6) | ~$4.55 |
+| Total transcript | 2.73 MB |
+| Estimated tokens | ~716,000 |
+| API equivalent (Sonnet 4.6) | ~$4.72 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.23x** |
-| Edit-to-Read ratio | **1.22** |
-| Read/(Edit+Bash) ratio | **0.56** |
+| Subscription value ratio | **0.24x** |
+| Edit-to-Read ratio | **1.20** |
+| Read/(Edit+Bash) ratio | **0.57** |
 | User corrections (estimated) | Low — planning sessions, few wrong-turns |
 
 ### Honest Read on These Numbers
@@ -108,11 +109,27 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 ## Phase v0.1 — Foundation
 
-> Status: Not started
+> Status: In Progress
+
+### Session Metrics
 
 | Session | Size | Reads | Edits | Writes | Bash | Edit/Read | Delivered |
 |---------|------|-------|-------|--------|------|-----------|-----------|
-| — | — | — | — | — | — | — | — |
+| S01 | 0.53 MB | 6 | 13 | 2 | 6 | 2.17 | Prompt 001: Scaffold Next.js (part 1) |
+| S02 | 0.69 MB | 12 | 5 | 18 | 40 | 0.42 | Prompt 001: Scaffold Next.js (part 2 — npm install, build/lint verification) |
+| **Total** | **1.22 MB** | **18** | **18** | **20** | **46** | **1.00** | — |
+
+### Aggregate Numbers
+
+| Metric | Value |
+|--------|-------|
+| Total transcript | 1.22 MB |
+| Estimated tokens | ~320,000 |
+| API equivalent (Sonnet 4.6) | ~$2.11 |
+| Pro plan monthly | $20.00 |
+| Subscription value ratio | **0.11x** |
+| Edit-to-Read ratio | **1.00** |
+| Read/(Edit+Bash) ratio | **0.28** |
 
 ---
 
@@ -142,7 +159,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 9 | 2.63 MB | ~$4.55 | $20 | 0.23x |
+| May 2026 | 12 | 3.95 MB | ~$6.83 | $20 | 0.34x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---

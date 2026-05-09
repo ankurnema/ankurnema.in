@@ -1,0 +1,32 @@
+{
+  "name": "ankurnema-in",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "0.34.5",
+    "@next/mdx": "16.2.6",
+    "@mdx-js/loader": "3.1.1",
+    "@mdx-js/react": "3.1.1"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3",
+    "tailwindcss": "4.3.0",
+    "@tailwindcss/postcss": "4.3.0",
+    "postcss": "8.5.14",
+    "@types/react": "19.2.14",
+    "@types/node": "25.6.2",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "prettier": "3.8.3",
+    "@types/mdx": "2.0.13"
+  }
+}
