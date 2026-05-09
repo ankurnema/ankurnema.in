@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
 > **Last updated:** 2026-05-09
-> **Sessions logged:** 12
+> **Sessions logged:** 14
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -118,19 +118,20 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 | S01 | 0.53 MB | 6 | 13 | 2 | 6 | 2.17 | Prompt 001: Scaffold Next.js (part 1) |
 | S02 | 0.69 MB | 12 | 5 | 18 | 40 | 0.42 | Prompt 001: Scaffold Next.js (part 2 — npm install, build/lint verification) |
 | S03 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Updated missed post-Prompt-001 docs (prompts/README.md, AI-SUMMARY.md × 2, AI-REFERENCE.md) |
-| **Total** | **1.51 MB** | **21** | **26** | **22** | **50** | **1.24** | — |
+| S04 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Created personal "reader" subagent at ~/.claude/agents/reader.md (model: haiku, tools: Read/Glob/Grep); confirmed built-in Explore agent uses Haiku |
+| **Total** | **1.80 MB** | **24** | **34** | **24** | **54** | **1.42** | — |
 
 ### Aggregate Numbers
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 1.51 MB |
-| Estimated tokens | ~396,000 |
-| API equivalent (Sonnet 4.6) | ~$2.61 |
+| Total transcript | 1.80 MB |
+| Estimated tokens | ~472,000 |
+| API equivalent (Sonnet 4.6) | ~$3.11 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.13x** |
-| Edit-to-Read ratio | **1.24** |
-| Read/(Edit+Bash) ratio | **0.28** |
+| Subscription value ratio | **0.16x** |
+| Edit-to-Read ratio | **1.42** |
+| Read/(Edit+Bash) ratio | **0.27** |
 
 ---
 
@@ -160,7 +161,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 13 | 4.24 MB | ~$7.34 | $20 | 0.37x |
+| May 2026 | 14 | 4.53 MB | ~$7.84 | $20 | 0.39x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---
