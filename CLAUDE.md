@@ -144,12 +144,14 @@ Update `docs/ai-efficiency-report.md` with a new row in the current phase table:
 | S0N | X.XX MB | <reads> | <edits> | <writes> | <bash> | <edit/read> | What was delivered |
 ```
 
-**To get the session file size:**
+**Preferred: use the `/update-efficiency-report` slash command** — it auto-detects the latest session, counts tool calls, and updates all three report sections automatically.
+
+**Manual fallback — get session file size:**
 ```bash
-ls -lh ~/.claude/projects/-Users-ankurnema-IdeaProjects-ankurnema-in/
+ls -lh ~/.claude/projects/-Users-ankurnema-ankur-consulting/
 ```
 
-**To count tool calls (run in terminal):**
+**Manual fallback — count tool calls:**
 ```bash
 python3 -c "
 import json, os
