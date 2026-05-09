@@ -22,6 +22,17 @@ Once scaffolded, this file will be updated with the full component and page map.
 | `README.md` | Docs | Case study overview for public visitors |
 | `LICENSE` | Legal | Open source license |
 | `.gitignore` | Config | Node modules, Next.js build, env files excluded |
+| `developer/README.md` | Docs | Developer documentation index — setup, deployment, CI/CD, troubleshooting |
+| `developer/PHASE_WORKFLOW.md` | AI config | Phase-based workflow guideline — folder structure, prompt format, Git convention, lifecycle |
+| `developer/adr/` | Docs | Architecture Decision Records directory |
+| `developer/adr/README.md` | Docs | ADR intro in plain English + index of all ADRs |
+| `developer/adr/001-tech-stack.md` | ADR | ADR-001: Next.js 15 + TypeScript + Tailwind CSS + MDX — tech stack decision |
+| `developer/adr/002-vercel-hosting.md` | ADR | ADR-002: Vercel free tier hosting for Phase 1 — alternatives, reasons, review triggers |
+| `developer/adr/003-nextjs-mcp-server.md` | ADR | ADR-003: Next.js MCP server (`next-devtools-mcp`) for AI-assisted development workflow |
+| `developer/adr/004-playwright-cli-browser-testing.md` | ADR | ADR-004: Playwright CLI (`@playwright/cli`) for browser testing during AI-assisted development |
+| `developer/adr/005-testing-strategy.md` | ADR | ADR-005: Full testing strategy — Vitest, React Testing Library, Playwright, axe-playwright, Lighthouse CI |
+| `developer/adr/006-open-source-case-study.md` | ADR | ADR-006: Open-source repo as AI-assisted development case study — rationale, conventions, what stays private |
+| `developer/adr/007-app-router.md` | ADR | ADR-007: Next.js App Router over Pages Router — layout model, RSC, Server Actions, conventions |
 
 ---
 
