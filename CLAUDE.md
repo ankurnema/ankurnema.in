@@ -131,3 +131,41 @@ After completing any unit of work (feature, file change, milestone, key decision
 1. **AI-REFERENCE.md** — update if any files or folders were added, moved, or deleted
 2. **AI-SUMMARY.md** — add an entry under "Recent Completions": `- [YYYY-MM-DD] <what was done>`; update phase status when a milestone is reached
 3. **docs/adr/** — write an ADR for every significant technology or architectural decision
+
+---
+
+## Mandatory: After Each AI Session
+
+After every AI session (regardless of whether a full unit of work was completed):
+
+Update `docs/ai-efficiency-report.md` with a new row in the current phase table:
+
+```
+| S0N | X.XX MB | <reads> | <edits> | <writes> | <bash> | <edit/read> | What was delivered |
+```
+
+**To get the session file size:**
+```bash
+ls -lh ~/.claude/projects/-Users-ankurnema-IdeaProjects-ankurnema-in/
+```
+
+**To count tool calls (run in terminal):**
+```bash
+python3 -c "
+import json, os
+f = '<path-to-session>.jsonl'
+data = [json.loads(l) for l in open(f) if l.strip()]
+counts = {}
+for entry in data:
+    for block in entry.get('message', {}).get('content', []):
+        if isinstance(block, dict) and block.get('type') == 'tool_use':
+            name = block.get('name', '?')
+            counts[name] = counts.get(name, 0) + 1
+print(counts)
+"
+```
+
+**Rules:**
+- Edit/Read ratio = Edits ÷ Reads (skip if Reads = 0)
+- If a new calendar month started, recalculate the subscription value ratio row in the Running Subscription Value Tracker table
+- If the session advanced a phase milestone, also update the phase status in the phase table header
