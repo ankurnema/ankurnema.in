@@ -1,5 +1,25 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-05-10] Prompt 002 — Testing Infrastructure
+
+- Verified latest package versions with `npm show` before installing
+- Installed devDependencies: `vitest@4.1.5`, `@vitest/coverage-v8@4.1.5`, `jsdom@29.1.1`,
+  `@testing-library/react@16.3.2`, `@testing-library/jest-dom@6.9.1`,
+  `@vitejs/plugin-react@6.0.1`, `@playwright/test@1.59.1`, `@lhci/cli@0.15.1`
+- Ran: `npx playwright install chromium` (Chrome for Testing 147.0.7727.15, headless shell, FFmpeg)
+- Created: `vitest.config.ts` (jsdom env, globals, setupFiles, coverage targeting src/)
+- Created: `src/test/setup.ts` (imports @testing-library/jest-dom)
+- Created: `src/__tests__/smoke.test.ts` (trivial passing test)
+- Created: `src/test/` directory
+- Created: `src/__tests__/` directory
+- Created: `e2e/` directory (empty — E2E tests added per page in Prompts 005, 012, 016)
+- Created: `playwright.config.ts` (chromium, passWithNoTests, baseURL localhost:3000, screenshot on failure)
+- Created: `lighthouserc.json` (performance >= 0.8 error gate; accessibility/best-practices/SEO warn)
+- Modified: `package.json` (added test, test:watch, test:coverage, test:e2e scripts + 8 devDeps)
+- Behaviour note: Playwright 1.59.1 `passWithNoTests` option is not in the TypeScript type definitions for this version; fix is the `--pass-with-no-tests` CLI flag in the test:e2e script. Also: Next.js type-checks all `*.ts` files including playwright.config.ts — keeping config free of untyped options avoids build failures
+- Verified: `npm run test -- --run` → 1/1 passed
+- Verified: `npm run test:e2e` → exits 0 (0 test files)
+
 ## [2026-05-09] Prompt 001 — Scaffold Next.js
 
 - Verified all 17 package versions against pinned table in PROMPT_TEMPLATE.md; all matched except ESLint (see below)

@@ -57,3 +57,4 @@ A good learning answers one of these:
 | File | Prompt | Summary |
 |------|--------|---------|
 | [001-scaffold-nextjs.md](001-scaffold-nextjs.md) | Prompt 001 | ESLint version incompatibility, `next lint` removal, flat config changes |
+| [002-testing-infrastructure.md](002-testing-infrastructure.md) | Prompt 002 | Playwright `passWithNoTests` not typed in v1.59.1; Next.js type-checks all `*.ts` files; CLI flag naming is kebab-case |

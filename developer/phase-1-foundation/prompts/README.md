@@ -3,7 +3,7 @@
 | # | File | Description | Status |
 |---|------|-------------|--------|
 | 001 | [001-scaffold-nextjs.md](001-scaffold-nextjs.md) | Scaffold Next.js 16 with TypeScript, Tailwind v4, MDX, ESLint 10, Prettier + `.mcp.json` | ✅ Done [2026-05-09] |
-| 002 | [002-testing-infrastructure.md](002-testing-infrastructure.md) | Vitest + React Testing Library + Playwright + Lighthouse CI | ⏳ Pending |
+| 002 | [002-testing-infrastructure.md](002-testing-infrastructure.md) | Vitest + React Testing Library + Playwright + Lighthouse CI | ✅ Done [2026-05-10] |
 | 003 | [003-branding.md](003-branding.md) | Color system, logo SVGs, favicon, OG image, brand guidelines doc | ⏳ Pending |
 | 004 | [004-root-layout.md](004-root-layout.md) | Root `layout.tsx` — header, footer, fonts, metadata | ⏳ Pending |
 | 005 | [005-coming-soon-homepage.md](005-coming-soon-homepage.md) | Coming Soon page at `/` with OG metadata + E2E smoke test | ⏳ Pending |

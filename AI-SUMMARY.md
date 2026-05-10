@@ -11,6 +11,7 @@
 |------|--------|
 | Current phase | Phase 1 — Foundation (in progress) |
 | Next.js scaffold | ✅ Done (Prompt 001, 2026-05-09) |
+| Testing infrastructure | ✅ Done (Prompt 002, 2026-05-10) |
 | Pages | ⏳ Not done |
 | Blog | ⏳ Not done |
 | CI/CD | ⏳ Not done |
@@ -22,6 +23,7 @@
 
 ## Recent Completions
 
+- [2026-05-10] Set up testing infrastructure — Vitest 4.1.5 + Playwright 1.59.1 + Lighthouse CI; `npm run test` passes, `npm run test:e2e` exits 0 (Prompt 002)
 - [2026-05-09] Scaffolded Next.js 16 with TypeScript, Tailwind v4, ESLint 9, Prettier, MDX, .mcp.json — dev/build/lint all verified (Prompt 001)
 - [2026-05-09] Created `docs/ai-efficiency-report.md` — pre-development baseline with 8 sessions, 2.18 MB transcripts, edit-to-read 1.16, subscription value ratio 0.19x; added session-update rules to CLAUDE.md
 - [2026-05-09] Created phase workflow guideline (`developer/PHASE_WORKFLOW.md`), updated CLAUDE.md (Phase Workflow section), PROMPT_TEMPLATE.md (phase management templates), developer/README.md, AI-REFERENCE.md

@@ -1,12 +1,12 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-09 — Phase 1 Prompt 001 scaffold complete
+> **Last updated:** 2026-05-10 — Phase 1 Prompt 002 testing infrastructure
 
 ---
 
 ## Current State
-Next.js 16 scaffold complete (Prompt 001, 2026-05-09). Core config files, minimal `src/app/` stubs, and `.mcp.json` exist. Full route stubs and CI/CD pending (Prompts 002–019).
+Next.js 16 scaffold and testing infrastructure complete (Prompts 001–002, 2026-05-09/10). Core config files, minimal `src/app/` stubs, `.mcp.json`, Vitest, Playwright, and Lighthouse CI configured. Full route stubs and CI/CD pending (Prompts 003–019).
 
 ---
 
@@ -38,8 +38,14 @@ Next.js 16 scaffold complete (Prompt 001, 2026-05-09). Core config files, minima
 | `developer/phase-1-foundation/prompts/README.md` | Phase doc | Prompt index table + status legend; updated as prompts are written and executed |
 | `developer/learnings/README.md` | Docs | Learnings folder index — what it is, how to add entries, file naming convention |
 | `developer/learnings/001-scaffold-nextjs.md` | Learnings | Prompt 001 discoveries: ESLint version compat, `next lint` removal, flat config, tsconfig auto-patch, npm audit false positives |
+| `developer/learnings/002-testing-infrastructure.md` | Learnings | Prompt 002 discoveries: Playwright `passWithNoTests` not in TypeScript types for v1.59.1; Next.js type-checks all `*.ts` files; CLI flags are kebab-case |
 | `docs/ai-efficiency-report.md` | Report | AI session efficiency tracker — token metrics, subscription value ratio, per-phase session log |
-| `package.json` | Config | npm manifest — Next.js 16, React 19, TypeScript 6, Tailwind v4, MDX, sharp; scripts: dev (Turbopack), build, lint, start |
+| `vitest.config.ts` | Config | Vitest — jsdom env, globals, setupFiles → `src/test/setup.ts`, coverage targeting src/ |
+| `playwright.config.ts` | Config | Playwright E2E — chromium project, baseURL localhost:3000, screenshot on failure, passWithNoTests |
+| `lighthouserc.json` | Config | Lighthouse CI — performance ≥ 0.8 blocks PR; accessibility/best-practices/SEO warn at ≥ 0.9 |
+| `src/test/setup.ts` | Config | Vitest global setup — imports `@testing-library/jest-dom` extended matchers |
+| `src/__tests__/smoke.test.ts` | Test | Smoke test — confirms Vitest runner works; template for future unit tests |
+| `package.json` | Config | npm manifest — Next.js 16, React 19, TypeScript 6, Tailwind v4, MDX, sharp; scripts: dev (Turbopack), build, lint, start, test, test:watch, test:coverage, test:e2e |
 | `package-lock.json` | Config | npm lock file |
 | `next.config.ts` | Config | Next.js 16 config (TypeScript) — MDX support, pageExtensions |
 | `tsconfig.json` | Config | TypeScript strict mode, `@/*` path alias → `./src/*`, react-jsx |

@@ -98,7 +98,7 @@ All feature development happens inside a named phase. No code changes without a 
 - Create the phase folder (`developer/phase-N-name/`) before writing any code
 - Start every phase with planning: write `README.md`, `AI-CONTEXT.md`, and all `prompts/` files first
 - Each prompt = one discrete deliverable; execute one at a time
-- Update `CHANGELOG.md` after each prompt execution
+- Update `CHANGELOG.md`, `AI-REFERENCE.md`, `AI-SUMMARY.md`, `prompts/README.md`, and `developer/learnings/` after each prompt execution
 - One phase = one feature branch (`feature/phase-N-name`) = one PR
 - Phases map to the "Project Phases" milestones table above
 
@@ -131,6 +131,7 @@ After completing any unit of work (feature, file change, milestone, key decision
 1. **AI-REFERENCE.md** — update if any files or folders were added, moved, or deleted
 2. **AI-SUMMARY.md** — add an entry under "Recent Completions": `- [YYYY-MM-DD] <what was done>`; update phase status when a milestone is reached
 3. **docs/adr/** — write an ADR for every significant technology or architectural decision
+4. **developer/learnings/** — if anything was surprising, broke, or deviated from the plan: create `NNN-short-name.md` (where NNN matches the prompt number) and add it to `developer/learnings/README.md`; skip if everything went exactly as planned
 
 ---
 
