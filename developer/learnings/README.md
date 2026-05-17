@@ -58,3 +58,4 @@ A good learning answers one of these:
 |------|--------|---------|
 | [001-scaffold-nextjs.md](001-scaffold-nextjs.md) | Prompt 001 | ESLint version incompatibility, `next lint` removal, flat config changes |
 | [002-testing-infrastructure.md](002-testing-infrastructure.md) | Prompt 002 | Playwright `passWithNoTests` not typed in v1.59.1; Next.js type-checks all `*.ts` files; CLI flag naming is kebab-case |
+| [005-coming-soon-homepage.md](005-coming-soon-homepage.md) | Prompt 005 | Playwright strict mode + `getByText`; Vitest `include` required to exclude `e2e/`; `matchMedia` mock for next-themes; `min-h-dvh` vs `100vh` on iOS Safari; `flex-1` vs `min-h-[Nvh]`; `landscape:` custom variant |

@@ -1,3 +1,6 @@
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant landscape (@media (orientation: landscape));
+
 @theme {
   /* Light mode */
   --color-brand-navy:     #1E3A5F;

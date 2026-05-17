@@ -1,5 +1,38 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-05-17] Bug fix — Landscape compact layout (iPhone SE)
+
+- Added: `src/styles/brand.css` — `@custom-variant landscape (@media (orientation: landscape))` custom Tailwind v4 variant
+- Modified: `src/app/page.tsx` — applied `landscape:` compact overrides: `landscape:py-3` (section), `landscape:text-3xl landscape:mb-1` (h1), `landscape:mb-2` (badge + tagline), `landscape:mb-3 landscape:text-sm` (description); footer now visible without scroll on iPhone SE landscape (375×667)
+- Verified: `npm run build` clean; `npm run test:e2e` 5/5 pass
+
+## [2026-05-17] Bug fix — Landscape mode footer visibility
+
+- Fixed: `src/app/layout.tsx` — `min-h-screen` → `min-h-dvh` on body (uses dynamic viewport height unit; `100vh` on iOS Safari over-counts toolbar height, `dvh` tracks the actual visible area); added `flex flex-col` to `<main>` so child `flex-1` works correctly
+- Fixed: `src/app/page.tsx` — removed `min-h-[70vh]` (was forcing a height floor that overflowed in landscape); replaced with `flex-1` on section so it fills available main space naturally; reduced padding `py-20 sm:py-32` → `py-12 sm:py-20`
+- Verified: `npm run test:e2e` — 5/5 pass across all device profiles; footer visible without scroll in landscape mode
+
+## [2026-05-17] Bug fixes — Sticky Footer + Multi-Device Testing
+
+- Fixed: `src/app/layout.tsx` — added `min-h-screen flex flex-col` to `<body>` and `flex-1` to `<main>`; footer now pins to bottom on short-content pages
+- Modified: `playwright.config.ts` — replaced single `chromium` project with 5 device projects: Desktop Chrome, Desktop Firefox, Mobile Chrome (Pixel 5), Mobile Safari (iPhone 14), Tablet (iPad Pro)
+- Installed: Playwright Firefox and WebKit browsers locally (`npx playwright install firefox webkit`)
+- Verified: `npm run test:e2e` — 5/5 tests pass across all device profiles
+
+## [2026-05-17] Prompt 005 — Coming Soon Homepage (Light + Dark Mode)
+
+- Created: `developer/adr/009-dark-mode.md` — ADR documenting next-themes + Tailwind v4 class-based dark mode strategy
+- Modified: `src/styles/brand.css` — added `@custom-variant dark (&:where(.dark, .dark *))` for Tailwind v4 `dark:` prefix support
+- Created: `src/components/Providers.tsx` — `'use client'` ThemeProvider wrapper; `defaultTheme="system"`, `attribute="class"`, `enableSystem`
+- Created: `src/components/ThemeToggle.tsx` — `'use client'` sun/moon toggle; `mounted` guard prevents hydration mismatch; uses `resolvedTheme` from next-themes; inline heroicons-style SVGs
+- Modified: `src/app/layout.tsx` — added `suppressHydrationWarning` to `<html>`; updated body/header/footer with `dark:` utility variants; added `<Providers>` wrapper and `<ThemeToggle>` in header
+- Created: `src/app/page.tsx` — Coming Soon page: metadata with `title.absolute`, branded hero section with `dark:` variants, LinkedIn/GitHub links
+- Created: `e2e/homepage.spec.ts` — Playwright E2E smoke test: asserts title `/Ankur Nema/` and `getByRole('heading', { name: 'Ankur Nema' })` visible
+- Verified: `npm run build` passes clean; `npm run test:e2e` 1/1 passed
+- Modified: `vitest.config.ts` — added `include: ['src/**/*.{test,spec}.{ts,tsx}']` to prevent Vitest from picking up `e2e/` Playwright files
+- Modified: `src/test/setup.ts` — added `window.matchMedia` mock (next-themes calls it in jsdom; not available by default)
+- Decisions: used `title.absolute` to prevent root layout template double-append; used `getByRole('heading')` in E2E (not `getByText`) because "Ankur Nema" appears in 3 elements (header logo, h1, footer); ADR-009 written before code per AI-CONTEXT.md rule
+
 ## [2026-05-17] Prompt 004 — Root Layout
 
 - Created: `developer/adr/008-google-font-loading.md` — ADR documenting next/font/google strategy (variable option, Tailwind v4 integration, Vitest mock convention)

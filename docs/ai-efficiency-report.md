@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-05-17 (Prompt 004 session)
-> **Sessions logged:** 15
+> **Last updated:** 2026-05-17 (Prompt 005 + learnings + current session)
+> **Sessions logged:** 20
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -122,19 +122,22 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 | S05 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Prompt 002: Testing infrastructure setup — Vitest + Playwright + Lighthouse CI; tests pass, learnings documented |
 | S06 | 0.56 MB | 13 | 7 | 12 | 7 | 0.54 | Prompt 003: Branding — brand.css (12 color tokens), LogoText component, favicon.ico, og-default.png, brand-guidelines.md; all docs updated |
 | S07 | 0.56 MB | 13 | 7 | 12 | 7 | 0.54 | Prompt 004: Root layout — Inter + DM Sans fonts (next/font/google with variable), full metadata (OG/Twitter/metadataBase), header + footer, Vitest test, ADR-008 |
-| **Total** | **3.21 MB** | **53** | **56** | **50** | **72** | **1.06** | — |
+| S08 | 0.64 MB | 10 | 16 | 3 | 9 | 1.60 | Prompt 005: Coming Soon homepage with next-themes dark mode, landscape fixes (min-h-dvh, flex-1, @custom-variant), 5-device Playwright E2E testing; 6 learnings documented |
+| S09 | 0.12 MB | 6 | 13 | 0 | 3 | 2.17 | Post-Prompt-005 docs (CHANGELOG, prompts/README, AI-REFERENCE, AI-SUMMARY); execute-prompt skill rewritten to read learnings proactively; learnings index updated |
+| S10 | 0.03 MB | 4 | 1 | 0 | 0 | 0.25 | Memory update (MEMORY.md learnings feedback entry) + efficiency report |
+| **Total** | **4.00 MB** | **73** | **86** | **53** | **84** | **1.18** | — |
 
 ### Aggregate Numbers
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 3.21 MB |
-| Estimated tokens | ~841,285 |
-| API equivalent (Sonnet 4.6) | ~$5.56 |
+| Total transcript | 4.00 MB |
+| Estimated tokens | ~1,048,576 |
+| API equivalent (Sonnet 4.6) | ~$6.92 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.28x** |
-| Edit-to-Read ratio | **1.06** |
-| Read/(Edit+Bash) ratio | **0.41** |
+| Subscription value ratio | **0.35x** |
+| Edit-to-Read ratio | **1.18** |
+| Read/(Edit+Bash) ratio | **0.43** |
 
 ---
 
@@ -164,7 +167,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 17 | 5.94 MB | ~$10.27 | $20 | 0.51x |
+| May 2026 | 20 | 6.73 MB | ~$11.64 | $20 | 0.58x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---

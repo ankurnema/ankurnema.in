@@ -47,7 +47,7 @@ Create `src/app/page.tsx`. Design a clean, branded Coming Soon page:
 - Large logo mark or wordmark
 - Name "Ankur Nema" as the headline
 - Tagline or role description
-- 1–2 sentences of teaser copy (e.g., "DevOps consulting, mentoring, and career guidance — launching soon.")
+- 1–2 sentences of teaser copy (e.g., "Mentoring, career guidance, and expert consulting by Ankur Nema — launching soon.")
 - Social links: LinkedIn and GitHub icons/text links
 - Use Tailwind classes that reference your brand tokens (`text-primary-*`, `bg-neutral-*`, etc.)
 - Mobile-first: works well on 375px width; center-aligned on desktop
@@ -56,7 +56,7 @@ Export a `metadata` object:
 ```ts
 export const metadata: Metadata = {
   title: 'Ankur Nema — Coming Soon',
-  description: 'DevOps consulting, mentoring, and career guidance — launching soon.',
+  description: 'Mentoring, career guidance, and expert consulting by Ankur Nema — launching soon.',
   openGraph: {
     title: 'Ankur Nema — Coming Soon',
     description: '...',

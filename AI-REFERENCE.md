@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-17 — Prompt 004 Root Layout: ADR-008, brand.css font vars, layout.tsx rewrite, layout.test.tsx
+> **Last updated:** 2026-05-17 — Prompt 005 Coming Soon Homepage: ADR-009, brand.css dark variant, Providers.tsx, ThemeToggle.tsx, layout.tsx dark mode, page.tsx, e2e/homepage.spec.ts
 
 ---
 
@@ -45,6 +45,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `developer/adr/006-open-source-case-study.md` | ADR | ADR-006: Open-source repo as AI-assisted development case study — rationale, conventions, what stays private |
 | `developer/adr/007-app-router.md` | ADR | ADR-007: Next.js App Router over Pages Router — layout model, RSC, Server Actions, conventions |
 | `developer/adr/008-google-font-loading.md` | ADR | ADR-008: Google Font loading via next/font/google — variable option, Tailwind v4 @theme mapping, Vitest mock convention |
+| `developer/adr/009-dark-mode.md` | ADR | ADR-009: Dark mode strategy — next-themes + Tailwind v4 `@custom-variant dark`; system default, localStorage persistence, toggle component pattern |
 | `developer/phase-1-foundation/README.md` | Phase doc | Phase 1 objective, deliverables, success criteria, out-of-scope for milestone v0.1 |
 | `developer/phase-1-foundation/AI-CONTEXT.md` | AI config | Reading order, key files table, ADR references, phase-specific conventions |
 | `developer/phase-1-foundation/CHANGELOG.md` | Phase log | Dated execution log; one entry added after each prompt is completed |
@@ -67,11 +68,14 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `eslint.config.mjs` | Config | ESLint 9 flat config — native eslint-config-next array (no FlatCompat) |
 | `postcss.config.mjs` | Config | PostCSS — @tailwindcss/postcss (Tailwind v4, no autoprefixer) |
 | `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
-| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 locked brand color tokens (6 light, 6 dark) + font-sans/font-heading utilities; imported in `globals.css` |
+| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 locked brand color tokens (6 light, 6 dark) + font-sans/font-heading utilities; `@custom-variant dark` for class-based dark mode; imported in `globals.css` |
 | `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — imports tailwindcss + brand.css |
-| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans font loading, metadata (title template, OG, Twitter), minimal header (LogoText linked to `/`), minimal footer (copyright + external links) |
+| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants |
 | `src/__tests__/layout.test.tsx` | Test | Vitest unit test for RootLayout — mocks next/font/google, asserts footer copyright text |
-| `src/app/page.tsx` | App | Home page stub — Coming Soon placeholder |
+| `src/app/page.tsx` | App | Home — Coming Soon page with OG metadata (`title.absolute`), branded hero section, light + dark mode variants, LinkedIn/GitHub links |
+| `src/components/Providers.tsx` | Component | `'use client'` ThemeProvider wrapper — next-themes, `attribute="class"`, `defaultTheme="system"`, `enableSystem` |
+| `src/components/ThemeToggle.tsx` | Component | `'use client'` dark/light mode toggle — `mounted` guard, `resolvedTheme`, sun/moon inline SVG icons |
+| `e2e/homepage.spec.ts` | Test | Playwright E2E smoke test — asserts page title `/Ankur Nema/` and heading "Ankur Nema" visible |
 | `src/components/LogoText.tsx` | Component | CSS text logo — "Ankur Nema" with `variant` prop (light/dark); placeholder until Prompt 003b delivers SVG |
 | `public/icon.svg` | Asset | AN monogram favicon mark — 512×512 SVG, navy background, white letterforms |
 | `public/favicon.ico` | Asset | ICO favicon — PNG-in-ICO at 32×32 and 16×16; generated from `icon.svg` via `scripts/generate-favicon.mjs` |
@@ -91,7 +95,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `src/app/page.tsx` | Page | Home — hero, tagline, services overview, social proof |
 | `src/app/about/page.tsx` | Page | About — story, credentials, mission |
 | `src/app/services/page.tsx` | Page | Services overview |
-| `src/app/services/consulting/page.tsx` | Page | DevOps consulting detail |
+| `src/app/services/consulting/page.tsx` | Page | Consulting Hour — 1:1 expert sessions page |
 | `src/app/services/mentoring/page.tsx` | Page | Mentoring programs |
 | `src/app/services/career/page.tsx` | Page | Career guidance |
 | `src/app/services/resume-review/page.tsx` | Page | Resume review service |
