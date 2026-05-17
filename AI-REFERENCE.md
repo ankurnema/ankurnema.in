@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-10 — Phase 1 Prompt 002 testing infrastructure
+> **Last updated:** 2026-05-17 — Added 9 Claude Code skills to .claude/commands/
 
 ---
 
@@ -17,12 +17,22 @@ Next.js 16 scaffold and testing infrastructure complete (Prompts 001–002, 2026
 | `CLAUDE.md` | AI config | Website rules, tech stack, phase tracking, conventions |
 | `AI-REFERENCE.md` | AI config | This file |
 | `.claude/commands/update-memory.md` | AI skill | `/update-memory` — updates ankurnema.in sub-repo memory (IDE/WebStorm context) |
+| `.claude/commands/add-prompt.md` | AI skill | `/add-prompt` — interview-style: create a numbered prompt file in a phase, update prompts/README.md |
+| `.claude/commands/enhance-prompt.md` | AI skill | `/enhance-prompt` — edit an unexecuted prompt file in a phase |
+| `.claude/commands/add-blog-post.md` | AI skill | `/add-blog-post` — interview-style: create a draft MDX blog post stub with correct frontmatter |
+| `.claude/commands/design-phase.md` | AI skill | `/design-phase` — interview-style: scaffold a new phase folder (README, AI-CONTEXT, CHANGELOG, prompts), create git branch |
+| `.claude/commands/execute-prompt.md` | AI skill | `/execute-prompt` — execute a prompt file from a phase, then auto-update all 5 post-execution docs |
+| `.claude/commands/add-feature.md` | AI skill | `/add-feature` — interview-style: create a prompt file for a new feature within the current phase |
+| `.claude/commands/enhance-feature.md` | AI skill | `/enhance-feature` — interview-style: enhance or fix existing feature code, update CHANGELOG if in a phase |
+| `.claude/commands/complete-phase.md` | AI skill | `/complete-phase` — close out a phase: verify completion, write docs/phases/ summary, update AI-SUMMARY.md + CLAUDE.md |
+| `.claude/commands/session-wrap.md` | AI skill | `/session-wrap` — end-of-session: update efficiency report and memory in one command |
 | `AI-SUMMARY.md` | AI config | Website build status and completions |
 | `PROMPT_TEMPLATE.md` | AI config | Phase-based prompt templates |
 | `README.md` | Docs | Case study overview for public visitors |
 | `LICENSE` | Legal | Open source license |
 | `.gitignore` | Config | Node modules, Next.js build, env files excluded |
 | `developer/README.md` | Docs | Developer documentation index — setup, deployment, CI/CD, troubleshooting |
+| `developer/claude-skills.md` | Docs | Claude Code skills reference — all 9 custom `/skill-name` commands, usage guide, session flow, skill format |
 | `developer/ai-memory-system.md` | Docs | Public guide — AI memory system: what it is, benefits, memory types, how to replicate |
 | `developer/PHASE_WORKFLOW.md` | AI config | Phase-based workflow guideline — folder structure, prompt format, Git convention, lifecycle |
 | `developer/adr/` | Docs | Architecture Decision Records directory |
