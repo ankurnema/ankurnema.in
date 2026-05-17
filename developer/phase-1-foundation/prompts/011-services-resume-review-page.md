@@ -18,6 +18,17 @@
 - `npm run build` passes
 - `developer/phase-1-foundation/CHANGELOG.md` updated
 
+## Service Context (for when real page is built in v0.3)
+
+Process: candidate submits resume + full career timeline → Ankur reviews → 1:1 session with findings + suggestions + guidelines → written report + action items → candidate submits updated resume → email follow-up + optional free follow-up session.
+
+Four tiers:
+1. Quick Review — Written feedback + guided enhancement steps + 1×30-min session — 48 hrs — ₹1,499
+2. Deep Review — In-depth analysis + guided enhancement steps + 1×60-min session + 1 free follow-up — 3–4 days — ₹2,999
+3. Full Makeover — In-depth analysis + 1×30-min initial session + 2 follow-up sessions (30–60 min each) — 1 week — ₹5,999
+4. JD-Based Review (add-on) — Suggestions per specific JD, email delivery — 24 hrs — ₹499
+   - Available ONLY to existing Deep Review or Full Makeover customers
+
 ## Prompt
 
 You are executing Prompt 011 of Phase 1 Foundation for ankurnema.in.
@@ -31,12 +42,12 @@ Read these files before writing any code:
 Step 1 — page.tsx:
 Create `src/app/services/resume-review/page.tsx`. Include:
 - Page heading: "Resume Review"
-- Placeholder body: "Resume review service details coming soon. Professional review and feedback for engineers applying to top tech companies."
+- Placeholder body: "Resume review service details coming soon. Personalised 1:1 resume review with guided enhancement steps and a written action plan — for engineers targeting top tech roles."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {
     title: 'Resume Review',
-    description: 'Professional resume review by Ankur Nema for engineers targeting top tech companies.',
+    description: 'Personalised resume review by Ankur Nema — guided enhancement steps and 1:1 sessions for engineers targeting top tech roles.',
   }
   ```
 

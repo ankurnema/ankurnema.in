@@ -13,7 +13,7 @@
 **In scope:**
 Replace the Coming Soon `src/app/page.tsx` with a full Phase 1 homepage design. Required sections:
 1. **Hero** — name "Ankur Nema", role/title, tagline, two CTA buttons: "View Services" (→ `/services`) and "Get in Touch" (→ `/contact`)
-2. **Services teaser** — 3–4 service cards (Consulting, Mentoring, Career Guidance, Resume Review); each card shows service name + 1-line description; no links (routes hidden from nav but direct URL works)
+2. **Services teaser** — 4–5 service cards (Resume Review, LinkedIn Review, Career Guidance, Mentoring, Consulting Hour); each card shows service name + 1-line description; no links (routes hidden from nav but direct URL works)
 3. **About teaser** — 2–3 sentences about Ankur + a "Learn more" text link to `/about`
 4. **Blog teaser** — heading "Latest Articles" + placeholder ("First article coming soon") — no real posts yet
 5. **Contact CTA** — "Ready to work together?" section with a link/button to `/contact`
@@ -83,8 +83,8 @@ Step 1 — Replace `src/app/page.tsx` with the full homepage. Build all 5 sectio
 Step 2 — Update metadata:
 ```ts
 export const metadata: Metadata = {
-  title: 'Ankur Nema — DevOps Consulting & Mentoring',
-  description: 'DevOps consulting, technical mentoring, and career guidance by Ankur Nema.',
+  title: 'Ankur Nema — Mentoring, Career Guidance & Resume Review',
+  description: 'Mentoring, career guidance, resume review, and consulting by Ankur Nema.',
   openGraph: { images: [{ url: '/og-default.png', width: 1200, height: 630 }] },
 }
 ```

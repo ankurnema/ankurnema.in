@@ -119,7 +119,7 @@ Spec:
 | Background | `#1E3A5F` (brand-navy) |
 | Primary heading | "Ankur Nema" — white, Inter SemiBold, 88px, horizontally centered |
 | Divider | Thin horizontal rule, `#D4A017` (amber) |
-| Tagline | "DevOps Consulting · Mentoring · Career Guidance" — `#D4A017` (amber), 36px, centered |
+| Tagline | "Mentoring · Career Guidance · Resume Review" — `#D4A017` (amber), 36px, centered |
 
 **To regenerate:** `node scripts/generate-og.mjs`
 

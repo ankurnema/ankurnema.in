@@ -18,6 +18,14 @@
 - `npm run build` passes
 - `developer/phase-1-foundation/CHANGELOG.md` updated
 
+## Service Context (for when real page is built in v0.3)
+
+Two offerings only:
+1. Career Strategy Session — 60 min 1:1, role transition + growth roadmap — ₹4,000
+2. Career Audit Package — 3×60 min sessions + written roadmap — ₹12,000
+
+No Interview Prep or Salary Negotiation coaching at this stage.
+
 ## Prompt
 
 You are executing Prompt 010 of Phase 1 Foundation for ankurnema.in.
@@ -31,7 +39,7 @@ Read these files before writing any code:
 Step 1 — page.tsx:
 Create `src/app/services/career/page.tsx`. Include:
 - Page heading: "Career Guidance"
-- Placeholder body: "Career guidance service details coming soon. Strategic advice for engineers navigating growth, promotions, and career transitions in tech."
+- Placeholder body: "Career guidance service details coming soon. Strategic 1:1 sessions for engineers navigating role transitions, promotions, and long-term growth."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {

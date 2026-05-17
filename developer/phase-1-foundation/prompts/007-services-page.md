@@ -3,13 +3,14 @@
 ## Read First
 - `developer/phase-1-foundation/AI-CONTEXT.md` — phase orientation
 - `developer/phase-1-foundation/brand-guidelines.md` — brand tokens and styling conventions
-- `developer/phase-1-foundation/README.md` — services route list (consulting, mentoring, career, resume-review)
+- `developer/phase-1-foundation/README.md` — services route list
 
 ## Scope
 **In scope:**
 - `src/app/services/page.tsx` — placeholder Services overview page:
   - Page heading: "Services"
-  - Brief placeholder listing the four service types: Consulting, Mentoring, Career Guidance, Resume Review
+  - Brief placeholder listing active service types: Resume Review, LinkedIn Review, Career Guidance, Mentoring, Consulting Hour
+  - Note: DevOps Business Consulting listed as "Coming Soon"
   - Placeholder copy: "Full service details coming soon."
   - Exported `metadata` with correct `title` ("Services | Ankur Nema") and `description`
   - NOT linked from navigation
@@ -38,13 +39,14 @@ Read these files before writing any code:
 Step 1 — page.tsx:
 Create `src/app/services/page.tsx`. Include:
 - Page heading: "Services"
-- Four service names listed (no links): Consulting, Mentoring, Career Guidance, Resume Review
+- Five active service names listed (no links): Resume Review, LinkedIn Review, Career Guidance, Mentoring, Consulting Hour
+- One additional item listed as coming soon: DevOps Business Consulting (Coming Soon)
 - Placeholder body: "Detailed service pages launching soon."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {
     title: 'Services',
-    description: 'DevOps consulting, mentoring, career guidance, and resume review by Ankur Nema.',
+    description: 'Mentoring, career guidance, resume review, and consulting by Ankur Nema.',
   }
   ```
 

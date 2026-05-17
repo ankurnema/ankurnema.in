@@ -51,7 +51,7 @@ Export a `metadata` object (Next.js Metadata API):
 ```ts
 export const metadata: Metadata = {
   title: { default: 'Ankur Nema', template: '%s | Ankur Nema' },
-  description: 'DevOps Consulting · Mentoring · Career Guidance',
+  description: 'Mentoring · Career Guidance · Resume Review',
   openGraph: { ... },
   twitter: { ... },
 }

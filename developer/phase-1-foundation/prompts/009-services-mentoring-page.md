@@ -18,6 +18,21 @@
 - `npm run build` passes
 - `developer/phase-1-foundation/CHANGELOG.md` updated
 
+## Service Context (for when real page is built in v0.3)
+
+Mentoring is available as one-time or ongoing. Topics:
+- DevOps & Platform Engineering career roadmap
+- Personal Finance Management
+- Learning a specific DevOps tool (hands-on)
+- Navigating corporate/office setup — personal brand, office issues, career visibility
+
+Tiers:
+- One-time Session: 60 min, any topic — ₹3,000
+- Monthly Mentoring: 2 sessions/month + async WhatsApp support — ₹7,000–₹9,000/month
+- Quarterly Mentoring: 6 sessions + progress tracking — ₹20,000–₹24,000
+
+No group cohort.
+
 ## Prompt
 
 You are executing Prompt 009 of Phase 1 Foundation for ankurnema.in.
@@ -31,12 +46,12 @@ Read these files before writing any code:
 Step 1 — page.tsx:
 Create `src/app/services/mentoring/page.tsx`. Include:
 - Page heading: "Mentoring"
-- Placeholder body: "1-on-1 mentoring service details coming soon. Guidance for engineers looking to grow in DevOps, platform engineering, and technical leadership."
+- Placeholder body: "1-on-1 mentoring service details coming soon. Available one-time or ongoing — covering DevOps careers, personal finance, tool deep-dives, and navigating corporate growth."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {
     title: 'Mentoring',
-    description: '1-on-1 technical mentoring by Ankur Nema for engineers growing in DevOps and platform engineering.',
+    description: '1-on-1 mentoring by Ankur Nema — DevOps careers, personal finance, and navigating corporate growth.',
   }
   ```
 

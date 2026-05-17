@@ -1,4 +1,4 @@
-# Prompt 008 — Services: Consulting Page (Placeholder)
+# Prompt 008 — Services: Consulting Hour Page (Placeholder)
 
 ## Read First
 - `developer/phase-1-foundation/AI-CONTEXT.md` — phase orientation
@@ -6,7 +6,7 @@
 
 ## Scope
 **In scope:**
-- `src/app/services/consulting/page.tsx` — placeholder Consulting page
+- `src/app/services/consulting/page.tsx` — placeholder Consulting Hour page
 - Playwright E2E smoke test: `e2e/services-consulting.spec.ts`
 
 **Out of scope:**
@@ -17,6 +17,16 @@
 - E2E smoke test passes
 - `npm run build` passes
 - `developer/phase-1-foundation/CHANGELOG.md` updated
+
+## Service Context (for when real page is built in v0.3)
+
+Consulting Hour is a structured 1:1 session where the user picks topic(s), shares background and desired outcomes, and Ankur prepares the session agenda. User confirms the agenda before the session happens.
+
+Topics include: DevOps, Cloud/Kubernetes, CI/CD, Platform Engineering, Developer Productivity, AI tools and workflows, AI for daily work.
+
+Price: ₹4,000 per session (60 min).
+
+This is NOT DevOps business/startup consulting — that is a future offering (requires SAP approval).
 
 ## Prompt
 
@@ -30,13 +40,13 @@ Read these files before writing any code:
 
 Step 1 — page.tsx:
 Create `src/app/services/consulting/page.tsx`. Include:
-- Page heading: "DevOps Consulting"
-- Placeholder body: "DevOps consulting service details coming soon. Expert guidance on CI/CD, platform engineering, and developer productivity."
+- Page heading: "Consulting Hour"
+- Placeholder body: "Expert 1:1 sessions on any professional or technical topic — DevOps, Cloud, AI productivity, and more. Service details coming soon."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {
-    title: 'DevOps Consulting',
-    description: 'Expert DevOps consulting by Ankur Nema — CI/CD, platform engineering, developer productivity.',
+    title: 'Consulting Hour',
+    description: 'Expert 1:1 consulting sessions by Ankur Nema on DevOps, Cloud, AI productivity, and more.',
   }
   ```
 
@@ -47,8 +57,8 @@ import { test, expect } from '@playwright/test'
 
 test('/services/consulting page renders', async ({ page }) => {
   await page.goto('/services/consulting')
-  await expect(page).toHaveTitle(/DevOps Consulting/)
-  await expect(page.getByRole('heading', { name: 'DevOps Consulting' })).toBeVisible()
+  await expect(page).toHaveTitle(/Consulting Hour/)
+  await expect(page.getByRole('heading', { name: 'Consulting Hour' })).toBeVisible()
 })
 ```
 

@@ -53,10 +53,11 @@ src/
 │   ├── about/page.tsx
 │   ├── services/
 │   │   ├── page.tsx          ← Services overview
-│   │   ├── consulting/
-│   │   ├── mentoring/
-│   │   ├── career/
-│   │   └── resume-review/
+│   │   ├── resume-review/    ← Resume Review (4 tiers + JD add-on)
+│   │   ├── linkedin-review/  ← LinkedIn Profile Review
+│   │   ├── career/           ← Career Strategy + Career Audit
+│   │   ├── mentoring/        ← Mentoring (3 tiers, 4 topic areas)
+│   │   └── consulting/       ← Consulting Hour (1:1 sessions)
 │   ├── blog/
 │   │   ├── page.tsx          ← Blog index
 │   │   └── [slug]/page.tsx   ← Individual post

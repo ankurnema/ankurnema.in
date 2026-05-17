@@ -108,7 +108,7 @@ Step 5 — OG image placeholder:
 Create `public/og-default.png` at 1200×630:
 - Background: `#1E3A5F` (brand-navy)
 - Primary text: "Ankur Nema" — large, white, Inter SemiBold style
-- Secondary text: "DevOps Consulting · Mentoring · Career Guidance" — smaller, `#D4A017` (brand-amber)
+- Secondary text: "Mentoring · Career Guidance · Resume Review" — smaller, `#D4A017` (brand-amber)
 - A clean static placeholder PNG is acceptable — no programmatic generation required in this prompt
 
 Step 6 — Brand guidelines doc:
