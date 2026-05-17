@@ -12,6 +12,7 @@
 | Current phase | Phase 1 — Foundation (in progress) |
 | Next.js scaffold | ✅ Done (Prompt 001, 2026-05-09) |
 | Testing infrastructure | ✅ Done (Prompt 002, 2026-05-10) |
+| Branding | ✅ Done (Prompt 003, 2026-05-17) |
 | Pages | ⏳ Not done |
 | Blog | ⏳ Not done |
 | CI/CD | ⏳ Not done |
@@ -23,6 +24,7 @@
 
 ## Recent Completions
 
+- [2026-05-17] Brand system complete — 12-token color palette in brand.css, LogoText component, AN monogram favicon, 1200×630 OG placeholder, brand-guidelines.md (Prompt 003)
 - [2026-05-17] Created `developer/claude-skills.md` — full skills reference and usage guide
 - [2026-05-17] Added 9 Claude Code skills to `.claude/commands/`: execute-prompt, design-phase, add-prompt, enhance-prompt, add-feature, enhance-feature, add-blog-post, complete-phase, session-wrap — full developer workflow automation
 - [2026-05-17] Updated Prompt 003-branding to use locked brand colors/fonts from brand guidelines; replaced SVG logo with CSS text `LogoText` component; added Prompt 003b for logo swap when designer files arrive

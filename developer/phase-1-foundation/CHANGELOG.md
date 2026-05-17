@@ -1,5 +1,18 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-05-17] Prompt 003 — Branding
+
+- Created: `src/styles/brand.css` — Tailwind v4 `@theme` block, 12 locked color tokens (6 light, 6 dark)
+- Modified: `src/app/globals.css` — added `@import "../styles/brand.css"` after `@import "tailwindcss"`
+- Created: `src/components/LogoText.tsx` — CSS text logo, variant prop (light/dark), Server Component; placeholder until Prompt 003b
+- Created: `public/icon.svg` — AN monogram, 512×512, navy bg, white letterforms
+- Created: `public/favicon.ico` — PNG-in-ICO (32×32, 16×16); generated via `scripts/generate-favicon.mjs`
+- Created: `public/og-default.png` — 1200×630 placeholder, navy bg, white heading, amber tagline; generated via `scripts/generate-og.mjs`
+- Created: `developer/phase-1-foundation/brand-guidelines.md` — color palette, approved pairings, colors to avoid, typography scale, logo/favicon/OG specs
+- Created: `scripts/generate-favicon.mjs`, `scripts/generate-og.mjs` — one-shot asset generators using `sharp` (existing production dependency)
+- Typography: Inter SemiBold 600 (headings), DM Sans Regular 400 (body) documented; font loading deferred to Prompt 004
+- Verified: `npm run build` passes; `npm run test -- --run` 1/1 passed
+
 ## [2026-05-10] Prompt 002 — Testing Infrastructure
 
 - Verified latest package versions with `npm show` before installing

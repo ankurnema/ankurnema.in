@@ -1,12 +1,12 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-17 — Added 9 Claude Code skills to .claude/commands/
+> **Last updated:** 2026-05-17 — Prompt 003 Branding: brand.css, LogoText, favicon, OG image, brand-guidelines.md
 
 ---
 
 ## Current State
-Next.js 16 scaffold and testing infrastructure complete (Prompts 001–002, 2026-05-09/10). Core config files, minimal `src/app/` stubs, `.mcp.json`, Vitest, Playwright, and Lighthouse CI configured. Full route stubs and CI/CD pending (Prompts 003–019).
+Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 001–003, 2026-05-09/10/17). Core config files, minimal `src/app/` stubs, brand tokens, CSS text logo, favicon, OG placeholder, `.mcp.json`, Vitest, Playwright, and Lighthouse CI configured. Full route stubs and CI/CD pending (Prompts 004–019).
 
 ---
 
@@ -66,9 +66,17 @@ Next.js 16 scaffold and testing infrastructure complete (Prompts 001–002, 2026
 | `eslint.config.mjs` | Config | ESLint 9 flat config — native eslint-config-next array (no FlatCompat) |
 | `postcss.config.mjs` | Config | PostCSS — @tailwindcss/postcss (Tailwind v4, no autoprefixer) |
 | `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
-| `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — `@import "tailwindcss"` |
+| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 locked brand color tokens (6 light, 6 dark); imported in `globals.css` |
+| `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — imports tailwindcss + brand.css |
 | `src/app/layout.tsx` | App | Root layout stub — metadata export |
 | `src/app/page.tsx` | App | Home page stub — Coming Soon placeholder |
+| `src/components/LogoText.tsx` | Component | CSS text logo — "Ankur Nema" with `variant` prop (light/dark); placeholder until Prompt 003b delivers SVG |
+| `public/icon.svg` | Asset | AN monogram favicon mark — 512×512 SVG, navy background, white letterforms |
+| `public/favicon.ico` | Asset | ICO favicon — PNG-in-ICO at 32×32 and 16×16; generated from `icon.svg` via `scripts/generate-favicon.mjs` |
+| `public/og-default.png` | Asset | Default OG image — 1200×630, navy background, white heading, amber tagline |
+| `developer/phase-1-foundation/brand-guidelines.md` | Phase doc | Brand reference — color palette (12 hex values + token names), typography scale, logo/favicon/OG specs |
+| `scripts/generate-favicon.mjs` | Script | One-shot ICO generator — uses `sharp` (existing dep); run manually when `icon.svg` changes |
+| `scripts/generate-og.mjs` | Script | One-shot OG PNG generator — uses `sharp` (existing dep); run manually when OG content changes |
 
 ---
 
@@ -91,13 +99,13 @@ Next.js 16 scaffold and testing infrastructure complete (Prompts 001–002, 2026
 | `src/app/talks/page.tsx` | Page | Speaking engagements |
 | `src/app/contact/page.tsx` | Page | Contact + booking embed |
 | `src/content/blog/` | Content | Published MDX blog posts |
-| `src/components/` | Components | Shared UI components |
+| `src/components/` | Components | Shared UI components (created; LogoText.tsx present) |
 | `src/lib/` | Utilities | Helpers, MDX processing, config |
 | `developer/adr/` | Docs | Architecture Decision Records (ADR-001 through ADR-007 already written) |
 | `docs/phases/` | Docs | Phase completion summaries |
 | `.github/workflows/ci.yml` | CI/CD | Lint + build check on PRs |
 | `.github/workflows/deploy.yml` | CI/CD | Deploy to Vercel on merge to main |
-| `public/` | Assets | Static assets, OG images |
+| `public/` | Assets | Static assets — icon.svg, favicon.ico, og-default.png (created in Prompt 003) |
 | `next.config.ts` | Config | Next.js configuration |
 | `tailwind.config.ts` | Config | Tailwind configuration |
 | `tsconfig.json` | Config | TypeScript configuration |
