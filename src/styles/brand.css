@@ -13,4 +13,7 @@
   --color-brand-canvas-dark:   #111827;
   --color-brand-surface-dark:  #1F2937;
   --color-brand-charcoal-dark: #F9FAFB;
+  /* Typography — see ADR-008 */
+  --font-sans:    var(--font-dm-sans);
+  --font-heading: var(--font-inter);
 }

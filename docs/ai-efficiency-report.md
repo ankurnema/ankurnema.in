@@ -1,6 +1,6 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-05-17
+> **Last updated:** 2026-05-17 (Prompt 004 session)
 > **Sessions logged:** 15
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
@@ -121,19 +121,20 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 | S04 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Created personal "reader" subagent at ~/.claude/agents/reader.md (model: haiku, tools: Read/Glob/Grep); confirmed built-in Explore agent uses Haiku |
 | S05 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Prompt 002: Testing infrastructure setup — Vitest + Playwright + Lighthouse CI; tests pass, learnings documented |
 | S06 | 0.56 MB | 13 | 7 | 12 | 7 | 0.54 | Prompt 003: Branding — brand.css (12 color tokens), LogoText component, favicon.ico, og-default.png, brand-guidelines.md; all docs updated |
-| **Total** | **2.65 MB** | **40** | **49** | **38** | **65** | **1.23** | — |
+| S07 | 0.56 MB | 13 | 7 | 12 | 7 | 0.54 | Prompt 004: Root layout — Inter + DM Sans fonts (next/font/google with variable), full metadata (OG/Twitter/metadataBase), header + footer, Vitest test, ADR-008 |
+| **Total** | **3.21 MB** | **53** | **56** | **50** | **72** | **1.06** | — |
 
 ### Aggregate Numbers
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 2.65 MB |
-| Estimated tokens | ~695,475 |
-| API equivalent (Sonnet 4.6) | ~$4.58 |
+| Total transcript | 3.21 MB |
+| Estimated tokens | ~841,285 |
+| API equivalent (Sonnet 4.6) | ~$5.56 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.23x** |
-| Edit-to-Read ratio | **1.23** |
-| Read/(Edit+Bash) ratio | **0.32** |
+| Subscription value ratio | **0.28x** |
+| Edit-to-Read ratio | **1.06** |
+| Read/(Edit+Bash) ratio | **0.41** |
 
 ---
 
@@ -163,7 +164,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 16 | 5.38 MB | ~$9.18 | $20 | 0.46x |
+| May 2026 | 17 | 5.94 MB | ~$10.27 | $20 | 0.51x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---

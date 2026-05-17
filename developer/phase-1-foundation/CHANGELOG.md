@@ -1,5 +1,14 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-05-17] Prompt 004 — Root Layout
+
+- Created: `developer/adr/008-google-font-loading.md` — ADR documenting next/font/google strategy (variable option, Tailwind v4 integration, Vitest mock convention)
+- Modified: `src/styles/brand.css` — added `--font-sans` and `--font-heading` to `@theme {}` block, mapped to next/font CSS custom properties
+- Modified: `src/app/layout.tsx` — full root layout: Inter + DM Sans font loading, metadata export (title template, description, openGraph, twitter, metadataBase), minimal header (LogoText linked to `/`), minimal footer (copyright + LinkedIn/GitHub)
+- Created: `src/__tests__/layout.test.tsx` — Vitest test; mocks next/font/google; renders layout with dummy child; asserts `© YYYY Ankur Nema` in footer
+- Verified: `npm run build` passes (clean, no warnings); `npm run test -- --run` 2/2 passed
+- Decisions: LogoText used in header (not next/image) — public/logo.svg does not exist yet (pending Prompt 003b); metadataBase set to `https://ankurnema.in` to resolve OG/Twitter image URLs
+
 ## [2026-05-17] Prompt 003 — Branding
 
 - Created: `src/styles/brand.css` — Tailwind v4 `@theme` block, 12 locked color tokens (6 light, 6 dark)

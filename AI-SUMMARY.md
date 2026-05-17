@@ -13,6 +13,7 @@
 | Next.js scaffold | ✅ Done (Prompt 001, 2026-05-09) |
 | Testing infrastructure | ✅ Done (Prompt 002, 2026-05-10) |
 | Branding | ✅ Done (Prompt 003, 2026-05-17) |
+| Root layout | ✅ Done (Prompt 004, 2026-05-17) |
 | Pages | ⏳ Not done |
 | Blog | ⏳ Not done |
 | CI/CD | ⏳ Not done |
@@ -24,6 +25,7 @@
 
 ## Recent Completions
 
+- [2026-05-17] Prompt 004: Root layout built — Inter + DM Sans fonts loaded, full metadata (OG/Twitter), minimal header + footer, Vitest test passes, ADR-008 written
 - [2026-05-17] Brand system complete — 12-token color palette in brand.css, LogoText component, AN monogram favicon, 1200×630 OG placeholder, brand-guidelines.md (Prompt 003)
 - [2026-05-17] Created `developer/claude-skills.md` — full skills reference and usage guide
 - [2026-05-17] Added 9 Claude Code skills to `.claude/commands/`: execute-prompt, design-phase, add-prompt, enhance-prompt, add-feature, enhance-feature, add-blog-post, complete-phase, session-wrap — full developer workflow automation
@@ -55,6 +57,7 @@
 | May 2026 | Testing strategy (Vitest + Playwright + axe + Lighthouse) | `developer/adr/005-testing-strategy.md` ✅ |
 | May 2026 | Open-source repo as AI-assisted dev case study | `developer/adr/006-open-source-case-study.md` ✅ |
 | May 2026 | App Router over Pages Router | `developer/adr/007-app-router.md` ✅ |
+| May 2026 | Google Font loading via next/font/google (variable option) | `developer/adr/008-google-font-loading.md` ✅ |
 
 ---
 

@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-17 — Prompt 003 Branding: brand.css, LogoText, favicon, OG image, brand-guidelines.md
+> **Last updated:** 2026-05-17 — Prompt 004 Root Layout: ADR-008, brand.css font vars, layout.tsx rewrite, layout.test.tsx
 
 ---
 
@@ -44,6 +44,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `developer/adr/005-testing-strategy.md` | ADR | ADR-005: Full testing strategy — Vitest, React Testing Library, Playwright, axe-playwright, Lighthouse CI |
 | `developer/adr/006-open-source-case-study.md` | ADR | ADR-006: Open-source repo as AI-assisted development case study — rationale, conventions, what stays private |
 | `developer/adr/007-app-router.md` | ADR | ADR-007: Next.js App Router over Pages Router — layout model, RSC, Server Actions, conventions |
+| `developer/adr/008-google-font-loading.md` | ADR | ADR-008: Google Font loading via next/font/google — variable option, Tailwind v4 @theme mapping, Vitest mock convention |
 | `developer/phase-1-foundation/README.md` | Phase doc | Phase 1 objective, deliverables, success criteria, out-of-scope for milestone v0.1 |
 | `developer/phase-1-foundation/AI-CONTEXT.md` | AI config | Reading order, key files table, ADR references, phase-specific conventions |
 | `developer/phase-1-foundation/CHANGELOG.md` | Phase log | Dated execution log; one entry added after each prompt is completed |
@@ -66,9 +67,10 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `eslint.config.mjs` | Config | ESLint 9 flat config — native eslint-config-next array (no FlatCompat) |
 | `postcss.config.mjs` | Config | PostCSS — @tailwindcss/postcss (Tailwind v4, no autoprefixer) |
 | `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
-| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 locked brand color tokens (6 light, 6 dark); imported in `globals.css` |
+| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 locked brand color tokens (6 light, 6 dark) + font-sans/font-heading utilities; imported in `globals.css` |
 | `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — imports tailwindcss + brand.css |
-| `src/app/layout.tsx` | App | Root layout stub — metadata export |
+| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans font loading, metadata (title template, OG, Twitter), minimal header (LogoText linked to `/`), minimal footer (copyright + external links) |
+| `src/__tests__/layout.test.tsx` | Test | Vitest unit test for RootLayout — mocks next/font/google, asserts footer copyright text |
 | `src/app/page.tsx` | App | Home page stub — Coming Soon placeholder |
 | `src/components/LogoText.tsx` | Component | CSS text logo — "Ankur Nema" with `variant` prop (light/dark); placeholder until Prompt 003b delivers SVG |
 | `public/icon.svg` | Asset | AN monogram favicon mark — 512×512 SVG, navy background, white letterforms |
