@@ -172,3 +172,30 @@ print(counts)
 - Edit/Read ratio = Edits ÷ Reads (skip if Reads = 0)
 - If a new calendar month started, recalculate the subscription value ratio row in the Running Subscription Value Tracker table
 - If the session advanced a phase milestone, also update the phase status in the phase table header
+
+---
+
+## AI Memory (WebStorm / IDE Sessions)
+
+When this repo is the project root in WebStorm or IntelliJ, Claude Code uses an isolated
+memory directory separate from the parent workspace:
+
+**Memory path:** `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/memory/`
+
+**Memory files in this context:**
+
+| File | Purpose |
+|------|---------|
+| `user-profile.md` | Who Ankur is — website-coding facts |
+| `tech-stack.md` | Next.js 16, Tailwind v4, breaking changes |
+| `project-state.md` | Phase v0.1 — website done/pending/blocked |
+| `feedback_no_private_repo_in_public.md` | Never name private repos in public files |
+| `feedback_skill_inline_commands.md` | Skill pipe limitation |
+
+**After sessions where phase or tech facts changed:**
+```
+/update-memory <what changed>
+```
+
+**When switching back to CLI at workspace root:** run `/update-memory sync from ankurnema.in`
+in the parent workspace to merge any new facts into the full memory context.

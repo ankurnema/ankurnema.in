@@ -16,12 +16,14 @@ Next.js 16 scaffold and testing infrastructure complete (Prompts 001–002, 2026
 |------|------|-------------|
 | `CLAUDE.md` | AI config | Website rules, tech stack, phase tracking, conventions |
 | `AI-REFERENCE.md` | AI config | This file |
+| `.claude/commands/update-memory.md` | AI skill | `/update-memory` — updates ankurnema.in sub-repo memory (IDE/WebStorm context) |
 | `AI-SUMMARY.md` | AI config | Website build status and completions |
 | `PROMPT_TEMPLATE.md` | AI config | Phase-based prompt templates |
 | `README.md` | Docs | Case study overview for public visitors |
 | `LICENSE` | Legal | Open source license |
 | `.gitignore` | Config | Node modules, Next.js build, env files excluded |
 | `developer/README.md` | Docs | Developer documentation index — setup, deployment, CI/CD, troubleshooting |
+| `developer/ai-memory-system.md` | Docs | Public guide — AI memory system: what it is, benefits, memory types, how to replicate |
 | `developer/PHASE_WORKFLOW.md` | AI config | Phase-based workflow guideline — folder structure, prompt format, Git convention, lifecycle |
 | `developer/adr/` | Docs | Architecture Decision Records directory |
 | `developer/adr/README.md` | Docs | ADR intro in plain English + index of all ADRs |

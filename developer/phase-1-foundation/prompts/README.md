@@ -4,7 +4,8 @@
 |---|------|-------------|--------|
 | 001 | [001-scaffold-nextjs.md](001-scaffold-nextjs.md) | Scaffold Next.js 16 with TypeScript, Tailwind v4, MDX, ESLint 10, Prettier + `.mcp.json` | ✅ Done [2026-05-09] |
 | 002 | [002-testing-infrastructure.md](002-testing-infrastructure.md) | Vitest + React Testing Library + Playwright + Lighthouse CI | ✅ Done [2026-05-10] |
-| 003 | [003-branding.md](003-branding.md) | Color system, logo SVGs, favicon, OG image, brand guidelines doc | ⏳ Pending |
+| 003 | [003-branding.md](003-branding.md) | Color system, CSS text logo, favicon (AN monogram), OG image, brand guidelines doc | ⏳ Pending |
+| 003b | [003b-logo-assets.md](003b-logo-assets.md) | **Run when logo SVGs are ready** — swap CSS text logo for designer SVGs, update favicon + OG image | ⏳ Pending (blocked on logo delivery) |
 | 004 | [004-root-layout.md](004-root-layout.md) | Root `layout.tsx` — header, footer, fonts, metadata | ⏳ Pending |
 | 005 | [005-coming-soon-homepage.md](005-coming-soon-homepage.md) | Coming Soon page at `/` with OG metadata + E2E smoke test | ⏳ Pending |
 | 006 | [006-about-page.md](006-about-page.md) | `/about` placeholder + E2E smoke test | ⏳ Pending |
@@ -23,6 +24,7 @@
 | 019 | [019-docs-and-instructions.md](019-docs-and-instructions.md) | `INSTRUCTIONS.md` + ADR audit + AI-REFERENCE/AI-SUMMARY/CLAUDE.md updates | ⏳ Pending |
 
 **Execution order:** Run prompts sequentially 001 → 019. Each prompt depends on prior prompts being complete. Update this table after each execution.
+**003b** is an out-of-band prompt — execute it at any point after receiving the final logo files from the designer; it does not block 004 onward.
 
 ---
 
