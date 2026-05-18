@@ -11,7 +11,7 @@ function SunIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-5 h-5"
+      className="w-5 h-5 md:w-7 md:h-7"
       aria-hidden="true"
     >
       <path
@@ -31,7 +31,7 @@ function MoonIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-5 h-5"
+      className="w-5 h-5 md:w-7 md:h-7"
       aria-hidden="true"
     >
       <path
@@ -51,7 +51,7 @@ export function ThemeToggle() {
     setMounted(true)
   }, [])
 
-  if (!mounted) return <div className="w-9 h-9" />
+  if (!mounted) return <div className="w-9 h-9 md:w-[52px] md:h-[52px]" />
 
   const isDark = resolvedTheme === 'dark'
 
@@ -59,7 +59,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className="p-2 rounded-md text-brand-slate dark:text-brand-slate-dark hover:text-brand-navy dark:hover:text-brand-navy-dark transition-colors cursor-pointer"
+      className="p-2 md:p-3 rounded-md text-brand-slate dark:text-brand-slate-dark hover:text-brand-navy dark:hover:text-brand-navy-dark transition-colors cursor-pointer"
     >
       {isDark ? <SunIcon /> : <MoonIcon />}
     </button>

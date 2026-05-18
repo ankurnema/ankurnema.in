@@ -50,17 +50,17 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <body className="bg-brand-canvas dark:bg-brand-canvas-dark text-brand-charcoal dark:text-brand-charcoal-dark font-sans min-h-dvh flex flex-col">
         <Providers>
-          <header className="w-full px-6 py-4 bg-brand-surface dark:bg-brand-surface-dark border-b border-brand-slate/20 dark:border-brand-slate-dark/20">
-            <div className="flex items-center justify-between max-w-5xl mx-auto">
+          <header className="w-full px-6 md:px-8 lg:px-12 xl:px-16 py-4 md:py-5 bg-brand-surface dark:bg-brand-surface-dark border-b border-brand-slate/20 dark:border-brand-slate-dark/20">
+            <div className="flex items-center justify-between">
               <Link href="/" aria-label="Ankur Nema — home">
-                <LogoText />
+                <LogoText className="h-8 w-auto sm:h-10 md:h-12" />
               </Link>
               <ThemeToggle />
             </div>
           </header>
           <main className="flex-1 flex flex-col">{children}</main>
-          <footer className="w-full px-6 py-6 bg-brand-surface dark:bg-brand-surface-dark border-t border-brand-slate/20 dark:border-brand-slate-dark/20 text-brand-slate dark:text-brand-slate-dark text-sm">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-5xl mx-auto">
+          <footer className="w-full px-6 md:px-8 lg:px-12 xl:px-16 py-6 md:py-8 bg-brand-surface dark:bg-brand-surface-dark border-t border-brand-slate/20 dark:border-brand-slate-dark/20 text-brand-slate dark:text-brand-slate-dark text-sm md:text-lg">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-8">
               <p>© {new Date().getFullYear()} Ankur Nema</p>
               <div className="flex gap-6">
                 <a

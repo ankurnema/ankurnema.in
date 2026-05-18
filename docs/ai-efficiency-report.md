@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-05-17 (Prompt 005 + learnings + current session)
-> **Sessions logged:** 20
+> **Last updated:** 2026-05-17 (Prompt 003b + responsive layout fixes + learnings)
+> **Sessions logged:** 21
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -125,19 +125,20 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 | S08 | 0.64 MB | 10 | 16 | 3 | 9 | 1.60 | Prompt 005: Coming Soon homepage with next-themes dark mode, landscape fixes (min-h-dvh, flex-1, @custom-variant), 5-device Playwright E2E testing; 6 learnings documented |
 | S09 | 0.12 MB | 6 | 13 | 0 | 3 | 2.17 | Post-Prompt-005 docs (CHANGELOG, prompts/README, AI-REFERENCE, AI-SUMMARY); execute-prompt skill rewritten to read learnings proactively; learnings index updated |
 | S10 | 0.03 MB | 4 | 1 | 0 | 0 | 0.25 | Memory update (MEMORY.md learnings feedback entry) + efficiency report |
-| **Total** | **4.00 MB** | **73** | **86** | **53** | **84** | **1.18** | — |
+| S11 | 0.98 MB | 25 | 48 | 5 | 7 | 1.92 | Prompt 003b: Logo SVG integration; responsive layout fixes (multi-device sizing); logo dark/light mode swap; learnings documented (004-responsive-layout.md) |
+| **Total** | **4.98 MB** | **98** | **134** | **58** | **91** | **1.37** | — |
 
 ### Aggregate Numbers
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 4.00 MB |
-| Estimated tokens | ~1,048,576 |
-| API equivalent (Sonnet 4.6) | ~$6.92 |
+| Total transcript | 4.98 MB |
+| Estimated tokens | ~1,304,386 |
+| API equivalent (Sonnet 4.6) | ~$8.61 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.35x** |
-| Edit-to-Read ratio | **1.18** |
-| Read/(Edit+Bash) ratio | **0.43** |
+| Subscription value ratio | **0.43x** |
+| Edit-to-Read ratio | **1.37** |
+| Read/(Edit+Bash) ratio | **0.44** |
 
 ---
 
@@ -167,7 +168,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 20 | 6.73 MB | ~$11.64 | $20 | 0.58x |
+| May 2026 | 21 | 7.71 MB | ~$13.33 | $20 | 0.67x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---

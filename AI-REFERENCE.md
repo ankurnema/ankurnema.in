@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-17 — Prompt 005 Coming Soon Homepage: ADR-009, brand.css dark variant, Providers.tsx, ThemeToggle.tsx, layout.tsx dark mode, page.tsx, e2e/homepage.spec.ts
+> **Last updated:** 2026-05-17 — Prompt 003b Logo Asset Integration: LogoText.tsx now uses Next.js Image with designer SVGs; icon.svg updated to designer monogram; favicon.ico regenerated
 
 ---
 
@@ -68,7 +68,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `eslint.config.mjs` | Config | ESLint 9 flat config — native eslint-config-next array (no FlatCompat) |
 | `postcss.config.mjs` | Config | PostCSS — @tailwindcss/postcss (Tailwind v4, no autoprefixer) |
 | `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
-| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 locked brand color tokens (6 light, 6 dark) + font-sans/font-heading utilities; `@custom-variant dark` for class-based dark mode; imported in `globals.css` |
+| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 brand color tokens (navy `#00305a`, blue accent `#009ee3`; updated 2026-05-17 to match delivered logo); `@custom-variant dark`; imported in `globals.css` |
 | `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — imports tailwindcss + brand.css |
 | `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants |
 | `src/__tests__/layout.test.tsx` | Test | Vitest unit test for RootLayout — mocks next/font/google, asserts footer copyright text |
@@ -76,8 +76,12 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `src/components/Providers.tsx` | Component | `'use client'` ThemeProvider wrapper — next-themes, `attribute="class"`, `defaultTheme="system"`, `enableSystem` |
 | `src/components/ThemeToggle.tsx` | Component | `'use client'` dark/light mode toggle — `mounted` guard, `resolvedTheme`, sun/moon inline SVG icons |
 | `e2e/homepage.spec.ts` | Test | Playwright E2E smoke test — asserts page title `/Ankur Nema/` and heading "Ankur Nema" visible |
-| `src/components/LogoText.tsx` | Component | CSS text logo — "Ankur Nema" with `variant` prop (light/dark); placeholder until Prompt 003b delivers SVG |
-| `public/icon.svg` | Asset | AN monogram favicon mark — 512×512 SVG, navy background, white letterforms |
+| `src/components/LogoText.tsx` | Component | Logo component — Next.js `<Image>` with `variant` prop (`light`/`dark`) and optional `className`; renders `logo-light.svg` or `logo-dark.svg` from `public/logo/` |
+| `public/logo/logo-dark.svg` | Asset | Full logo (monogram + "Ankur Nema") — dark background variant; "ANKUR" white, "NEMA" `#009ee3` |
+| `public/logo/logo-light.svg` | Asset | Full logo — light background variant; "ANKUR" `#00305a`, "NEMA" `#009ee3` |
+| `public/logo/monogram-dark.svg` | Asset | AN monogram mark — dark background variant; gradient `#009ee3` → white |
+| `public/logo/monogram-light.svg` | Asset | AN monogram mark — light background variant; gradient `#009ee3` → `#00305a` |
+| `public/icon.svg` | Asset | Designer AN monogram — transparent background, gradient `#009ee3` → `#00305a`, viewBox 157.12×144.19; used as favicon source |
 | `public/favicon.ico` | Asset | ICO favicon — PNG-in-ICO at 32×32 and 16×16; generated from `icon.svg` via `scripts/generate-favicon.mjs` |
 | `public/og-default.png` | Asset | Default OG image — 1200×630, navy background, white heading, amber tagline |
 | `developer/phase-1-foundation/brand-guidelines.md` | Phase doc | Brand reference — color palette (12 hex values + token names), typography scale, logo/favicon/OG specs |

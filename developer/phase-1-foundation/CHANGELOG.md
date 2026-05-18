@@ -1,5 +1,13 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-05-17] Prompt 003b — Logo Asset Integration
+
+- Replaced CSS text logo in `src/components/LogoText.tsx` with Next.js `<Image>` components using designer SVGs; added `className` prop
+- Updated `public/icon.svg` with designer's AN monogram (monogram-light); regenerated `public/favicon.ico` via `node scripts/generate-favicon.mjs`
+- Updated `developer/phase-1-foundation/brand-guidelines.md` — Final Logo section with file inventory, minimum size, clear space rules, variant usage guide
+- Files modified: `src/components/LogoText.tsx`, `public/icon.svg`, `public/favicon.ico`, `developer/phase-1-foundation/brand-guidelines.md`
+- Decisions made: logo files delivered in `public/logo/` subfolder with `logo-light.svg` / `logo-dark.svg` naming (not `public/logo.svg` / `public/logo-dark.svg` as planned); paths adapted accordingly. OG image not updated (skip condition met — SVG-in-sharp embedding is non-trivial).
+
 ## [2026-05-17] Bug fix — Landscape compact layout (iPhone SE)
 
 - Added: `src/styles/brand.css` — `@custom-variant landscape (@media (orientation: landscape))` custom Tailwind v4 variant

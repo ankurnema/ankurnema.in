@@ -1,7 +1,7 @@
 # Brand Guidelines — ankurnema.in
 
-> **Status:** Phase 1 active. CSS text logo in use. Final SVG logo pending from designers.
-> **Last updated:** 2026-05-17 (Prompt 003)
+> **Status:** Phase 1 active. Designer SVG logo integrated (Prompt 003b).
+> **Last updated:** 2026-05-17 (Prompt 003b)
 
 ---
 
@@ -75,18 +75,31 @@ Font loading is handled in Prompt 004 (root layout) using `next/font/google`.
 
 ## Logo
 
-**Current treatment (Prompt 003):** CSS text logo rendered by `src/components/LogoText.tsx`.
+### Files
 
-- `variant="light"` (default) — "Ankur Nema" in `text-brand-navy` (`#1E3A5F`) on light backgrounds
-- `variant="dark"` — "Ankur Nema" in `text-brand-navy-dark` (`#3B82F6`) on dark/navy backgrounds
-- Classes applied: `font-semibold tracking-tight`
+| File | Use |
+|------|-----|
+| `public/logo/logo-light.svg` | Wordmark — white/canvas backgrounds |
+| `public/logo/logo-dark.svg` | Wordmark — navy/dark backgrounds |
+| `public/logo/monogram-light.svg` | Monogram mark — light backgrounds |
+| `public/logo/monogram-dark.svg` | Monogram mark — dark backgrounds |
 
-**Pending:** Final SVG logo files from professional designers. When delivered:
+### Component
 
-1. `public/logo.svg` — wordmark for light backgrounds
-2. `public/logo-dark.svg` — wordmark for dark/navy backgrounds
-3. Execute Prompt 003b to replace `LogoText.tsx` with `<Image>` components
-4. Update this section with minimum size (≥120px width), clear space rules, and do/don't examples
+`src/components/LogoText.tsx` — `variant="light"` (default) renders `logo-light.svg`; `variant="dark"` renders `logo-dark.svg`. Both accept an optional `className` prop.
+
+### Minimum display size
+
+120px width minimum for the wordmark.
+
+### Clear space
+
+Maintain at least the logo's own height as clear space on all sides.
+
+### When to use each variant
+
+- `logo-light.svg` / `variant="light"` — on `bg-brand-canvas`, `bg-brand-surface`, white backgrounds
+- `logo-dark.svg` / `variant="dark"` — on `bg-brand-navy` (hero, dark sections, dark mode headers)
 
 ---
 
@@ -94,14 +107,10 @@ Font loading is handled in Prompt 004 (root layout) using `next/font/google`.
 
 **Files:** `public/icon.svg` + `public/favicon.ico`
 
-The favicon is an "AN" monogram mark — independent of the final wordmark logo and permanent:
+The favicon uses the designer's AN monogram mark (`public/logo/monogram-light.svg`), which is a transparent-background SVG suitable for browser tabs (light background contexts):
 
-- 512×512 SVG canvas (`public/icon.svg`)
-- Navy background rectangle: `#1E3A5F`
-- "AN" in white, Inter SemiBold 600, centered via `text-anchor="middle" dominant-baseline="central"`
-- `public/favicon.ico` — PNG-in-ICO format at 32×32 and 16×16
-
-This mark remains the site favicon even after the wordmark SVG is delivered via Prompt 003b.
+- `public/icon.svg` — designer AN monogram (blue→navy gradient, transparent background, viewBox 157.12 × 144.19)
+- `public/favicon.ico` — PNG-in-ICO format at 32×32 and 16×16, generated from `icon.svg`
 
 **To regenerate** (e.g., after updating `icon.svg`): `node scripts/generate-favicon.mjs`
 

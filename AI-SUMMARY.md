@@ -25,6 +25,7 @@
 
 ## Recent Completions
 
+- [2026-05-17] Prompt 003b: Replaced CSS text logo placeholder with designer SVG wordmark and monogram; updated favicon from designer AN monogram
 - [2026-05-17] Prompt 005: Coming Soon homepage with full light/dark mode — system-preference toggle, next-themes 0.4.6, Tailwind v4 `@custom-variant dark`, ADR-009, Playwright E2E smoke test
 - [2026-05-17] Prompt 004: Root layout built — Inter + DM Sans fonts loaded, full metadata (OG/Twitter), minimal header + footer, Vitest test passes, ADR-008 written
 - [2026-05-17] Brand system complete — 12-token color palette in brand.css, LogoText component, AN monogram favicon, 1200×630 OG placeholder, brand-guidelines.md (Prompt 003)

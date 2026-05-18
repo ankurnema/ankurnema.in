@@ -1,17 +1,28 @@
-// CSS text logo — replace with SVG <Image> via Prompt 003b when logo files are delivered
+import Image from 'next/image'
 
 type LogoTextProps = {
-  variant?: 'light' | 'dark'
+  className?: string
 }
 
-export function LogoText({ variant = 'light' }: LogoTextProps) {
+export function LogoText({ className }: LogoTextProps) {
   return (
-    <span
-      className={`font-semibold tracking-tight ${
-        variant === 'dark' ? 'text-brand-navy-dark' : 'text-brand-navy'
-      }`}
-    >
-      Ankur Nema
-    </span>
+    <>
+      <Image
+        src="/logo/logo-light.svg"
+        alt="Ankur Nema"
+        width={480}
+        height={144}
+        priority
+        className={`dark:hidden ${className ?? ''}`}
+      />
+      <Image
+        src="/logo/logo-dark.svg"
+        alt="Ankur Nema"
+        width={480}
+        height={144}
+        priority
+        className={`hidden dark:block ${className ?? ''}`}
+      />
+    </>
   )
 }

@@ -3,16 +3,16 @@
 
 @theme {
   /* Light mode */
-  --color-brand-navy:     #1E3A5F;
+  --color-brand-navy:     #00305a;
   --color-brand-slate:    #4A5568;
-  --color-brand-amber:    #D4A017;
+  --color-brand-amber:    #009ee3;
   --color-brand-canvas:   #F7F8FA;
   --color-brand-surface:  #FFFFFF;
   --color-brand-charcoal: #1A202C;
   /* Dark mode */
-  --color-brand-navy-dark:     #3B82F6;
+  --color-brand-navy-dark:     #009ee3;
   --color-brand-slate-dark:    #94A3B8;
-  --color-brand-amber-dark:    #FBBF24;
+  --color-brand-amber-dark:    #38BDF8;
   --color-brand-canvas-dark:   #111827;
   --color-brand-surface-dark:  #1F2937;
   --color-brand-charcoal-dark: #F9FAFB;
