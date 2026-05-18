@@ -6,6 +6,11 @@
 - `developer/adr/002-vercel-hosting.md` — Vercel deployment approach
 - `developer/adr/005-testing-strategy.md` — CI steps required (lint, type-check, build, vitest, playwright, lighthouse)
 - `.nvmrc` — Node version to use in CI
+- (Prerequisite) Confirm that 4 GitHub repository secrets exist before running this prompt:
+  `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, `NEXT_PUBLIC_GA_ID`.
+  Go to GitHub → your repo → Settings → Secrets and variables → Actions to verify.
+  If any are missing, add them now — the `deploy.yml` generated here will fail silently at
+  runtime (not at YAML parse time) if secrets are absent.
 
 ## Scope
 **In scope:**
@@ -26,6 +31,12 @@
 - `developer/phase-1-foundation/CHANGELOG.md` updated
 
 ## Prompt
+
+> **Prerequisite:** Before running this prompt, confirm that all 4 GitHub repository secrets
+> are set: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, and `NEXT_PUBLIC_GA_ID`.
+> Go to GitHub → your repo → Settings → Secrets and variables → Actions to verify.
+> After this prompt runs, push the branch, raise a PR to `main`, and merge —
+> `deploy.yml` will deploy the current state (Coming Soon page) to production ankurnema.in.
 
 You are executing Prompt 018 of Phase 1 Foundation for ankurnema.in.
 

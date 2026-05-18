@@ -49,7 +49,8 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `developer/phase-1-foundation/README.md` | Phase doc | Phase 1 objective, deliverables, success criteria, out-of-scope for milestone v0.1 |
 | `developer/phase-1-foundation/AI-CONTEXT.md` | AI config | Reading order, key files table, ADR references, phase-specific conventions |
 | `developer/phase-1-foundation/CHANGELOG.md` | Phase log | Dated execution log; one entry added after each prompt is completed |
-| `developer/phase-1-foundation/prompts/README.md` | Phase doc | Prompt index table + status legend; updated as prompts are written and executed |
+| `developer/phase-1-foundation/prompts/README.md` | Phase doc | Prompt index table + status legend; execution order updated: 005b → 018 → 006–017 → 019 |
+| `developer/phase-1-foundation/prompts/005b-ga4-integration.md` | Phase prompt | Install `@next/third-parties`; wire `<GoogleAnalytics>` into layout.tsx; run after GA4 property is created |
 | `developer/learnings/README.md` | Docs | Learnings folder index — what it is, how to add entries, file naming convention |
 | `developer/learnings/001-scaffold-nextjs.md` | Learnings | Prompt 001 discoveries: ESLint version compat, `next lint` removal, flat config, tsconfig auto-patch, npm audit false positives |
 | `developer/learnings/002-testing-infrastructure.md` | Learnings | Prompt 002 discoveries: Playwright `passWithNoTests` not in TypeScript types for v1.59.1; Next.js type-checks all `*.ts` files; CLI flags are kebab-case |
