@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 157.12 144.19">
+  <defs>
+    <linearGradient id="GradientFill_2" data-name="GradientFill 2" x1="42.8" y1="71.98" x2="121.06" y2="71.98" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#009ee3"/>
+      <stop offset="1" stop-color="#00305a"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <polygon points="157.12 0 131.15 0 104.81 98.3 103.56 98.3 62.03 0 38.64 0 0 144.19 26.14 144.19 52.45 45.99 53.64 45.99 95.26 144.19 118.48 144.19 157.12 0" fill="url(#GradientFill_2)" fill-rule="evenodd"/>
+      <polygon points="34.45 90.27 66.27 90.27 75.09 111.06 28.88 111.06 34.45 90.27" fill="#009ee3" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

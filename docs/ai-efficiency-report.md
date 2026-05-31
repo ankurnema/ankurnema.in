@@ -1,8 +1,8 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-05-09
-> **Sessions logged:** 8
-> **Current phase:** Pre-development (baseline)
+> **Last updated:** 2026-05-17 (Prompt 003b + responsive layout fixes + learnings)
+> **Sessions logged:** 21
+> **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
 ---
@@ -76,7 +76,9 @@ This is the work done before a single line of Next.js was written: planning, AI 
 | S06 | 0.37 MB | 13 | 8 | 3 | 3 | 0.62 | Tech stack refinements |
 | S07 | 0.17 MB | 4 | 5 | 3 | 2 | 1.25 | Phase workflow finalisation |
 | S08 | 0.27 MB | 1 | 0 | 0 | 0 | — | Direct repo exploration |
-| **Total** | **2.18 MB** | **45** | **52** | **18** | **22** | **1.16** | — |
+| S09 | 0.45 MB | 5 | 9 | 2 | 6 | 1.80 | Developed /update-efficiency-report custom skill |
+| S10 | 0.10 MB | 1 | 0 | 2 | 1 | 0.00 | Created user-level ~/.claude/commands/update-efficiency-report.md so the command is available globally across all Claude Code sessions |
+| **Total** | **2.73 MB** | **51** | **61** | **22** | **29** | **1.20** | — |
 
 > Note: Sessions S01–S07 ran in a parent workspace during the planning phase and covered project-wide setup alongside this repo. Session S08 was the only session opened directly inside this repo. Token estimates include cross-project planning work — pure `ankurnema.in` numbers will be separable once development sessions begin here directly.
 
@@ -84,13 +86,13 @@ This is the work done before a single line of Next.js was written: planning, AI 
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 2.18 MB |
-| Estimated tokens | ~572,000 |
-| API equivalent (Sonnet 4.6) | ~$3.78 |
+| Total transcript | 2.73 MB |
+| Estimated tokens | ~716,000 |
+| API equivalent (Sonnet 4.6) | ~$4.72 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.19x** |
-| Edit-to-Read ratio | **1.16** |
-| Read/(Edit+Bash) ratio | **0.61** |
+| Subscription value ratio | **0.24x** |
+| Edit-to-Read ratio | **1.20** |
+| Read/(Edit+Bash) ratio | **0.57** |
 | User corrections (estimated) | Low — planning sessions, few wrong-turns |
 
 ### Honest Read on These Numbers
@@ -107,11 +109,36 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 ## Phase v0.1 — Foundation
 
-> Status: Not started
+> Status: In Progress
+
+### Session Metrics
 
 | Session | Size | Reads | Edits | Writes | Bash | Edit/Read | Delivered |
 |---------|------|-------|-------|--------|------|-----------|-----------|
-| — | — | — | — | — | — | — | — |
+| S01 | 0.53 MB | 6 | 13 | 2 | 6 | 2.17 | Prompt 001: Scaffold Next.js (part 1) |
+| S02 | 0.69 MB | 12 | 5 | 18 | 40 | 0.42 | Prompt 001: Scaffold Next.js (part 2 — npm install, build/lint verification) |
+| S03 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Updated missed post-Prompt-001 docs (prompts/README.md, AI-SUMMARY.md × 2, AI-REFERENCE.md) |
+| S04 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Created personal "reader" subagent at ~/.claude/agents/reader.md (model: haiku, tools: Read/Glob/Grep); confirmed built-in Explore agent uses Haiku |
+| S05 | 0.29 MB | 3 | 8 | 2 | 4 | 2.67 | Prompt 002: Testing infrastructure setup — Vitest + Playwright + Lighthouse CI; tests pass, learnings documented |
+| S06 | 0.56 MB | 13 | 7 | 12 | 7 | 0.54 | Prompt 003: Branding — brand.css (12 color tokens), LogoText component, favicon.ico, og-default.png, brand-guidelines.md; all docs updated |
+| S07 | 0.56 MB | 13 | 7 | 12 | 7 | 0.54 | Prompt 004: Root layout — Inter + DM Sans fonts (next/font/google with variable), full metadata (OG/Twitter/metadataBase), header + footer, Vitest test, ADR-008 |
+| S08 | 0.64 MB | 10 | 16 | 3 | 9 | 1.60 | Prompt 005: Coming Soon homepage with next-themes dark mode, landscape fixes (min-h-dvh, flex-1, @custom-variant), 5-device Playwright E2E testing; 6 learnings documented |
+| S09 | 0.12 MB | 6 | 13 | 0 | 3 | 2.17 | Post-Prompt-005 docs (CHANGELOG, prompts/README, AI-REFERENCE, AI-SUMMARY); execute-prompt skill rewritten to read learnings proactively; learnings index updated |
+| S10 | 0.03 MB | 4 | 1 | 0 | 0 | 0.25 | Memory update (MEMORY.md learnings feedback entry) + efficiency report |
+| S11 | 0.98 MB | 25 | 48 | 5 | 7 | 1.92 | Prompt 003b: Logo SVG integration; responsive layout fixes (multi-device sizing); logo dark/light mode swap; learnings documented (004-responsive-layout.md) |
+| **Total** | **4.98 MB** | **98** | **134** | **58** | **91** | **1.37** | — |
+
+### Aggregate Numbers
+
+| Metric | Value |
+|--------|-------|
+| Total transcript | 4.98 MB |
+| Estimated tokens | ~1,304,386 |
+| API equivalent (Sonnet 4.6) | ~$8.61 |
+| Pro plan monthly | $20.00 |
+| Subscription value ratio | **0.43x** |
+| Edit-to-Read ratio | **1.37** |
+| Read/(Edit+Bash) ratio | **0.44** |
 
 ---
 
@@ -141,7 +168,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 8 (baseline) | 2.18 MB | ~$3.78 | $20 | 0.19x |
+| May 2026 | 21 | 7.71 MB | ~$13.33 | $20 | 0.67x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---

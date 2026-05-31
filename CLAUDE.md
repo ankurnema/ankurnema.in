@@ -53,10 +53,11 @@ src/
 │   ├── about/page.tsx
 │   ├── services/
 │   │   ├── page.tsx          ← Services overview
-│   │   ├── consulting/
-│   │   ├── mentoring/
-│   │   ├── career/
-│   │   └── resume-review/
+│   │   ├── resume-review/    ← Resume Review (4 tiers + JD add-on)
+│   │   ├── linkedin-review/  ← LinkedIn Profile Review
+│   │   ├── career/           ← Career Strategy + Career Audit
+│   │   ├── mentoring/        ← Mentoring (3 tiers, 4 topic areas)
+│   │   └── consulting/       ← Consulting Hour (1:1 sessions)
 │   ├── blog/
 │   │   ├── page.tsx          ← Blog index
 │   │   └── [slug]/page.tsx   ← Individual post
@@ -98,7 +99,7 @@ All feature development happens inside a named phase. No code changes without a 
 - Create the phase folder (`developer/phase-N-name/`) before writing any code
 - Start every phase with planning: write `README.md`, `AI-CONTEXT.md`, and all `prompts/` files first
 - Each prompt = one discrete deliverable; execute one at a time
-- Update `CHANGELOG.md` after each prompt execution
+- Update `CHANGELOG.md`, `AI-REFERENCE.md`, `AI-SUMMARY.md`, `prompts/README.md`, and `developer/learnings/` after each prompt execution
 - One phase = one feature branch (`feature/phase-N-name`) = one PR
 - Phases map to the "Project Phases" milestones table above
 
@@ -131,6 +132,7 @@ After completing any unit of work (feature, file change, milestone, key decision
 1. **AI-REFERENCE.md** — update if any files or folders were added, moved, or deleted
 2. **AI-SUMMARY.md** — add an entry under "Recent Completions": `- [YYYY-MM-DD] <what was done>`; update phase status when a milestone is reached
 3. **docs/adr/** — write an ADR for every significant technology or architectural decision
+4. **developer/learnings/** — if anything was surprising, broke, or deviated from the plan: create `NNN-short-name.md` (where NNN matches the prompt number) and add it to `developer/learnings/README.md`; skip if everything went exactly as planned
 
 ---
 
@@ -144,12 +146,14 @@ Update `docs/ai-efficiency-report.md` with a new row in the current phase table:
 | S0N | X.XX MB | <reads> | <edits> | <writes> | <bash> | <edit/read> | What was delivered |
 ```
 
-**To get the session file size:**
+**Preferred: use the `/update-efficiency-report` slash command** — it auto-detects the latest session, counts tool calls, and updates all three report sections automatically.
+
+**Manual fallback — get session file size:**
 ```bash
-ls -lh ~/.claude/projects/-Users-ankurnema-IdeaProjects-ankurnema-in/
+ls -lh ~/.claude/projects/-Users-ankurnema-ankur-consulting/
 ```
 
-**To count tool calls (run in terminal):**
+**Manual fallback — count tool calls:**
 ```bash
 python3 -c "
 import json, os
@@ -169,3 +173,30 @@ print(counts)
 - Edit/Read ratio = Edits ÷ Reads (skip if Reads = 0)
 - If a new calendar month started, recalculate the subscription value ratio row in the Running Subscription Value Tracker table
 - If the session advanced a phase milestone, also update the phase status in the phase table header
+
+---
+
+## AI Memory (WebStorm / IDE Sessions)
+
+When this repo is the project root in WebStorm or IntelliJ, Claude Code uses an isolated
+memory directory separate from the parent workspace:
+
+**Memory path:** `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/memory/`
+
+**Memory files in this context:**
+
+| File | Purpose |
+|------|---------|
+| `user-profile.md` | Who Ankur is — website-coding facts |
+| `tech-stack.md` | Next.js 16, Tailwind v4, breaking changes |
+| `project-state.md` | Phase v0.1 — website done/pending/blocked |
+| `feedback_no_private_repo_in_public.md` | Never name private repos in public files |
+| `feedback_skill_inline_commands.md` | Skill pipe limitation |
+
+**After sessions where phase or tech facts changed:**
+```
+/update-memory <what changed>
+```
+
+**When switching back to CLI at workspace root:** run `/update-memory sync from ankurnema.in`
+in the parent workspace to merge any new facts into the full memory context.

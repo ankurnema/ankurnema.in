@@ -49,7 +49,7 @@ flowchart LR
     B --> C[3. Write README + AI-CONTEXT]
     C --> D[4. Write all prompts]
     D --> E[5. Execute prompt 1]
-    E --> F[6. Update CHANGELOG]
+    E --> F[6. Update docs]
     F --> G{More prompts?}
     G -- Yes --> E
     G -- No --> H[7. Open PR]
@@ -61,7 +61,12 @@ flowchart LR
 3. **Write README + AI-CONTEXT** — define scope before touching code
 4. **Write all prompts** — break phase into discrete deliverables, one prompt each
 5. **Execute one prompt** — paste into Claude, complete the work
-6. **Update CHANGELOG** — log what was done, files created/modified, decisions made
+6. **Update docs** — five updates required after every prompt execution:
+   - `CHANGELOG.md` — log what was done, files created/modified, decisions made
+   - `prompts/README.md` — mark the prompt ✅ Done [YYYY-MM-DD]
+   - `AI-REFERENCE.md` — add/update/remove rows for any files created, moved, or deleted
+   - `AI-SUMMARY.md` — prepend a line to Recent Completions describing what was done
+   - `developer/learnings/NNN-short-name.md` — if anything was surprising, broke, or deviated from the plan: write a learnings file and add it to `developer/learnings/README.md`; skip if everything went exactly as planned
 7. **Repeat 5–6** for each remaining prompt
 8. **Open PR** — `feature/phase-N-name` → `main`; write phase summary in `docs/phases/`
 9. **Merge** — after review
