@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-05-17 (Prompt 003b + responsive layout fixes + learnings)
-> **Sessions logged:** 21
+> **Last updated:** 2026-05-31 (Security audit and fixes; backfilled May 19 planning session)
+> **Sessions logged:** 23
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -126,19 +126,21 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 | S09 | 0.12 MB | 6 | 13 | 0 | 3 | 2.17 | Post-Prompt-005 docs (CHANGELOG, prompts/README, AI-REFERENCE, AI-SUMMARY); execute-prompt skill rewritten to read learnings proactively; learnings index updated |
 | S10 | 0.03 MB | 4 | 1 | 0 | 0 | 0.25 | Memory update (MEMORY.md learnings feedback entry) + efficiency report |
 | S11 | 0.98 MB | 25 | 48 | 5 | 7 | 1.92 | Prompt 003b: Logo SVG integration; responsive layout fixes (multi-device sizing); logo dark/light mode swap; learnings documented (004-responsive-layout.md) |
-| **Total** | **4.98 MB** | **98** | **134** | **58** | **91** | **1.37** | — |
+| S12 | 0.60 MB | 8 | 9 | 8 | 0 | 1.13 | Phase planning: reorganized Phase v0.1 prompts (CI/CD moved earlier to 005b), created Vercel setup checklist, updated AI-REFERENCE.md |
+| S13 | 0.004 MB | 3 | 4 | 0 | 18 | 1.33 | Security audit: CodeQL permissions fix, tmp override, moved changes to Dependabot PR #5 branch |
+| **Total** | **5.58 MB** | **109** | **147** | **66** | **109** | **1.35** | — |
 
 ### Aggregate Numbers
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 4.98 MB |
-| Estimated tokens | ~1,304,386 |
-| API equivalent (Sonnet 4.6) | ~$8.61 |
+| Total transcript | 5.58 MB |
+| Estimated tokens | ~1,462,262 |
+| API equivalent (Sonnet 4.6) | ~$9.65 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.43x** |
-| Edit-to-Read ratio | **1.37** |
-| Read/(Edit+Bash) ratio | **0.44** |
+| Subscription value ratio | **0.48x** |
+| Edit-to-Read ratio | **1.35** |
+| Read/(Edit+Bash) ratio | **0.42** |
 
 ---
 
@@ -168,7 +170,7 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 | Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
 |-------|----------|------------|------------|----------|-------------|
-| May 2026 | 21 | 7.71 MB | ~$13.33 | $20 | 0.67x |
+| May 2026 | 23 | 8.31 MB | ~$14.37 | $20 | 0.72x |
 | _Next month_ | — | — | — | $20 | — |
 
 ---
