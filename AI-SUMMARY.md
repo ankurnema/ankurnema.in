@@ -25,6 +25,7 @@
 
 ## Recent Completions
 
+- [2026-05-31] Reworked `docs/ai-efficiency-report.md` to real `usage` token counts + cache-aware pricing; added cache-hit rate metric (93.5% IDE); wrote ADR-010; updated `/update-efficiency-report` command; Phase v0.1 value ratio: 3.60x (was 0.48x byte-proxy)
 - [2026-05-31] Prompt 018: CI/CD workflows created — `ci.yml` (lint → type-check → build → Vitest → Playwright → Lighthouse CI on PR) and `deploy.yml` (Vercel production deploy on merge to main)
 - [2026-05-31] Prompt 005b: GA4 integration complete — `@next/third-parties` installed, `<GoogleAnalytics gaId={G-9T66WBV59N}>` wired into root layout with conditional guard, `.env.example` created
 - [2026-05-18] Added prompt 005b (GA4 integration); moved prompt 018 (CI/CD) before page prompts; updated prompts/README.md execution order so coming soon page deploys to production via PR merge

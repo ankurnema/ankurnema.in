@@ -17,33 +17,44 @@ This document tracks that. Real session data, real token estimates, real cost br
 
 Three things matter here:
 
+**Cache-hit rate** — what fraction of input tokens were served from cache rather than processed
+fresh. High = the auto-loaded memory, CLAUDE.md, and reference files are stable and being reused
+every session. This is the direct proof that structured context files are infrastructure, not
+overhead. Measured .in IDE value: ~94%. Anything above 85% means the system is working.
+
 **Edit-to-Read ratio** — how many file edits the AI produces for every file it reads. If this number is above 1.0, the AI is spending more time building than exploring. Below 0.5 means it's lost, reading files to understand context it should already have. The reference system (CLAUDE.md, AI-REFERENCE.md, etc.) exists specifically to push this number up.
 
-**Read/(Edit+Bash) ratio** — for every productive action, how many reads does it take? Lower is better. Industry baseline without structured context files: ~1.5–2.0. Meaning the AI reads 2 files for every line it writes. With a good reference system, this should drop below 0.5.
-
-**Subscription value ratio** — what would this session have cost at Sonnet 4.6 API rates vs. what I actually pay on Pro? This tells me whether I'm extracting value from the subscription or wasting it on exploratory back-and-forth.
+**Subscription value ratio** — what would this work have cost at Sonnet 4.6 API rates vs. what
+I actually pay on Pro? Computed from real `usage` token counts with cache-aware pricing — not
+an estimate. Phase v0.1 already at 3.60x on IDE sessions alone.
 
 ---
 
 ## How the Numbers Are Calculated
 
-**Tokens:** Session transcript files (`.jsonl` in `~/.claude/projects/`) used as proxy.
-- 1 byte of transcript ≈ 0.25 tokens
-- Split assumed 70% input / 30% output (accurate for code-heavy sessions)
+**Tokens:** Real `usage` fields from each assistant message in the `.jsonl` session files.
+No byte proxy, no assumed input/output split. Fields used: `input_tokens`, `output_tokens`,
+`cache_creation_input_tokens` (split into `ephemeral_5m` and `ephemeral_1h` where available),
+`cache_read_input_tokens`.
 
-**API equivalent cost (Sonnet 4.6):**
-- Input: $3.00 per million tokens
-- Output: $15.00 per million tokens
+**API equivalent cost — Sonnet 4.6 conservative floor:**
 
-**Pro subscription cost per session:**
-- $20/month ÷ sessions that month
-- If 10 sessions in a month → $2.00 per session opportunity cost
+| Component | Rate (per 1M tokens) |
+|-----------|----------------------|
+| Input (uncached) | $3.00 |
+| Output | $15.00 |
+| Cache write — 5 min | $3.75 |
+| Cache write — 1 hour | $6.00 |
+| Cache read | $0.30 |
 
-**Subscription value ratio:**
-- API equivalent cost ÷ Pro monthly fee
-- Below 1.0x = subscription not paying for itself yet (expected early on)
-- Above 1.0x = you're extracting more value than you're paying for
-- Above 5.0x = the reference system is working
+Sessions ran on a mix of models (Opus 4.8, Sonnet 4.6, Haiku 4.5). Sonnet 4.6 rates are the
+conservative floor — actual value is higher when Opus sessions are included.
+Re-verify rates against current published Anthropic pricing before citing externally.
+
+**Subscription value ratio:** cache-aware API equivalent ÷ $20 Pro monthly.
+
+**Script:** `scripts/efficiency-metrics.py` at the workspace root
+(`../../scripts/efficiency-metrics.py` from this repo) — reproducible.
 
 ---
 
@@ -84,26 +95,34 @@ This is the work done before a single line of Next.js was written: planning, AI 
 
 ### Aggregate Numbers
 
+Sessions S01–S07, S09, S10 ran in the workspace-root context — their real token costs are
+captured in the workspace report (Phase 0: $7.62, 95.9% cache-hit). S08 was the only session
+opened directly inside this repo.
+
 | Metric | Value |
 |--------|-------|
-| Total transcript | 2.73 MB |
-| Estimated tokens | ~716,000 |
-| API equivalent (Sonnet 4.6) | ~$4.72 |
-| Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.24x** |
+| S08 uncached input tokens | 12 |
+| S08 cache write tokens | 59,318 |
+| S08 cache read tokens | 65,842 |
+| S08 output tokens | 503 |
+| S08 cache-hit rate | 52.6% |
+| S08 API equivalent (Sonnet 4.6 floor) | ~$0.38 |
+| Workspace sessions (S01–S07, S09, S10) | See workspace report Phase 0 |
 | Edit-to-Read ratio | **1.20** |
 | Read/(Edit+Bash) ratio | **0.57** |
-| User corrections (estimated) | Low — planning sessions, few wrong-turns |
 
 ### Honest Read on These Numbers
 
-A 0.19x subscription value ratio looks bad. It isn't — it's expected.
+Pre-development planning sessions are read-heavy by nature. The AI is absorbing context (reading
+ADR templates, checking conventions, understanding the workspace) more than it's writing code.
+Planning has a low direct token-to-value ratio for this repo specifically — the value was in
+decisions and structure, not code output.
 
-Pre-development planning sessions are read-heavy by nature. The AI is absorbing context (reading ADR templates, checking conventions, understanding the workspace) more than it's writing code. Planning has a low token-to-value output ratio. That's fine. You're paying for decisions and structure, not tokens.
+The edit-to-read of 1.20 is healthy for this phase. The big ADR session (S04) hit 2.21 — that's
+what a well-structured coding session looks like. That number is the benchmark for Phase v0.1.
 
-The edit-to-read of 1.16 is healthy for this phase. The big ADR session (S04) hit 2.21 — that's what a well-structured coding session looks like. That number will be the benchmark when actual component work starts.
-
-The real test is Phase v0.1. When Next.js gets scaffolded and components get built, the subscription value ratio should jump to 1.5x–3x, and edit-to-read should consistently stay above 1.5.
+Phase v0.1 result: **3.60x subscription value ratio** and **93.5% cache-hit** on IDE sessions.
+The reference system is paying off.
 
 ---
 
@@ -130,15 +149,23 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 | S13 | 0.004 MB | 3 | 4 | 0 | 18 | 1.33 | Security audit: CodeQL permissions fix, tmp override, moved changes to Dependabot PR #5 branch |
 | **Total** | **5.58 MB** | **109** | **147** | **66** | **109** | **1.35** | — |
 
+> Transcript MB is an activity indicator, not billable tokens. Cost figures use real `usage` token counts (see Aggregate Numbers).
+
 ### Aggregate Numbers
+
+IDE sessions in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` (11 files)
+and its worktree context (1 file). Does not include workspace-root sessions (see workspace report).
 
 | Metric | Value |
 |--------|-------|
-| Total transcript | 5.58 MB |
-| Estimated tokens | ~1,462,262 |
-| API equivalent (Sonnet 4.6) | ~$9.65 |
+| Uncached input tokens | 14,435 |
+| Cache write tokens | 6,821,059 |
+| Cache read tokens | 98,760,564 |
+| Output tokens | 1,111,365 |
+| **Cache-hit rate** | **93.5%** |
+| API equivalent (Sonnet 4.6 floor, cache-aware) | ~$87.26 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **0.48x** |
+| Subscription value ratio | **3.60x** |
 | Edit-to-Read ratio | **1.35** |
 | Read/(Edit+Bash) ratio | **0.42** |
 
@@ -168,10 +195,17 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 ## Running Subscription Value Tracker
 
-| Month | Sessions | Transcript | API Equiv. | Pro Cost | Value Ratio |
-|-------|----------|------------|------------|----------|-------------|
-| May 2026 | 23 | 8.31 MB | ~$14.37 | $20 | 0.72x |
-| _Next month_ | — | — | — | $20 | — |
+IDE sessions only. Pre-Dev workspace sessions (S01–S07, S09, S10) are in the workspace report.
+All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token counts.
+
+| Month | Total Sessions | IDE Sessions | IDE Cache-Hit% | IDE API Equiv | Pro Cost | Value Ratio |
+|-------|----------------|--------------|----------------|---------------|----------|-------------|
+| May 2026 | 23 | 13 | 93.5% | **~$87.64** | $20 | **4.38x** |
+| _Next month_ | — | — | — | — | $20 | — |
+
+> 23 sessions = 13 direct `.in` IDE sessions + 10 workspace-root Pre-Dev sessions.
+> Value ratio 4.38x covers the 13 IDE sessions ($87.26 Phase v0.1 + $0.38 S08 Pre-Dev).
+> Combined practice-wide (WS + IDE): see workspace `docs/ai-efficiency-report.md`.
 
 ---
 
@@ -179,9 +213,9 @@ The real test is Phase v0.1. When Next.js gets scaffolded and components get bui
 
 Three signals that tell me the reference system is working as coding scales up:
 
-1. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads
-2. **Subscription value ratio crossing 1.0x** — means I'm extracting more than I'm paying. Phase v0.1 should get there
-3. **Zero-correction sessions** — sessions where I type the prompt and don't intervene. These happen when CLAUDE.md conventions are specific enough that no clarification is needed
+1. **Cache-hit rate staying above ~85%** — the direct proof that the auto-loaded context is stable and reused. Current IDE value: ~94%. A drop signals context churn — prompts too long, memory files stale, or too many ad-hoc reads displacing cached context.
+2. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads. Phase v0.1 at 1.35; improving as dev sessions dominate over planning sessions.
+3. **Subscription value ratio holding above 3.0x** — already at 4.38x in May 2026. Target: maintain as session count grows into content and services phases.
 
 ---
 
@@ -193,41 +227,45 @@ Three signals that tell me the reference system is working as coding scales up:
 | S0N | X.XX MB | R | E | W | B | E/R ratio | What was delivered |
 ```
 
-To get the numbers:
-1. Find the session file: `ls ~/.claude/projects/-Users-ankurnema-IdeaProjects-ankurnema-in/`
-2. Check file size: `wc -c <file>.jsonl` → divide by 1,048,576 for MB
-3. Count tool calls: `python3 -c "import json; ..."`  (see methodology note below)
-4. Update the Running Totals row at the bottom of the phase table
-5. Recalculate subscription value ratio if a new month started
-
-**Full parse script** (run from terminal):
+### Getting session tool-call counts (per-session row)
 
 ```bash
-python3 -c "
-import json, os, glob
-
-project_dir = os.path.expanduser('~/.claude/projects/-Users-ankurnema-IdeaProjects-ankurnema-in/')
-for f in sorted(glob.glob(project_dir + '*.jsonl')):
-    data = [json.loads(l) for l in open(f) if l.strip()]
-    counts = {}
-    for entry in data:
-        for block in entry.get('message', {}).get('content', []):
-            if isinstance(block, dict) and block.get('type') == 'tool_use':
-                name = block.get('name', '?')
-                counts[name] = counts.get(name, 0) + 1
-    size_mb = os.path.getsize(f) / 1_048_576
-    print(f'{os.path.basename(f)[:8]}  {size_mb:.2f}MB  {counts}')
-"
+# List sessions by date
+ls -lt ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/*.jsonl | head -5
 ```
 
-**Subscription value calculation:**
-
 ```python
-transcript_bytes = <total bytes this month>
-tokens = transcript_bytes * 0.25
-api_cost = (tokens * 0.70 / 1_000_000 * 3) + (tokens * 0.30 / 1_000_000 * 15)
-value_ratio = api_cost / 20  # Pro plan monthly
-print(f"API equiv: ${api_cost:.2f} | Value ratio: {value_ratio:.2f}x")
+import json
+f = '<path-to-session>.jsonl'
+data = [json.loads(l) for l in open(f) if l.strip()]
+counts = {}
+for entry in data:
+    for block in entry.get('message', {}).get('content', []):
+        if isinstance(block, dict) and block.get('type') == 'tool_use':
+            counts[block['name']] = counts.get(block['name'], 0) + 1
+reads = counts.get('Read', 0) + counts.get('Glob', 0) + counts.get('Grep', 0)
+print(f"R:{reads}  E:{counts.get('Edit',0)}  W:{counts.get('Write',0)}  B:{counts.get('Bash',0)}")
+```
+
+### Aggregate numbers and monthly tracker (real token counts)
+
+Use `scripts/efficiency-metrics.py` from the workspace root:
+
+```bash
+# From workspace root — adjust date filter for current month:
+python3 scripts/efficiency-metrics.py \
+  '~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in' \
+  --since 2026-06-01
+```
+
+Copy `cache-hit rate`, `Sonnet-equiv cost`, and `subscription value` into the Aggregate
+Numbers table and the monthly tracker row.
+
+### Session paths for this repo
+
+```
+Primary:   ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/
+Worktrees: ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in--claude-worktrees-*/
 ```
 
 ---
@@ -242,4 +280,7 @@ That's a more interesting post than another "I built X with ChatGPT in a weekend
 
 ---
 
-*Methodology: Claude Code session transcripts parsed from `~/.claude/projects/`. Token estimates use 0.25 tokens/byte. API rates: Sonnet 4.6 at $3/M input, $15/M output. Pro plan at $20/month. All numbers are estimates — actual token usage varies by context compression and caching.*
+*Methodology: Tokens from real `usage` fields in Claude Code session `.jsonl` files. Cache-aware
+Sonnet 4.6 standard-tier floor pricing: $3/M uncached input, $15/M output, $3.75/M 5-min cache
+write, $6/M 1-hr cache write, $0.30/M cache read. Re-verify rates against current Anthropic
+pricing. Tool: `scripts/efficiency-metrics.py` (workspace root: `../../scripts/`).*

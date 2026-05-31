@@ -58,6 +58,9 @@ You don't need to read them in order. Jump to whichever is relevant to what you'
 | [ADR-005](005-testing-strategy.md) | Testing strategy — Vitest, Playwright, axe-playwright, Lighthouse CI | Accepted | May 2026 |
 | [ADR-006](006-open-source-case-study.md) | Open-source repo as AI-assisted development case study | Accepted | May 2026 |
 | [ADR-007](007-app-router.md) | Next.js App Router over Pages Router | Accepted | May 2026 |
+| [ADR-008](008-google-font-loading.md) | Google font loading strategy — next/font/google | Accepted | May 2026 |
+| [ADR-009](009-dark-mode.md) | Dark mode implementation — next-themes + Tailwind v4 | Accepted | May 2026 |
+| [ADR-010](010-real-token-efficiency-measurement.md) | AI efficiency measurement — real usage tokens, not byte proxy | Accepted | May 2026 |
 
 ---
 
