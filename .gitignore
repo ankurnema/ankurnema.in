@@ -54,3 +54,4 @@ Desktop.ini
 *.swo
 .vercel
 .env*
+.playwright-mcp

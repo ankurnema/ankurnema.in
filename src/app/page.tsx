@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <section className="flex-1 flex flex-col items-center justify-center px-6 py-12 sm:py-20 landscape:py-3 bg-brand-canvas dark:bg-brand-canvas-dark">
       <div className="max-w-2xl mx-auto text-center">
-        <p className="text-brand-amber dark:text-brand-amber-dark text-sm font-semibold tracking-widest uppercase mb-6 landscape:mb-2">
+        <p className="text-brand-navy dark:text-brand-amber-dark text-sm font-semibold tracking-widest uppercase mb-6 landscape:mb-2">
           Coming Soon
         </p>
 
