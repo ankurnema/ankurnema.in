@@ -29,6 +29,9 @@
     "Firefox >= 90",
     "Edge >= 96"
   ],
+  "overrides": {
+    "tmp": "^0.2.7"
+  },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.59.1",
