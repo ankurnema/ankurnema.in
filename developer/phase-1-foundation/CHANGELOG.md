@@ -1,5 +1,15 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-05-31] Prompt 005b — GA4 Integration
+
+- Installed `@next/third-parties` (official Next.js GA4 integration package)
+- Added `NEXT_PUBLIC_GA_ID=G-9T66WBV59N` to `.env.local`
+- Created `.env.example` with empty `NEXT_PUBLIC_GA_ID=` placeholder and instructional comment
+- Updated `src/app/layout.tsx` — added `GoogleAnalytics` import from `@next/third-parties/google`; renders `<GoogleAnalytics gaId={...}>` as last child of `<body>` with conditional guard (silently skipped when env var absent)
+- Files created: `.env.example`
+- Files modified: `src/app/layout.tsx`, `.env.local`, `package.json`
+- Decisions made: placed `<GoogleAnalytics>` outside `<Providers>` (no client context needed — `@next/third-parties` is a Server Component); conditional guard `{process.env.NEXT_PUBLIC_GA_ID && (...)}` ensures analytics is a no-op in test/preview environments without the env var
+
 ## [2026-05-17] Prompt 003b — Logo Asset Integration
 
 - Replaced CSS text logo in `src/components/LogoText.tsx` with Next.js `<Image>` components using designer SVGs; added `className` prop

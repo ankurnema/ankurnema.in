@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-17 — Prompt 003b Logo Asset Integration: LogoText.tsx now uses Next.js Image with designer SVGs; icon.svg updated to designer monogram; favicon.ico regenerated
+> **Last updated:** 2026-05-31 — Prompt 005b GA4 Integration: `.env.example` created; layout.tsx updated with GoogleAnalytics conditional render; @next/third-parties added to package.json
 
 ---
 
@@ -60,7 +60,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `lighthouserc.json` | Config | Lighthouse CI — performance ≥ 0.8 blocks PR; accessibility/best-practices/SEO warn at ≥ 0.9 |
 | `src/test/setup.ts` | Config | Vitest global setup — imports `@testing-library/jest-dom` extended matchers |
 | `src/__tests__/smoke.test.ts` | Test | Smoke test — confirms Vitest runner works; template for future unit tests |
-| `package.json` | Config | npm manifest — Next.js 16, React 19, TypeScript 6, Tailwind v4, MDX, sharp; scripts: dev (Turbopack), build, lint, start, test, test:watch, test:coverage, test:e2e |
+| `package.json` | Config | npm manifest — Next.js 16, React 19, TypeScript 6, Tailwind v4, MDX, sharp, `@next/third-parties`; scripts: dev (Turbopack), build, lint, start, test, test:watch, test:coverage, test:e2e |
 | `package-lock.json` | Config | npm lock file |
 | `next.config.ts` | Config | Next.js 16 config (TypeScript) — MDX support, pageExtensions |
 | `tsconfig.json` | Config | TypeScript strict mode, `@/*` path alias → `./src/*`, react-jsx |
@@ -71,7 +71,8 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
 | `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 brand color tokens (navy `#00305a`, blue accent `#009ee3`; updated 2026-05-17 to match delivered logo); `@custom-variant dark`; imported in `globals.css` |
 | `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — imports tailwindcss + brand.css |
-| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants |
+| `.env.example` | Config | Env var reference — `NEXT_PUBLIC_GA_ID=` placeholder with comment pointing to analytics.google.com |
+| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants; `<GoogleAnalytics>` conditional render |
 | `src/__tests__/layout.test.tsx` | Test | Vitest unit test for RootLayout — mocks next/font/google, asserts footer copyright text |
 | `src/app/page.tsx` | App | Home — Coming Soon page with OG metadata (`title.absolute`), branded hero section, light + dark mode variants, LinkedIn/GitHub links |
 | `src/components/Providers.tsx` | Component | `'use client'` ThemeProvider wrapper — next-themes, `attribute="class"`, `defaultTheme="system"`, `enableSystem` |

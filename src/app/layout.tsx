@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, DM_Sans } from 'next/font/google'
 import Link from 'next/link'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { LogoText } from '@/components/LogoText'
 import { Providers } from '@/components/Providers'
 import { ThemeToggle } from '@/components/ThemeToggle'
@@ -83,6 +84,9 @@ export default function RootLayout({
             </div>
           </footer>
         </Providers>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   )

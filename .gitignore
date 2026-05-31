@@ -52,3 +52,5 @@ Desktop.ini
 .idea/
 *.swp
 *.swo
+.vercel
+.env*
