@@ -1,7 +1,7 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
 function SunIcon() {
   return (
@@ -43,15 +43,15 @@ function MoonIcon() {
   )
 }
 
+const mounted = () => true
+const unmounted = () => false
+const noop = () => () => {}
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const isMounted = useSyncExternalStore(noop, mounted, unmounted)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return <div className="w-9 h-9 md:w-[52px] md:h-[52px]" />
+  if (!isMounted) return <div className="w-9 h-9 md:w-[52px] md:h-[52px]" />
 
   const isDark = resolvedTheme === 'dark'
 

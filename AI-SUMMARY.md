@@ -25,6 +25,8 @@
 
 ## Recent Completions
 
+- [2026-05-31] Prompt 018: CI/CD workflows created — `ci.yml` (lint → type-check → build → Vitest → Playwright → Lighthouse CI on PR) and `deploy.yml` (Vercel production deploy on merge to main)
+- [2026-05-31] Prompt 005b: GA4 integration complete — `@next/third-parties` installed, `<GoogleAnalytics gaId={G-9T66WBV59N}>` wired into root layout with conditional guard, `.env.example` created
 - [2026-05-18] Added prompt 005b (GA4 integration); moved prompt 018 (CI/CD) before page prompts; updated prompts/README.md execution order so coming soon page deploys to production via PR merge
 - [2026-05-17] Prompt 003b: Replaced CSS text logo placeholder with designer SVG wordmark and monogram; updated favicon from designer AN monogram
 - [2026-05-17] Prompt 005: Coming Soon homepage with full light/dark mode — system-preference toggle, next-themes 0.4.6, Tailwind v4 `@custom-variant dark`, ADR-009, Playwright E2E smoke test

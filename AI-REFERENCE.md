@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-17 — Prompt 003b Logo Asset Integration: LogoText.tsx now uses Next.js Image with designer SVGs; icon.svg updated to designer monogram; favicon.ico regenerated
+> **Last updated:** 2026-05-31 — Prompt 018 CI/CD: `.github/workflows/ci.yml` and `deploy.yml` created
 
 ---
 
@@ -49,6 +49,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `developer/phase-1-foundation/README.md` | Phase doc | Phase 1 objective, deliverables, success criteria, out-of-scope for milestone v0.1 |
 | `developer/phase-1-foundation/AI-CONTEXT.md` | AI config | Reading order, key files table, ADR references, phase-specific conventions |
 | `developer/phase-1-foundation/CHANGELOG.md` | Phase log | Dated execution log; one entry added after each prompt is completed |
+| `.github/workflows/ci.yml` | CI/CD | GitHub Actions CI — runs on PR to main: lint, type-check, build, unit tests, Playwright E2E, Lighthouse CI; branch protection required to gate merges on this check |
 | `developer/phase-1-foundation/prompts/README.md` | Phase doc | Prompt index table + status legend; execution order updated: 005b → 018 → 006–017 → 019 |
 | `developer/phase-1-foundation/prompts/005b-ga4-integration.md` | Phase prompt | Install `@next/third-parties`; wire `<GoogleAnalytics>` into layout.tsx; run after GA4 property is created |
 | `developer/learnings/README.md` | Docs | Learnings folder index — what it is, how to add entries, file naming convention |
@@ -60,7 +61,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `lighthouserc.json` | Config | Lighthouse CI — performance ≥ 0.8 blocks PR; accessibility/best-practices/SEO warn at ≥ 0.9 |
 | `src/test/setup.ts` | Config | Vitest global setup — imports `@testing-library/jest-dom` extended matchers |
 | `src/__tests__/smoke.test.ts` | Test | Smoke test — confirms Vitest runner works; template for future unit tests |
-| `package.json` | Config | npm manifest — Next.js 16, React 19, TypeScript 6, Tailwind v4, MDX, sharp; scripts: dev (Turbopack), build, lint, start, test, test:watch, test:coverage, test:e2e |
+| `package.json` | Config | npm manifest — Next.js 16, React 19, TypeScript 6, Tailwind v4, MDX, sharp, `@next/third-parties`; scripts: dev (Turbopack), build, lint, start, test, test:watch, test:coverage, test:e2e |
 | `package-lock.json` | Config | npm lock file |
 | `next.config.ts` | Config | Next.js 16 config (TypeScript) — MDX support, pageExtensions |
 | `tsconfig.json` | Config | TypeScript strict mode, `@/*` path alias → `./src/*`, react-jsx |
@@ -71,7 +72,8 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
 | `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 brand color tokens (navy `#00305a`, blue accent `#009ee3`; updated 2026-05-17 to match delivered logo); `@custom-variant dark`; imported in `globals.css` |
 | `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — imports tailwindcss + brand.css |
-| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants |
+| `.env.example` | Config | Env var reference — `NEXT_PUBLIC_GA_ID=` placeholder with comment pointing to analytics.google.com |
+| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants; `<GoogleAnalytics>` conditional render |
 | `src/__tests__/layout.test.tsx` | Test | Vitest unit test for RootLayout — mocks next/font/google, asserts footer copyright text |
 | `src/app/page.tsx` | App | Home — Coming Soon page with OG metadata (`title.absolute`), branded hero section, light + dark mode variants, LinkedIn/GitHub links |
 | `src/components/Providers.tsx` | Component | `'use client'` ThemeProvider wrapper — next-themes, `attribute="class"`, `defaultTheme="system"`, `enableSystem` |
