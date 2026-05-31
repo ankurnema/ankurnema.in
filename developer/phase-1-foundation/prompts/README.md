@@ -9,7 +9,7 @@
 | 004 | [004-root-layout.md](004-root-layout.md) | Root `layout.tsx` — header, footer, fonts, metadata | ✅ Done [2026-05-17] |
 | 005 | [005-coming-soon-homepage.md](005-coming-soon-homepage.md) | Coming Soon page at `/` with OG metadata + E2E smoke test | ✅ Done [2026-05-17] |
 | 005b | [005b-ga4-integration.md](005b-ga4-integration.md) | **Run after creating GA4 property** — Install `@next/third-parties`, wire `<GoogleAnalytics>` into `layout.tsx` | ✅ Done [2026-05-31] |
-| 018 | [018-cicd-workflows.md](018-cicd-workflows.md) | **Run after step 005b + GitHub secrets set** — `.github/workflows/ci.yml` + `deploy.yml`; then raise PR → merge → site live | ⏳ Pending |
+| 018 | [018-cicd-workflows.md](018-cicd-workflows.md) | **Run after step 005b + GitHub secrets set** — `.github/workflows/ci.yml` + `deploy.yml`; then raise PR → merge → site live | ✅ Done [2026-05-31] |
 | 006 | [006-about-page.md](006-about-page.md) | `/about` placeholder + E2E smoke test | ⏳ Pending |
 | 007 | [007-services-page.md](007-services-page.md) | `/services` overview placeholder + E2E smoke test | ⏳ Pending |
 | 008 | [008-services-consulting-page.md](008-services-consulting-page.md) | `/services/consulting` placeholder + E2E smoke test | ⏳ Pending |

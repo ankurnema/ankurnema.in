@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-31 — Prompt 005b GA4 Integration: `.env.example` created; layout.tsx updated with GoogleAnalytics conditional render; @next/third-parties added to package.json
+> **Last updated:** 2026-05-31 — Prompt 018 CI/CD: `.github/workflows/ci.yml` and `deploy.yml` created
 
 ---
 
@@ -49,6 +49,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `developer/phase-1-foundation/README.md` | Phase doc | Phase 1 objective, deliverables, success criteria, out-of-scope for milestone v0.1 |
 | `developer/phase-1-foundation/AI-CONTEXT.md` | AI config | Reading order, key files table, ADR references, phase-specific conventions |
 | `developer/phase-1-foundation/CHANGELOG.md` | Phase log | Dated execution log; one entry added after each prompt is completed |
+| `.github/workflows/ci.yml` | CI/CD | GitHub Actions CI — runs on PR to main: lint, type-check, build, unit tests, Playwright E2E, Lighthouse CI; branch protection required to gate merges on this check |
 | `developer/phase-1-foundation/prompts/README.md` | Phase doc | Prompt index table + status legend; execution order updated: 005b → 018 → 006–017 → 019 |
 | `developer/phase-1-foundation/prompts/005b-ga4-integration.md` | Phase prompt | Install `@next/third-parties`; wire `<GoogleAnalytics>` into layout.tsx; run after GA4 property is created |
 | `developer/learnings/README.md` | Docs | Learnings folder index — what it is, how to add entries, file naming convention |

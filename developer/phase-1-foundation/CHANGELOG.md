@@ -1,5 +1,22 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-05-31] Post-018 fix — Remove deploy.yml (Vercel GitHub App conflict)
+
+- Deleted `.github/workflows/deploy.yml` — Vercel GitHub App was already connected to the repo via dashboard import, so deploy.yml was causing a double production deploy on every push to `main` (GitHub App deploys immediately; deploy.yml would deploy again after CI)
+- Deployment flow is now: `ci.yml` passes on PR → branch protection gates merge → Vercel GitHub App auto-deploys on merge to `main`
+- `NEXT_PUBLIC_GA_ID` must be set in Vercel dashboard (Project Settings → Environment Variables → Production) so GA is embedded in production builds — `.env.local` only covers local dev
+- Files deleted: `.github/workflows/deploy.yml`
+- Decisions made: Vercel GitHub App + GitHub branch protection replaces deploy.yml; this is the native Vercel pattern described in ADR-002
+
+## [2026-05-31] Prompt 018 — CI/CD Workflows
+
+- Created `.github/workflows/ci.yml` — triggered on PRs to `main`; steps: checkout, setup-node (from `.nvmrc`), npm ci, lint, type-check, build, unit tests, Playwright browser install, start server, wait-on, E2E tests, Lighthouse CI
+- Created `.github/workflows/deploy.yml` — triggered on push to `main`; steps: checkout, setup-node, npm ci, `npx vercel --prod` with `VERCEL_TOKEN`/`VERCEL_ORG_ID`/`VERCEL_PROJECT_ID` secrets
+- YAML syntax validated with `npx js-yaml` — both files parse cleanly
+- Files created: `.github/workflows/ci.yml`, `.github/workflows/deploy.yml`
+- Files modified: none
+- Decisions made: `npx wait-on http://localhost:3000` used to gate E2E and Lighthouse steps on server readiness; `npx playwright install --with-deps` installs all browsers configured in playwright.config.ts (chromium, firefox, webkit); CI build does not pass `NEXT_PUBLIC_GA_ID` — conditional guard in layout.tsx means GA is silently absent in CI builds, which is correct
+
 ## [2026-05-31] Prompt 005b — GA4 Integration
 
 - Installed `@next/third-parties` (official Next.js GA4 integration package)
