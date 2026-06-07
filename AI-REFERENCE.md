@@ -75,7 +75,26 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `.env.example` | Config | Env var reference — `NEXT_PUBLIC_GA_ID=` placeholder with comment pointing to analytics.google.com |
 | `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants; `<GoogleAnalytics>` conditional render |
 | `src/__tests__/layout.test.tsx` | Test | Vitest unit test for RootLayout — mocks next/font/google, asserts footer copyright text |
-| `src/app/page.tsx` | App | Home — Coming Soon page with OG metadata (`title.absolute`), branded hero section, light + dark mode variants, LinkedIn/GitHub links |
+| `src/app/page.tsx` | App | Home — Coming Soon page with OG metadata (`title.absolute`), branded hero section, light + dark mode variants, LinkedIn/GitHub lucide icon buttons + About me link |
+| `src/app/about/page.tsx` | App | About — 10-section redesigned page: Hero (asymmetric), Companies Band, Impact Stats, The Story, Career Journey (timeline), Selected Work, Featured Projects, Skills, Testimonials (6), Talks+CTA; static server component; content as typed arrays |
+| `e2e/about.spec.ts` | Test | 6 Playwright E2E tests: title, H1, stats (17+), testimonial (Yaniv Bigger), journey heading (The Journey), project title (Oracle Aurora) |
+| `src/components/about/FadeInSection.tsx` | Component | `'use client'` — framer-motion `whileInView` fade+rise wrapper; `useReducedMotion()` guard |
+| `src/components/about/PortraitPlaceholder.tsx` | Component | AN monogram portrait placeholder — navy gradient card with grid texture; no longer used in page (portrait.jpg now active), kept for reference |
+| `public/about/portrait.jpg` | Asset | About page portrait — 800×800 JPEG, 73 KB, mozjpeg quality 90; converted from brand/about_me/ankur-photo.png; metadata-clean |
+| `src/components/about/CompaniesBand.tsx` | Component | Companies band — logo + name cards for 6 employers (Convergys, NetCracker, Symantec, Broadcom, Amdocs, SAP); grayscale-hover pattern |
+| `public/about/companies/convergys.svg` | Asset | Convergys wordmark — used in CompaniesBand |
+| `public/about/companies/netcracker.svg` | Asset | NetCracker Technology wordmark — used in CompaniesBand |
+| `public/about/companies/symantec.png` | Asset | Symantec logo PNG — used in CompaniesBand |
+| `public/about/companies/broadcom.svg` | Asset | Broadcom wordmark SVG — used in CompaniesBand |
+| `public/about/companies/amdocs.svg` | Asset | Amdocs wordmark SVG — used in CompaniesBand |
+| `public/about/companies/sap.svg` | Asset | SAP logo SVG (blue gradient bg) — used in CompaniesBand; SAP naming allowed on About page only |
+| `src/components/about/StatCard.tsx` | Component | Icon + gradient-text stat number + label; accepts `LucideIcon` prop + optional `testId` |
+| `src/components/about/TimelineAct.tsx` | Component | Career timeline card — alternates left/right via `side` prop; Act badge, year, companies, narrative |
+| `src/components/about/StoryCard.tsx` | Component | Before→after impact card with gradient metric; `variant="featured"` for 2-col-span wide card |
+| `src/components/about/ProjectCard.tsx` | Component | Project card — challenge + result block + tech-stack pill tags |
+| `src/components/about/SkillGroup.tsx` | Component | Skill group card — title icon + list of skills each with lucide icon |
+| `src/components/about/TestimonialCard.tsx` | Component | Quote card — amber quote mark, body, initials avatar, name + role/company |
+| `developer/adr/011-animation-and-icons.md` | ADR | ADR-011: Framer Motion chosen over Motion One/GSAP; Lucide chosen over Heroicons/React Icons; implementation pattern; bundle considerations |
 | `src/components/Providers.tsx` | Component | `'use client'` ThemeProvider wrapper — next-themes, `attribute="class"`, `defaultTheme="system"`, `enableSystem` |
 | `src/components/ThemeToggle.tsx` | Component | `'use client'` dark/light mode toggle — `mounted` guard, `resolvedTheme`, sun/moon inline SVG icons |
 | `e2e/homepage.spec.ts` | Test | Playwright E2E smoke test — asserts page title `/Ankur Nema/` and heading "Ankur Nema" visible |

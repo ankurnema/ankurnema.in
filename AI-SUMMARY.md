@@ -25,6 +25,11 @@
 
 ## Recent Completions
 
+- [2026-06-07] Homepage: LinkedIn/GitHub text links replaced with lucide-react icon buttons; About me link added to /about
+- [2026-06-07] About page enhancements: company logos (6) in band, 4-act timeline (SAP named), hero CTAs removed (dead links), narrative text-base, 35/35 E2E pass
+- [2026-06-07] Portrait integrated: AI headshot converted to 73 KB JPEG, metadata-stripped, swapped into About page hero; 35/35 E2E pass
+- [2026-06-07] About page redesign: 10 sections, 9 new components, framer-motion + lucide-react added, full content from brand/about_me/ (12 files), 35/35 E2E tests pass — visual rebuild from text-only to "Confident Operator" design
+- [2026-06-07] Prompt 006: Full About page — 7 sections, 4 E2E tests (25/25 across 5 device profiles), all content hardcoded, employer anonymised
 - [2026-05-31] Reworked `docs/ai-efficiency-report.md` to real `usage` token counts + cache-aware pricing; added cache-hit rate metric (93.5% IDE); wrote ADR-010; updated `/update-efficiency-report` command; Phase v0.1 value ratio: 3.60x (was 0.48x byte-proxy)
 - [2026-05-31] Prompt 018: CI/CD workflows created — `ci.yml` (lint → type-check → build → Vitest → Playwright → Lighthouse CI on PR) and `deploy.yml` (Vercel production deploy on merge to main)
 - [2026-05-31] Prompt 005b: GA4 integration complete — `@next/third-parties` installed, `<GoogleAnalytics gaId={G-9T66WBV59N}>` wired into root layout with conditional guard, `.env.example` created

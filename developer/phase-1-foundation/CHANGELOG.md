@@ -1,5 +1,54 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-06-07] Homepage — LinkedIn/GitHub Icons + About Page Link
+
+- Replaced LinkedIn and GitHub text links with lucide-react `<Linkedin>` and `<Github>` icon buttons (w-5 h-5 in w-10 h-10 rounded-full containers)
+- Added `About me →` text link to `/about` using `next/link`; visual separator `|` between social icons and internal link
+- Kept `aria-label` on icon-only social links for accessibility
+- Files modified: `src/app/page.tsx`
+
+## [2026-06-07] About Page Enhancements — Logos, 4-Act Timeline, CTA Cleanup
+
+- Added 6 company logos to `public/about/companies/` (convergys, netcracker, symantec, broadcom, amdocs, sap)
+- Redesigned `CompaniesBand.tsx` — logos + company names in card grid replacing text-only strip; SAP now named
+- Split timeline Act 3 into Act 3 (Amdocs, 2020–2022) + Act 4 (SAP, 2022–present); SAP named in timeline
+- Removed dead hero CTAs ("Work with me" / "See services" → /services not yet built); bottom CTA now uses `mailto:`
+- Increased timeline narrative from `text-sm` → `text-base` for readability
+- Updated prompt 006 with post-execution notes: CTA disabled state, SAP exception, 4-act rule
+- Files created: `public/about/companies/` (6 files)
+- Files modified: `src/components/about/CompaniesBand.tsx`, `src/components/about/TimelineAct.tsx`, `src/app/about/page.tsx`, `developer/phase-1-foundation/prompts/006-about-page.md`
+- Build clean, 35/35 E2E pass
+
+## [2026-06-07] Portrait Integration
+
+- Converted `brand/about_me/ankur-photo.png` (6.8 MB RGBA PNG, 2060×2048) → `public/about/portrait.jpg` (73 KB JPEG, 800×800, quality 90, mozjpeg)
+- Metadata verified clean before and after: no EXIF, no AI generation markers, no GPS, no creator tags
+- Replaced `<PortraitPlaceholder />` in `src/app/about/page.tsx` with `<Image>` from `next/image`; `priority` prop set for LCP; `object-cover object-top` for correct face framing
+- Removed `PortraitPlaceholder` import; removed unused component reference
+- Files created: `public/about/portrait.jpg`
+- Files modified: `src/app/about/page.tsx`
+- Verified: build clean, 35/35 E2E pass, desktop + mobile visual check
+
+## [2026-06-07] About Page Redesign — Full Visual Rebuild
+
+- Installed `framer-motion@12.40.0` + `lucide-react@1.17.0` (ADR-011)
+- Created 9 reusable client/server components in `src/components/about/`: FadeInSection, PortraitPlaceholder, CompaniesBand, StatCard, TimelineAct, StoryCard, ProjectCard, SkillGroup, TestimonialCard
+- Rewrote `src/app/about/page.tsx` — 10 sections, full content from `brand/about_me/` (12 content files), all content as typed arrays in page file
+- New sections added: Companies Band, The Story (with pull quote + credentials strip), Featured Projects (3 projects), expanded Testimonials (6 quotes, masonry grid), redesigned CTA (rounded card with dot-grid)
+- Visual design: asymmetric hero, AN monogram portrait placeholder, gradient-text stats, alternating timeline, before→after story cards, icon-driven skill groups, initials-avatar testimonials
+- Added `@keyframes fade-in-up` to `src/styles/brand.css`; wrote `developer/adr/011-animation-and-icons.md`
+- E2E tests: 4 → 6 tests; 35/35 pass across 5 device profiles
+- Files created: `src/components/about/` (9 files), `developer/adr/011-animation-and-icons.md`
+- Files modified: `src/app/about/page.tsx`, `e2e/about.spec.ts`, `src/styles/brand.css`, `package.json`
+- Decisions made: page remains static server component; motion in client wrapper components only; all content stays inline in page.tsx (no separate data files); portrait placeholder swappable in one edit
+
+## [2026-06-07] Prompt 006 — Full About Page
+
+- Created 7-section static About page with all content hardcoded (Hero, Impact Stats, Career Arc, Skills & Expertise, Testimonials, Talks & Sessions, CTA Footer)
+- Files created: `src/app/about/page.tsx`, `e2e/about.spec.ts`
+- Files modified: `developer/phase-1-foundation/CHANGELOG.md`, `AI-REFERENCE.md`, `AI-SUMMARY.md`, `developer/phase-1-foundation/prompts/README.md`
+- Decisions made: content hardcoded (no CMS, static server component), no new shared components, employer never named (replaced with "globally scaled enterprise software organization"), `getByText('17+', { exact: true })` used in E2E to avoid strict mode violation with hero paragraph
+
 ## [2026-05-31] Post-018 fix — Remove deploy.yml (Vercel GitHub App conflict)
 
 - Deleted `.github/workflows/deploy.yml` — Vercel GitHub App was already connected to the repo via dashboard import, so deploy.yml was causing a double production deploy on every push to `main` (GitHub App deploys immediately; deploy.yml would deploy again after CI)
