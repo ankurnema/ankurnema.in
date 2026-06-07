@@ -61,27 +61,7 @@ export default function RootLayout({
           </header>
           <main className="flex-1 flex flex-col">{children}</main>
           <footer className="w-full px-6 md:px-8 lg:px-12 xl:px-16 py-6 md:py-8 bg-brand-surface dark:bg-brand-surface-dark border-t border-brand-slate/20 dark:border-brand-slate-dark/20 text-brand-slate dark:text-brand-slate-dark text-sm md:text-lg">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-8">
-              <p>© {new Date().getFullYear()} Ankur Nema</p>
-              <div className="flex gap-6">
-                <a
-                  href="https://linkedin.com/in/ankurnema"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand-navy dark:hover:text-brand-charcoal-dark transition-colors"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href="https://github.com/ankurnema"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand-navy dark:hover:text-brand-charcoal-dark transition-colors"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
+            <p>© {new Date().getFullYear()} Ankur Nema</p>
           </footer>
         </Providers>
         {process.env.NEXT_PUBLIC_GA_ID && (

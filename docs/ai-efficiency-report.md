@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-05-31 (Security audit and fixes; backfilled May 19 planning session)
-> **Sessions logged:** 23
+> **Last updated:** 2026-06-08 (Prompt 006 continuation; Phase v0.1 sessions S14–S15 logged)
+> **Sessions logged:** 25
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -147,27 +147,31 @@ The reference system is paying off.
 | S11 | 0.98 MB | 25 | 48 | 5 | 7 | 1.92 | Prompt 003b: Logo SVG integration; responsive layout fixes (multi-device sizing); logo dark/light mode swap; learnings documented (004-responsive-layout.md) |
 | S12 | 0.60 MB | 8 | 9 | 8 | 0 | 1.13 | Phase planning: reorganized Phase v0.1 prompts (CI/CD moved earlier to 005b), created Vercel setup checklist, updated AI-REFERENCE.md |
 | S13 | 0.004 MB | 3 | 4 | 0 | 18 | 1.33 | Security audit: CodeQL permissions fix, tmp override, moved changes to Dependabot PR #5 branch |
-| **Total** | **5.58 MB** | **109** | **147** | **66** | **109** | **1.35** | — |
+| S14 | 0.71 MB | 15 | 7 | 4 | 0 | 0.47 | Prompt 006: About Page spec rewritten as fully self-contained prompt — embedded all 7 sections, all content, privacy rules, JSX, E2E tests, post-execution docs |
+| S15 | 0.85 MB | 17 | 11 | 4 | 7 | 0.65 | Prompt 006 continuation: About page mentoring story + Shyamendra LinkedIn link; brand file synced; 4 learnings documented; memory updated |
+| **Total** | **7.14 MB** | **141** | **165** | **74** | **116** | **1.17** | — |
 
 > Transcript MB is an activity indicator, not billable tokens. Cost figures use real `usage` token counts (see Aggregate Numbers).
 
 ### Aggregate Numbers
 
 IDE sessions in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` (11 files)
-and its worktree context (1 file). Does not include workspace-root sessions (see workspace report).
+and its worktree context (1 file). Tool-call counts (Reads, Edits, etc.) include S14 workspace session
+supporting Phase v0.1 work. Token metrics reflect IDE sessions only (S01–S13, 13 files); see workspace
+report for complete token aggregates.
 
 | Metric | Value |
 |--------|-------|
-| Uncached input tokens | 14,435 |
-| Cache write tokens | 6,821,059 |
-| Cache read tokens | 98,760,564 |
-| Output tokens | 1,111,365 |
-| **Cache-hit rate** | **93.5%** |
-| API equivalent (Sonnet 4.6 floor, cache-aware) | ~$87.26 |
+| Uncached input tokens | 33,586 |
+| Cache write tokens | 8,445,334 |
+| Cache read tokens | 142,492,582 |
+| Output tokens | 1,492,914 |
+| **Cache-hit rate** | **94.4%** |
+| API equivalent (Sonnet 4.6 floor, cache-aware) | ~$115.91 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **3.60x** |
-| Edit-to-Read ratio | **1.35** |
-| Read/(Edit+Bash) ratio | **0.42** |
+| Subscription value ratio | **5.80x** |
+| Edit-to-Read ratio | **1.17** |
+| Read/(Edit+Bash) ratio | **0.50** |
 
 ---
 
@@ -201,11 +205,10 @@ All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token 
 | Month | Total Sessions | IDE Sessions | IDE Cache-Hit% | IDE API Equiv | Pro Cost | Value Ratio |
 |-------|----------------|--------------|----------------|---------------|----------|-------------|
 | May 2026 | 23 | 13 | 93.5% | **~$87.64** | $20 | **4.38x** |
-| _Next month_ | — | — | — | — | $20 | — |
+| June 2026 | 2 | 2 | 96.0% | **~$40.15** | $20 | **2.01x** |
 
-> 23 sessions = 13 direct `.in` IDE sessions + 10 workspace-root Pre-Dev sessions.
-> Value ratio 4.38x covers the 13 IDE sessions ($87.26 Phase v0.1 + $0.38 S08 Pre-Dev).
-> Combined practice-wide (WS + IDE): see workspace `docs/ai-efficiency-report.md`.
+> May: 23 sessions = 13 direct `.in` IDE sessions + 10 workspace-root Pre-Dev sessions. Value ratio 4.38x = IDE sessions only ($87.26 Phase v0.1 + $0.38 S08 Pre-Dev).
+> June: S14–S15 are Phase v0.1 continuation sessions (Prompt 006 completion). Combined May–June Phase v0.1 total: 15 IDE sessions, 94.4% cache-hit, $115.91 API equiv, 5.80x subscription value ratio.
 
 ---
 
@@ -214,8 +217,8 @@ All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token 
 Three signals that tell me the reference system is working as coding scales up:
 
 1. **Cache-hit rate staying above ~85%** — the direct proof that the auto-loaded context is stable and reused. Current IDE value: ~94%. A drop signals context churn — prompts too long, memory files stale, or too many ad-hoc reads displacing cached context.
-2. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads. Phase v0.1 at 1.35; improving as dev sessions dominate over planning sessions.
-3. **Subscription value ratio holding above 3.0x** — already at 4.38x in May 2026. Target: maintain as session count grows into content and services phases.
+2. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads. Phase v0.1 at 1.17 (improved from 1.35 as post-execution sessions added). Target: above 1.5 during active feature sessions.
+3. **Subscription value ratio holding above 3.0x** — May at 4.38x, June running at 5.80x cumulative Phase v0.1. Target: maintain above 3.0x as session count grows into content and services phases.
 
 ---
 
