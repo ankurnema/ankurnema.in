@@ -41,12 +41,32 @@ Read these files before writing any code:
 1. `developer/phase-1-foundation/AI-CONTEXT.md`
 2. `developer/phase-1-foundation/brand-guidelines.md`
 
-**Task:** Create a placeholder `/services/mentoring` page.
+**Task:** Create the `/services/mentoring` page with real service content (no pricing).
 
 Step 1 — page.tsx:
 Create `src/app/services/mentoring/page.tsx`. Include:
 - Page heading: "Mentoring"
-- Placeholder body: "1-on-1 mentoring service details coming soon. Available one-time or ongoing — covering DevOps careers, personal finance, tool deep-dives, and navigating corporate growth."
+- A short intro paragraph: "1-on-1 mentoring tailored to where you are in your career.
+  Available as a one-time session or an ongoing engagement — so you get the depth and
+  continuity that matches your goals."
+- A "What we can work on" section listing these four topic areas with a short description each:
+  1. **DevOps & Platform Engineering Career Roadmap** — Navigating your growth from engineer
+     to senior, staff, or into leadership. Build a clear plan for where you're headed and how
+     to get there.
+  2. **Personal Finance Management** — Budgeting, investing basics, and making your income
+     work harder — especially relevant for early-to-mid career engineers in India.
+  3. **Hands-on Tool Deep-Dive** — Learn a specific DevOps tool end-to-end with guided
+     practice: Kubernetes, Terraform, Helm, ArgoCD, GitHub Actions, and more.
+  4. **Navigating Corporate Growth** — Building your personal brand inside an organisation,
+     handling office dynamics, increasing your visibility, and positioning for the next step.
+- A "Engagement options" section with three tiers (names and inclusions, no prices):
+  - **One-time Session** — 60-minute session on any topic. Ideal for a focused deep-dive or a
+    specific question you need answered.
+  - **Monthly Mentoring** — 2 sessions per month plus async WhatsApp support between sessions.
+    For ongoing accountability and guidance.
+  - **Quarterly Mentoring** — 6 sessions with structured progress tracking across the quarter.
+    For engineers committed to a defined goal over three months.
+- A closing line: "Pricing and booking details coming soon — get in touch to express interest."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {

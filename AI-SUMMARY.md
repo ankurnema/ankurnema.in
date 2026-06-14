@@ -25,6 +25,8 @@
 
 ## Recent Completions
 
+- [2026-06-14] Prompt 007a: /services page redesigned — 7 sections with lucide icons, persona band, process steps, 3 credibility stat cards; 3 new components (ServiceCard, PersonaChip, ProcessStep); 5/5 E2E pass, build clean
+- [2026-06-14] Prompt 007: /services overview page built with real content — 4 primary service cards, Consulting Hour (soft), DevOps Business Consulting (coming soon), mailto CTA; 5/5 E2E pass, build clean
 - [2026-06-07] Homepage: LinkedIn/GitHub text links replaced with lucide-react icon buttons; About me link added to /about
 - [2026-06-07] About page enhancements: company logos (6) in band, 4-act timeline (SAP named), hero CTAs removed (dead links), narrative text-base, 35/35 E2E pass
 - [2026-06-07] Portrait integrated: AI headshot converted to 73 KB JPEG, metadata-stripped, swapped into About page hero; 35/35 E2E pass

@@ -37,12 +37,31 @@ Read these files before writing any code:
 1. `developer/phase-1-foundation/AI-CONTEXT.md`
 2. `developer/phase-1-foundation/brand-guidelines.md`
 
-**Task:** Create a placeholder `/services/resume-review` page.
+**Task:** Create the `/services/resume-review` page with real service content (no pricing).
 
 Step 1 — page.tsx:
 Create `src/app/services/resume-review/page.tsx`. Include:
 - Page heading: "Resume Review"
-- Placeholder body: "Resume review service details coming soon. Personalised 1:1 resume review with guided enhancement steps and a written action plan — for engineers targeting top tech roles."
+- A short intro paragraph: "A personalised, end-to-end resume review built around your
+  specific career goals — not a generic checklist. Every engagement includes a 1:1 session
+  and a written action plan so you leave with a resume you're confident submitting."
+- A "How it works" section describing the process as steps:
+  1. You submit your resume and a full career timeline.
+  2. Ankur reviews everything in detail.
+  3. A 1:1 session covers findings, suggested changes, and enhancement guidelines.
+  4. You receive a written report with prioritised action items.
+  5. You submit your updated resume.
+  6. Email follow-up to confirm the changes land correctly.
+- A "Review tiers" section with four options (names, turnaround, inclusions — no prices):
+  1. **Quick Review** — 48-hour turnaround. Written feedback, guided enhancement steps, and
+     one 30-minute 1:1 session.
+  2. **Deep Review** — 3–4 day turnaround. In-depth analysis, guided enhancement steps, one
+     60-minute 1:1 session, and one free follow-up session.
+  3. **Full Makeover** — 1-week turnaround. In-depth analysis, a 30-minute initial session,
+     and two follow-up sessions (30–60 minutes each).
+  4. **JD-Based Review** *(add-on)* — 24-hour turnaround. Tailored suggestions for a specific
+     job description, delivered by email. Available only for Deep Review or Full Makeover customers.
+- A closing line: "Pricing and booking details coming soon — get in touch to express interest."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {

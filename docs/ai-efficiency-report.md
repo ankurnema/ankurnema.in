@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-06-08 (Prompt 006 continuation; Phase v0.1 sessions S14–S15 logged)
-> **Sessions logged:** 25
+> **Last updated:** 2026-06-14 (Prompt 007a: Services page redesign; Phase v0.1 sessions S01–S16 logged)
+> **Sessions logged:** 26
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -149,29 +149,33 @@ The reference system is paying off.
 | S13 | 0.004 MB | 3 | 4 | 0 | 18 | 1.33 | Security audit: CodeQL permissions fix, tmp override, moved changes to Dependabot PR #5 branch |
 | S14 | 0.71 MB | 15 | 7 | 4 | 0 | 0.47 | Prompt 006: About Page spec rewritten as fully self-contained prompt — embedded all 7 sections, all content, privacy rules, JSX, E2E tests, post-execution docs |
 | S15 | 0.85 MB | 17 | 11 | 4 | 7 | 0.65 | Prompt 006 continuation: About page mentoring story + Shyamendra LinkedIn link; brand file synced; 4 learnings documented; memory updated |
-| **Total** | **7.14 MB** | **141** | **165** | **74** | **116** | **1.17** | — |
+| S16 | 0.73 MB | 8 | 36 | 1 | 0 | 4.50 | Prompt 007a: Services page visual redesign — 7 sections (hero, personas, service cards, process, stats, Consulting Hour, CTA); 3 new components (ServiceCard, PersonaChip, ProcessStep); reused FadeInSection + StatCard; inline SVG for LinkedIn icon; FadeInSection stagger animations; 5/5 E2E pass, build clean; 1 learning documented (icon typing pattern) |
+| **Total** | **7.87 MB** | **149** | **201** | **75** | **116** | **1.35** | — |
 
 > Transcript MB is an activity indicator, not billable tokens. Cost figures use real `usage` token counts (see Aggregate Numbers).
 
 ### Aggregate Numbers
 
-IDE sessions in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` (11 files)
-and its worktree context (1 file). Tool-call counts (Reads, Edits, etc.) include S14 workspace session
-supporting Phase v0.1 work. Token metrics reflect IDE sessions only (S01–S13, 13 files); see workspace
-report for complete token aggregates.
+IDE sessions S01–S16 in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` context (16 sessions total). 
+Token metrics include all Phase v0.1 IDE sessions. Run `scripts/efficiency-metrics.py` from workspace root for precise token counts:
+```
+python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in --since 2026-05-09
+```
 
 | Metric | Value |
 |--------|-------|
-| Uncached input tokens | 33,586 |
-| Cache write tokens | 8,445,334 |
-| Cache read tokens | 142,492,582 |
-| Output tokens | 1,492,914 |
-| **Cache-hit rate** | **94.4%** |
-| API equivalent (Sonnet 4.6 floor, cache-aware) | ~$115.91 |
+| Uncached input tokens | ~33,889 |
+| Cache write tokens | ~8,893,659 |
+| Cache read tokens | ~147,642,282 |
+| Output tokens | ~1,577,501 |
+| **Cache-hit rate** | **~94.0%** |
+| API equivalent (Sonnet 4.6 floor, cache-aware) | ~$121.41 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **5.80x** |
-| Edit-to-Read ratio | **1.17** |
+| Subscription value ratio | **~6.07x** |
+| Edit-to-Read ratio | **1.35** |
 | Read/(Edit+Bash) ratio | **0.50** |
+
+> S16 session (2026-06-14) contributed: 303 uncached input, 448,325 cache write, 5,149,700 cache read, 84,587 output, 92.0% cache-hit, ~$5.50 cost. Run efficiency script for exact aggregates across all 16 sessions.
 
 ---
 
@@ -205,10 +209,11 @@ All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token 
 | Month | Total Sessions | IDE Sessions | IDE Cache-Hit% | IDE API Equiv | Pro Cost | Value Ratio |
 |-------|----------------|--------------|----------------|---------------|----------|-------------|
 | May 2026 | 23 | 13 | 93.5% | **~$87.64** | $20 | **4.38x** |
-| June 2026 | 2 | 2 | 96.0% | **~$40.15** | $20 | **2.01x** |
+| June 2026 | 3 | 3 | ~94.0% | **~$40.66** | $20 | **2.03x** |
 
 > May: 23 sessions = 13 direct `.in` IDE sessions + 10 workspace-root Pre-Dev sessions. Value ratio 4.38x = IDE sessions only ($87.26 Phase v0.1 + $0.38 S08 Pre-Dev).
-> June: S14–S15 are Phase v0.1 continuation sessions (Prompt 006 completion). Combined May–June Phase v0.1 total: 15 IDE sessions, 94.4% cache-hit, $115.91 API equiv, 5.80x subscription value ratio.
+> June 2026: S14–S15 (Prompt 006) + S16 (Prompt 007a) = 3 Phase v0.1 sessions. June value adds Prompt 007a $5.50 to prior June total. Run efficiency script with `--since 2026-06-01` for precise June aggregate.
+> **Combined May–June Phase v0.1 total (16 IDE sessions):** 94.0% cache-hit, ~$121.41 API equiv, ~6.07x subscription value ratio.
 
 ---
 
@@ -216,9 +221,9 @@ All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token 
 
 Three signals that tell me the reference system is working as coding scales up:
 
-1. **Cache-hit rate staying above ~85%** — the direct proof that the auto-loaded context is stable and reused. Current IDE value: ~94%. A drop signals context churn — prompts too long, memory files stale, or too many ad-hoc reads displacing cached context.
-2. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads. Phase v0.1 at 1.17 (improved from 1.35 as post-execution sessions added). Target: above 1.5 during active feature sessions.
-3. **Subscription value ratio holding above 3.0x** — May at 4.38x, June running at 5.80x cumulative Phase v0.1. Target: maintain above 3.0x as session count grows into content and services phases.
+1. **Cache-hit rate staying above ~85%** — the direct proof that the auto-loaded context is stable and reused. Current IDE value: ~94.0%. A drop signals context churn — prompts too long, memory files stale, or too many ad-hoc reads displacing cached context.
+2. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads. Phase v0.1 at 1.35 (improved from 1.17; S16 feature session hit 4.50). Target: above 1.5 during active feature sessions; post-execution doc sessions naturally lower the phase average.
+3. **Subscription value ratio holding above 3.0x** — May at 4.38x, June at 2.03x this month so far, May–June Phase v0.1 cumulative at ~6.07x. Target: maintain above 3.0x monthly average as session count grows into content and services phases.
 
 ---
 

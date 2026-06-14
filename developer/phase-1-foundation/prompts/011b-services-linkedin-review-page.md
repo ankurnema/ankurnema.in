@@ -34,12 +34,31 @@ Read these files before writing any code:
 1. `developer/phase-1-foundation/AI-CONTEXT.md`
 2. `developer/phase-1-foundation/brand-guidelines.md`
 
-**Task:** Create a placeholder `/services/linkedin-review` page.
+**Task:** Create the `/services/linkedin-review` page with real service content (no pricing).
 
 Step 1 — page.tsx:
 Create `src/app/services/linkedin-review/page.tsx`. Include:
 - Page heading: "LinkedIn Review"
-- Placeholder body: "LinkedIn profile review service details coming soon. Full profile audit with guided enhancements and a 1:1 session — so your profile works as hard as you do."
+- A short intro paragraph: "A full audit of your LinkedIn profile — every section, not just
+  the headline. You'll leave with a clear action plan and a 1:1 session to make sure your
+  profile accurately represents your experience and attracts the right opportunities."
+- A "What's included" section listing:
+  - Section-by-section audit: headline, about, experience, skills, recommendations, featured,
+    and activity.
+  - Guided enhancement suggestions for each section.
+  - One 60-minute 1:1 session covering findings and changes.
+  - Written action plan delivered after the session.
+  - Email follow-up once changes are live.
+- A "How it works" section as steps:
+  1. You share your LinkedIn profile URL and a short note on your role, goals, and target
+     audience (recruiters, peers, clients, etc.).
+  2. Ankur audits every section of your profile.
+  3. A 60-minute 1:1 session walks through the findings and enhancements together.
+  4. You receive a written action plan to implement the changes.
+  5. Email follow-up once your updated profile is live.
+- A note: "This is a standalone service — you can book it independently or alongside a
+  Resume Review."
+- A closing line: "Pricing and booking details coming soon — get in touch to express interest."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {

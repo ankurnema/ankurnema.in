@@ -34,12 +34,25 @@ Read these files before writing any code:
 1. `developer/phase-1-foundation/AI-CONTEXT.md`
 2. `developer/phase-1-foundation/brand-guidelines.md`
 
-**Task:** Create a placeholder `/services/career` page.
+**Task:** Create the `/services/career` page with real service content (no pricing).
 
 Step 1 — page.tsx:
 Create `src/app/services/career/page.tsx`. Include:
 - Page heading: "Career Guidance"
-- Placeholder body: "Career guidance service details coming soon. Strategic 1:1 sessions for engineers navigating role transitions, promotions, and long-term growth."
+- A short intro paragraph: "Strategic 1:1 guidance for engineers at inflection points —
+  whether you're eyeing a promotion, switching roles, moving into a new domain, or simply
+  unsure what your next step should look like."
+- A "Offerings" section with two options (names and inclusions, no prices):
+  1. **Career Strategy Session** — A focused 60-minute 1:1 to map your current situation,
+     clarify your goals, and walk away with a concrete next-step plan. Ideal for engineers
+     who need a clear direction without a long commitment.
+  2. **Career Audit Package** — Three 60-minute sessions spread over a few weeks, plus a
+     written career roadmap delivered at the end. Covers your current role, growth gaps,
+     skill positioning, and a prioritised action plan for the next 6–12 months.
+- A "Who this is for" section: engineers with 2–10 years of experience navigating promotions,
+  lateral moves, role transitions (IC to management or vice versa), or figuring out their
+  next domain.
+- A closing line: "Pricing and booking details coming soon — get in touch to express interest."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {

@@ -1,5 +1,24 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-06-14] Prompt 007a — Services Page Visual Redesign
+
+- Redesigned `/services` to match About page visual bar: 7 sections (hero, persona band, service cards with icons, process strip, credibility stats, Consulting Hour soft strip, CTA)
+- Created 3 new components: `ServiceCard` (amber icon tile + Check-icon highlights), `PersonaChip` (5 audience pills), `ProcessStep` (numbered amber circle + icon)
+- Reused `FadeInSection` (with stagger delays) and `StatCard` from `src/components/about/`
+- Stats: 18+ years, 100+ mentored, Director (DevOps & Developer Productivity)
+- LinkedIn service card uses inline SVG (brand icon absent from lucide-react)
+- Updated `e2e/services.spec.ts` — added heading and persona text assertions; 5/5 pass; `npm run build` clean
+- Files created: `src/components/services/ServiceCard.tsx`, `PersonaChip.tsx`, `ProcessStep.tsx`, `developer/phase-1-foundation/prompts/007a-services-page-redesign.md`
+- Files modified: `src/app/services/page.tsx`, `e2e/services.spec.ts`
+- Decisions made: used `React.ComponentType<{className?; strokeWidth?}>` instead of `LucideIcon` to allow inline SVG alongside Lucide icons
+
+## [2026-06-14] Prompt 007 — Services Overview Page
+
+- Created `/services` overview page with real service content (no pricing): hero, primary services grid (4 cards: Mentoring, Career Guidance, Resume Review, LinkedIn Review), secondary Consulting Hour card (de-emphasised, "available on request"), DevOps Business Consulting (coming soon, dashed/grayed), and mailto CTA
+- Created Playwright E2E smoke test; 5/5 pass across all configured browsers; `npm run build` clean — `/services` renders as static route
+- Files created: `src/app/services/page.tsx`, `e2e/services.spec.ts`
+- Decisions made: services page inlines all content (no sub-components) to keep it self-contained; FadeInSection not used (it lives in `components/about/`, not a shared component yet)
+
 ## [2026-06-07] Homepage — LinkedIn/GitHub Icons + About Page Link
 
 - Replaced LinkedIn and GitHub text links with lucide-react `<Linkedin>` and `<Github>` icon buttons (w-5 h-5 in w-10 h-10 rounded-full containers)

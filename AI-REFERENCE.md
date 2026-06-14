@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-05-31 — Prompt 018 CI/CD: `.github/workflows/ci.yml` and `deploy.yml` created
+> **Last updated:** 2026-06-14 — Prompt 007a: services page redesigned; 3 new components in `src/components/services/`
 
 ---
 
@@ -78,6 +78,12 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `src/app/page.tsx` | App | Home — Coming Soon page with OG metadata (`title.absolute`), branded hero section, light + dark mode variants, LinkedIn/GitHub lucide icon buttons + About me link |
 | `src/app/about/page.tsx` | App | About — 10-section redesigned page: Hero (asymmetric), Companies Band, Impact Stats, The Story, Career Journey (timeline), Selected Work, Featured Projects, Skills, Testimonials (6), Talks+CTA; static server component; content as typed arrays |
 | `e2e/about.spec.ts` | Test | 6 Playwright E2E tests: title, H1, stats (17+), testimonial (Yaniv Bigger), journey heading (The Journey), project title (Oracle Aurora) |
+| `src/app/services/page.tsx` | App | Services overview — hero, persona band (5 audience chips), 4 ServiceCards (Mentoring/Career/Resume/LinkedIn), process strip (4 steps), 3 StatCards (18+ yrs, 100+ mentored, Director), Consulting Hour (soft strip), mailto CTA; server component, FadeInSection animations, no pricing |
+| `e2e/services.spec.ts` | Test | Playwright E2E smoke test — asserts `/services` title, H1 heading, "How we'll work together" heading, and "Mid-career engineers" persona chip |
+| `src/components/services/ServiceCard.tsx` | Component | Service card — amber icon tile, heading, body text, Check-icon highlights list; hover amber border + lift |
+| `src/components/services/PersonaChip.tsx` | Component | Audience persona chip — icon + label in rounded pill; used in "Who this is for" band |
+| `src/components/services/ProcessStep.tsx` | Component | Process step — numbered amber badge, icon, title, description; used in "How we'll work together" section |
+| `developer/phase-1-foundation/prompts/007a-services-page-redesign.md` | Phase prompt | Services page visual redesign — full section spec, icon mapping, stat values |
 | `src/components/about/FadeInSection.tsx` | Component | `'use client'` — framer-motion `whileInView` fade+rise wrapper; `useReducedMotion()` guard |
 | `src/components/about/PortraitPlaceholder.tsx` | Component | AN monogram portrait placeholder — navy gradient card with grid texture; no longer used in page (portrait.jpg now active), kept for reference |
 | `public/about/portrait.jpg` | Asset | About page portrait — 800×800 JPEG, 73 KB, mozjpeg quality 90; converted from brand/about_me/ankur-photo.png; metadata-clean |
@@ -120,7 +126,7 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 |------|------|-------------|
 | `src/app/page.tsx` | Page | Home — hero, tagline, services overview, social proof |
 | `src/app/about/page.tsx` | Page | About — story, credentials, mission |
-| `src/app/services/page.tsx` | Page | Services overview |
+| `src/app/services/page.tsx` | Page | Services overview — ✅ built (Prompt 007) |
 | `src/app/services/consulting/page.tsx` | Page | Consulting Hour — 1:1 expert sessions page |
 | `src/app/services/mentoring/page.tsx` | Page | Mentoring programs |
 | `src/app/services/career/page.tsx` | Page | Career guidance |

@@ -36,12 +36,22 @@ Read these files before writing any code:
 1. `developer/phase-1-foundation/AI-CONTEXT.md`
 2. `developer/phase-1-foundation/brand-guidelines.md`
 
-**Task:** Create a placeholder `/services/consulting` page.
+**Task:** Create the `/services/consulting` page with real service content (no pricing).
 
 Step 1 — page.tsx:
 Create `src/app/services/consulting/page.tsx`. Include:
 - Page heading: "Consulting Hour"
-- Placeholder body: "Expert 1:1 sessions on any professional or technical topic — DevOps, Cloud, AI productivity, and more. Service details coming soon."
+- A short intro paragraph: "Expert 1:1 advisory sessions where you set the agenda. Bring your
+  challenge, your team's pain point, or the topic you've been meaning to deep-dive — Ankur
+  prepares a structured session so the hour is focused and actionable."
+- A "Topics covered" section listing: DevOps & Platform Engineering, Cloud & Kubernetes,
+  CI/CD and Build Systems, Developer Productivity, AI Tools and Workflows, AI for Daily Work.
+- A "How it works" section with these steps:
+  1. You pick a topic and share your background and desired outcome.
+  2. Ankur prepares the session agenda and shares it with you.
+  3. You confirm the agenda — the session only proceeds once you're aligned.
+  4. 60-minute focused session.
+- A closing line: "Booking details coming soon — get in touch to express interest."
 - Export metadata:
   ```ts
   export const metadata: Metadata = {
