@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import {
   Lightbulb,
   TrendingUp,
@@ -48,6 +49,7 @@ function LinkedInIcon({ className }: { className?: string; strokeWidth?: number 
 const primaryServices = [
   {
     icon: Lightbulb,
+    href: '/services/mentoring',
     name: 'Mentoring',
     description:
       '1-on-1 mentoring covering DevOps and Platform Engineering career roadmaps, personal finance management, hands-on tool deep-dives, and navigating corporate growth. Available as one-time or ongoing engagements.',
@@ -60,6 +62,7 @@ const primaryServices = [
   },
   {
     icon: TrendingUp,
+    href: '/services/career',
     name: 'Career Guidance',
     description:
       'Strategic 1:1 sessions for engineers navigating role transitions, promotions, and long-term career growth. Choose a focused strategy session or a multi-session audit package with a written roadmap.',
@@ -72,6 +75,7 @@ const primaryServices = [
   },
   {
     icon: FileText,
+    href: '/services/resume-review',
     name: 'Resume Review',
     description:
       'Personalised resume review with in-depth analysis, guided enhancement steps, 1:1 sessions, and a written action plan — for engineers targeting top tech roles.',
@@ -84,6 +88,7 @@ const primaryServices = [
   },
   {
     icon: LinkedInIcon,
+    href: '/services/linkedin-review',
     name: 'LinkedIn Review',
     description:
       'Full LinkedIn profile audit covering every section, with guided enhancements and a 60-minute 1:1 session so your profile works as hard as you do.',
@@ -210,6 +215,7 @@ export default function ServicesPage() {
                   name={service.name}
                   description={service.description}
                   highlights={service.highlights}
+                  href={service.href}
                 />
               </FadeInSection>
             ))}
@@ -274,38 +280,36 @@ export default function ServicesPage() {
       {/* ── Consulting Hour (soft, secondary) ─────────────────────────────── */}
       <section className="bg-brand-surface dark:bg-brand-surface-dark px-6 py-10">
         <div className="max-w-5xl mx-auto">
-          <div className="border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-2xl p-6">
-            <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+          <Link
+            href="/services/consulting"
+            className="group block border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-2xl p-6 hover:border-brand-navy/30 dark:hover:border-brand-slate-dark/40 hover:shadow-sm transition-all duration-200"
+          >
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-8 rounded-lg bg-brand-slate/5 dark:bg-brand-slate-dark/10 flex items-center justify-center flex-shrink-0">
                 <Clock className="w-4 h-4 text-brand-slate/60 dark:text-brand-slate-dark/60" strokeWidth={1.5} />
               </div>
-              <div className="flex-1">
-                <p className="text-xs font-sans font-semibold tracking-widest uppercase text-brand-slate/60 dark:text-brand-slate-dark/60 mb-1">
-                  Also available
-                </p>
-                <h3 className="text-lg font-semibold font-heading text-brand-navy/70 dark:text-brand-charcoal-dark/70 mb-2">
-                  Consulting Hour
-                </h3>
-                <p className="text-brand-charcoal/70 dark:text-brand-charcoal-dark/60 text-sm font-sans leading-relaxed mb-3">
-                  Expert 1:1 advisory sessions on DevOps, Cloud, CI/CD, Platform Engineering,
-                  and AI workflows. You define the topic; Ankur prepares the agenda.
-                </p>
-                <ul className="flex flex-wrap gap-2">
-                  {consultingTopics.map((t) => (
-                    <li
-                      key={t}
-                      className="text-xs font-sans text-brand-slate/70 dark:text-brand-slate-dark/70 bg-brand-slate/5 dark:bg-brand-slate-dark/10 px-2.5 py-1 rounded-full"
-                    >
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p className="text-sm font-sans text-brand-slate/60 dark:text-brand-slate-dark/60 whitespace-nowrap flex-shrink-0 self-start sm:self-center">
-                Available on request
+              <p className="text-xs font-sans font-semibold tracking-widest uppercase text-brand-slate/60 dark:text-brand-slate-dark/60">
+                Also available
               </p>
             </div>
-          </div>
+            <h3 className="text-lg font-semibold font-heading text-brand-navy/70 dark:text-brand-charcoal-dark/70 mb-2 group-hover:text-brand-navy dark:group-hover:text-brand-charcoal-dark transition-colors">
+              Consulting Hour
+            </h3>
+            <p className="text-brand-charcoal/70 dark:text-brand-charcoal-dark/60 text-sm font-sans leading-relaxed mb-4">
+              Expert 1:1 advisory sessions on DevOps, Cloud, CI/CD, Platform Engineering,
+              and AI workflows. You define the topic; Ankur prepares the agenda.
+            </p>
+            <ul className="flex flex-wrap gap-2">
+              {consultingTopics.map((t) => (
+                <li
+                  key={t}
+                  className="text-xs font-sans text-brand-slate/70 dark:text-brand-slate-dark/70 bg-brand-slate/5 dark:bg-brand-slate-dark/10 px-2.5 py-1 rounded-full"
+                >
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Link>
         </div>
       </section>
 

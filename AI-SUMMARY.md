@@ -25,6 +25,11 @@
 
 ## Recent Completions
 
+- [2026-06-14] Prompt 011b: /services/linkedin-review page built with What's included, How it works, and CTA sections; 5/5 E2E pass across all browsers, build clean
+- [2026-06-14] Prompt 011: /services/resume-review page built with 6-step process section and 4-tier review cards (Quick/Deep/Full Makeover/JD-Based add-on); 5/5 E2E pass, build clean
+- [2026-06-14] Prompt 010: /services/career page built with Career Strategy Session + Career Audit Package offerings, target audience section, and mailto CTA; E2E smoke test passes, build clean
+- [2026-06-14] Prompt 009: /services/mentoring page built with full content — hero, 4-topic grid, 3-tier engagement options, mailto CTA; 50/50 E2E pass, build clean
+- [2026-06-14] Prompt 008: /services/consulting page created — hero, 6-topic grid, 4-step process (reuses ProcessStep), mailto closing; 5/5 E2E pass, build clean
 - [2026-06-14] Prompt 007a: /services page redesigned — 7 sections with lucide icons, persona band, process steps, 3 credibility stat cards; 3 new components (ServiceCard, PersonaChip, ProcessStep); 5/5 E2E pass, build clean
 - [2026-06-14] Prompt 007: /services overview page built with real content — 4 primary service cards, Consulting Hour (soft), DevOps Business Consulting (coming soon), mailto CTA; 5/5 E2E pass, build clean
 - [2026-06-07] Homepage: LinkedIn/GitHub text links replaced with lucide-react icon buttons; About me link added to /about

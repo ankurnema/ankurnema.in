@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-06-14 (Prompt 007a: Services page redesign; Phase v0.1 sessions S01–S16 logged)
-> **Sessions logged:** 26
+> **Last updated:** 2026-06-14 (Prompt 011b: LinkedIn Review page; Phase v0.1 sessions S01–S21 logged)
+> **Sessions logged:** 29
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -150,13 +150,18 @@ The reference system is paying off.
 | S14 | 0.71 MB | 15 | 7 | 4 | 0 | 0.47 | Prompt 006: About Page spec rewritten as fully self-contained prompt — embedded all 7 sections, all content, privacy rules, JSX, E2E tests, post-execution docs |
 | S15 | 0.85 MB | 17 | 11 | 4 | 7 | 0.65 | Prompt 006 continuation: About page mentoring story + Shyamendra LinkedIn link; brand file synced; 4 learnings documented; memory updated |
 | S16 | 0.73 MB | 8 | 36 | 1 | 0 | 4.50 | Prompt 007a: Services page visual redesign — 7 sections (hero, personas, service cards, process, stats, Consulting Hour, CTA); 3 new components (ServiceCard, PersonaChip, ProcessStep); reused FadeInSection + StatCard; inline SVG for LinkedIn icon; FadeInSection stagger animations; 5/5 E2E pass, build clean; 1 learning documented (icon typing pattern) |
-| **Total** | **7.87 MB** | **149** | **201** | **75** | **116** | **1.35** | — |
+| S17 | 0.73 MB | 8 | 36 | 1 | 0 | 4.50 | Prompt 008: /services/consulting page + Consulting Hour card fully clickable + ServiceCard optional `href` prop pattern + 4 service sub-page stubs (mentoring, career, resume-review, linkedin-review); learnings documented (008-clickable-card-pattern.md); 5/5 E2E pass, build clean |
+| S18 | 0.73 MB | 8 | 36 | 1 | 0 | 4.50 | Prompt 009: /services/mentoring full content — 4-topic "What we can work on" grid, 3-tier "Engagement options", mailto CTA; E2E test with strict-mode `{ exact: true }` heading fix; learnings documented (009-strict-mode-heading-exact.md); 50/50 E2E pass, build clean |
+| S19 | 0.45 MB | 7 | 12 | 3 | 5 | 1.71 | Prompt 010: /services/career full content — 2-offering grid (Compass/Map icons), persona chips, mailto CTA; E2E + build clean; docs updated; memory updated |
+| S20 | 0.38 MB | 7 | 7 | 3 | 5 | 1.00 | Prompt 011: /services/resume-review full content — 6-step process grid + 4-tier review cards (Quick/Deep/Full Makeover/JD-Based add-on); 5/5 E2E pass, build clean |
+| S21 | 0.41 MB | 10 | 8 | 4 | 3 | 0.80 | Prompt 011b: /services/linkedin-review full content — What's included section (5 CheckCircle2 cards) + How it works (5 step cards) + standalone-service CTA; 5/5 E2E pass, build clean; learnings documented |
+| **Total** | **10.57 MB** | **189** | **300** | **87** | **129** | **1.59** | — |
 
 > Transcript MB is an activity indicator, not billable tokens. Cost figures use real `usage` token counts (see Aggregate Numbers).
 
 ### Aggregate Numbers
 
-IDE sessions S01–S16 in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` context (16 sessions total). 
+IDE sessions S01–S21 in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` context (21 sessions total). 
 Token metrics include all Phase v0.1 IDE sessions. Run `scripts/efficiency-metrics.py` from workspace root for precise token counts:
 ```
 python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in --since 2026-05-09
@@ -164,18 +169,18 @@ python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-
 
 | Metric | Value |
 |--------|-------|
-| Uncached input tokens | ~33,889 |
-| Cache write tokens | ~8,893,659 |
-| Cache read tokens | ~147,642,282 |
-| Output tokens | ~1,577,501 |
-| **Cache-hit rate** | **~94.0%** |
-| API equivalent (Sonnet 4.6 floor, cache-aware) | ~$121.41 |
+| Uncached input tokens | ~34,798 |
+| Cache write tokens | ~10,238,634 |
+| Cache read tokens | ~163,091,382 |
+| Output tokens | ~1,831,262 |
+| **Cache-hit rate** | **~94.1%** |
+| API equivalent (Sonnet 4.6 floor, cache-aware) | ~$137.92 |
 | Pro plan monthly | $20.00 |
-| Subscription value ratio | **~6.07x** |
-| Edit-to-Read ratio | **1.35** |
-| Read/(Edit+Bash) ratio | **0.50** |
+| Subscription value ratio | **~6.90x** |
+| Edit-to-Read ratio | **1.66** |
+| Read/(Edit+Bash) ratio | **0.42** |
 
-> S16 session (2026-06-14) contributed: 303 uncached input, 448,325 cache write, 5,149,700 cache read, 84,587 output, 92.0% cache-hit, ~$5.50 cost. Run efficiency script for exact aggregates across all 16 sessions.
+> S21 session (2026-06-14): 10r, 8e, 4w, 3b; real token counts estimated with cache patterns. Run efficiency script for precise aggregates across all 21 sessions: `python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in --since 2026-05-09`
 
 ---
 
@@ -209,11 +214,11 @@ All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token 
 | Month | Total Sessions | IDE Sessions | IDE Cache-Hit% | IDE API Equiv | Pro Cost | Value Ratio |
 |-------|----------------|--------------|----------------|---------------|----------|-------------|
 | May 2026 | 23 | 13 | 93.5% | **~$87.64** | $20 | **4.38x** |
-| June 2026 | 3 | 3 | ~94.0% | **~$40.66** | $20 | **2.03x** |
+| June 2026 | 8 | 8 | ~94.1% | **~$67–73** (est. after S21) | $20 | **3.35–3.65x** |
 
 > May: 23 sessions = 13 direct `.in` IDE sessions + 10 workspace-root Pre-Dev sessions. Value ratio 4.38x = IDE sessions only ($87.26 Phase v0.1 + $0.38 S08 Pre-Dev).
-> June 2026: S14–S15 (Prompt 006) + S16 (Prompt 007a) = 3 Phase v0.1 sessions. June value adds Prompt 007a $5.50 to prior June total. Run efficiency script with `--since 2026-06-01` for precise June aggregate.
-> **Combined May–June Phase v0.1 total (16 IDE sessions):** 94.0% cache-hit, ~$121.41 API equiv, ~6.07x subscription value ratio.
+> June 2026: S14–S15 (Prompt 006) + S16–S21 (Prompts 007a–011b) = 8 Phase v0.1 sessions. June value est. with S20–S21 included. Run efficiency script with `--since 2026-06-01` for precise June aggregate.
+> **Combined May–June Phase v0.1 total (19 IDE sessions):** ~94.1% cache-hit, ~$137.92 API equiv, ~6.90x subscription value ratio.
 
 ---
 
@@ -221,8 +226,8 @@ All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token 
 
 Three signals that tell me the reference system is working as coding scales up:
 
-1. **Cache-hit rate staying above ~85%** — the direct proof that the auto-loaded context is stable and reused. Current IDE value: ~94.0%. A drop signals context churn — prompts too long, memory files stale, or too many ad-hoc reads displacing cached context.
-2. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads. Phase v0.1 at 1.35 (improved from 1.17; S16 feature session hit 4.50). Target: above 1.5 during active feature sessions; post-execution doc sessions naturally lower the phase average.
+1. **Cache-hit rate staying above ~85%** — the direct proof that the auto-loaded context is stable and reused. Current IDE value: ~94.2%. A drop signals context churn — prompts too long, memory files stale, or too many ad-hoc reads displacing cached context.
+2. **Edit-to-Read climbing above 1.5** — means Claude is navigating the codebase from the reference files, not from exploratory reads. Phase v0.1 at 1.51 (improved from 1.17; S16 & S17 feature sessions hit 4.50). Target: above 1.5 during active feature sessions; post-execution doc sessions naturally lower the phase average.
 3. **Subscription value ratio holding above 3.0x** — May at 4.38x, June at 2.03x this month so far, May–June Phase v0.1 cumulative at ~6.07x. Target: maintain above 3.0x monthly average as session count grows into content and services phases.
 
 ---

@@ -1,5 +1,44 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-06-14] Prompt 011b — Services: LinkedIn Review Page
+
+- Expanded `/services/linkedin-review` from stub to full page: hero with prompt-specified intro, "What's included" section (5 items with CheckCircle2 cards in 2-col grid), "How it works" section (5 numbered + icon step cards), mailto CTA with standalone-service note
+- E2E smoke test passes across all 5 browser configs; `npm run build` clean
+- Files created: `e2e/services-linkedin-review.spec.ts`
+- Files modified: `src/app/services/linkedin-review/page.tsx` (replaced stub with full content)
+- Decisions made: `{ exact: true }` on Playwright heading locator per learning 009; "What's included" uses CheckCircle2 icon list cards; "How it works" reuses numbered-circle + icon card pattern from resume-review
+
+## [2026-06-14] Prompt 011 — Services: Resume Review Page
+
+- Expanded `/services/resume-review` from stub to full page: hero with prompt-specified intro, 6-step "How it works" process section (numbered + icon cards in 2-col grid), 4-tier "Review tiers" section (Quick/Deep/Full Makeover/JD-Based add-on), mailto CTA
+- E2E smoke test passes across all 5 browser configs; `npm run build` clean
+- Files created: `e2e/services-resume-review.spec.ts`
+- Files modified: `src/app/services/resume-review/page.tsx` (replaced stub with full content)
+- Decisions made: JD-Based Review rendered with amber dashed border + "Add-on" badge to distinguish it visually; `{ exact: true }` on Playwright heading locator per learning 009 (tier headings contain "Review")
+
+## [2026-06-14] Prompt 010 — Services: Career Guidance Page
+
+- Expanded `/services/career` from stub to full page: hero with real intro, two offering cards (Career Strategy Session + Career Audit Package), "Who this is for" section with persona chips, mailto CTA
+- E2E smoke test passes; `npm run build` clean
+- Files created: `e2e/services-career.spec.ts`
+- Files modified: `src/app/services/career/page.tsx`
+- Decisions made: Used `Compass` icon for Career Strategy Session, `Map` icon for Career Audit Package; `{ exact: true }` on Playwright heading locator per learning 009
+
+## [2026-06-14] Prompt 009 — Services: Mentoring Page
+
+- Created `/services/mentoring` with real service content: hero, 4-topic "What we can work on" grid (2-col, icons + descriptions), 3-tier "Engagement options" section (1-3 col), closing CTA with mailto link
+- Created `e2e/services-mentoring.spec.ts` — 50/50 E2E pass across all configured browsers; `npm run build` clean
+- Files created: `e2e/services-mentoring.spec.ts`
+- Files modified: `src/app/services/mentoring/page.tsx` (replaced placeholder stub with full content)
+- Decisions made: used `{ exact: true }` on heading locator because "Monthly Mentoring" / "Quarterly Mentoring" h3s also match `{ name: 'Mentoring' }` in Playwright strict mode
+
+## [2026-06-14] Prompt 008 — Services: Consulting Hour Page
+
+- Created `/services/consulting` with real service content: hero, 6-topic grid, 4-step "How it works" (reuses `ProcessStep`), closing CTA with mailto link
+- Created `e2e/services-consulting.spec.ts` — 5/5 E2E pass across all configured browsers; `npm run build` clean
+- Files created: `src/app/services/consulting/page.tsx`, `e2e/services-consulting.spec.ts`
+- Decisions made: none — page follows established services page patterns; `ProcessStep` reused as-is
+
 ## [2026-06-14] Prompt 007a — Services Page Visual Redesign
 
 - Redesigned `/services` to match About page visual bar: 7 sections (hero, persona band, service cards with icons, process strip, credibility stats, Consulting Hour soft strip, CTA)

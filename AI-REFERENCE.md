@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-06-14 — Prompt 007a: services page redesigned; 3 new components in `src/components/services/`
+> **Last updated:** 2026-06-14 — Prompt 011b: `/services/linkedin-review` page (full content) and E2E test created
 
 ---
 
@@ -80,6 +80,16 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `e2e/about.spec.ts` | Test | 6 Playwright E2E tests: title, H1, stats (17+), testimonial (Yaniv Bigger), journey heading (The Journey), project title (Oracle Aurora) |
 | `src/app/services/page.tsx` | App | Services overview — hero, persona band (5 audience chips), 4 ServiceCards (Mentoring/Career/Resume/LinkedIn), process strip (4 steps), 3 StatCards (18+ yrs, 100+ mentored, Director), Consulting Hour (soft strip), mailto CTA; server component, FadeInSection animations, no pricing |
 | `e2e/services.spec.ts` | Test | Playwright E2E smoke test — asserts `/services` title, H1 heading, "How we'll work together" heading, and "Mid-career engineers" persona chip |
+| `src/app/services/consulting/page.tsx` | App | Consulting Hour — hero (navy/dot pattern), 6-topic grid (Layers/Cloud/GitBranch/Gauge/Bot/Sparkles icons), 4-step "How it works" (reuses ProcessStep), mailto closing; no pricing |
+| `e2e/services-consulting.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/consulting` title and H1 heading |
+| `src/app/services/mentoring/page.tsx` | App | Mentoring — hero (navy/dot pattern), 4-topic "What we can work on" grid (TrendingUp/Wallet/Terminal/Briefcase icons), 3-tier "Engagement options" (Clock/CalendarDays/Target icons), mailto closing; no pricing |
+| `src/app/services/career/page.tsx` | App | Career Guidance — hero (navy/dot pattern), 2-offering "How we can work together" grid (Compass/Map icons), "Who this is for" section with 4 persona chips, mailto closing; no pricing |
+| `src/app/services/resume-review/page.tsx` | App | Resume Review — hero (navy/dot pattern), 6-step "How it works" process grid (numbered + icon cards), 4-tier "Review tiers" grid (Quick/Deep/Full Makeover/JD-Based add-on with amber badge), mailto closing; no pricing |
+| `e2e/services-mentoring.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/mentoring` title and H1 heading (exact match to avoid strict mode conflict with h3 tier names) |
+| `e2e/services-career.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/career` title and H1 heading (exact match) |
+| `e2e/services-resume-review.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/resume-review` title and H1 heading (exact match; `exact: true` guards against tier headings containing "Review") |
+| `src/app/services/linkedin-review/page.tsx` | App | LinkedIn Review — hero (navy/dot pattern), "What's included" section (5 CheckCircle2 icon cards: section audit, guided suggestions, 60-min session, written plan, email follow-up), "How it works" section (5 numbered + icon step cards), mailto closing with standalone-service note; no pricing |
+| `e2e/services-linkedin-review.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/linkedin-review` title and H1 heading (`exact: true` per learning 009) |
 | `src/components/services/ServiceCard.tsx` | Component | Service card — amber icon tile, heading, body text, Check-icon highlights list; hover amber border + lift |
 | `src/components/services/PersonaChip.tsx` | Component | Audience persona chip — icon + label in rounded pill; used in "Who this is for" band |
 | `src/components/services/ProcessStep.tsx` | Component | Process step — numbered amber badge, icon, title, description; used in "How we'll work together" section |
@@ -127,10 +137,11 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `src/app/page.tsx` | Page | Home — hero, tagline, services overview, social proof |
 | `src/app/about/page.tsx` | Page | About — story, credentials, mission |
 | `src/app/services/page.tsx` | Page | Services overview — ✅ built (Prompt 007) |
-| `src/app/services/consulting/page.tsx` | Page | Consulting Hour — 1:1 expert sessions page |
-| `src/app/services/mentoring/page.tsx` | Page | Mentoring programs |
-| `src/app/services/career/page.tsx` | Page | Career guidance |
-| `src/app/services/resume-review/page.tsx` | Page | Resume review service |
+| `src/app/services/consulting/page.tsx` | Page | Consulting Hour — ✅ built (Prompt 008) |
+| `src/app/services/mentoring/page.tsx` | Page | Mentoring programs — ✅ built (Prompt 009) |
+| `src/app/services/career/page.tsx` | Page | Career guidance — ✅ built (Prompt 010) |
+| `src/app/services/resume-review/page.tsx` | Page | Resume review service — ✅ built (Prompt 011) |
+| `src/app/services/linkedin-review/page.tsx` | Page | LinkedIn profile review — ✅ built (Prompt 011b) |
 | `src/app/blog/page.tsx` | Page | Blog index |
 | `src/app/blog/[slug]/page.tsx` | Page | Individual blog post |
 | `src/app/resources/page.tsx` | Page | Free templates and guides |
