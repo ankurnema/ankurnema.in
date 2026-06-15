@@ -1,7 +1,7 @@
 # AI-REFERENCE.md — ankurnema.in
 
 > **Purpose:** File and folder map for this repo. Updated after every structural change.
-> **Last updated:** 2026-06-14 — Prompt 011b: `/services/linkedin-review` page (full content) and E2E test created
+> **Last updated:** 2026-06-15 — 3D design pass: floating pill header, btn-3d-primary, card lift/shadow system, equal-height grid cards, ClientShell conditional header/footer
 
 ---
 
@@ -70,17 +70,21 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `eslint.config.mjs` | Config | ESLint 9 flat config — native eslint-config-next array (no FlatCompat) |
 | `postcss.config.mjs` | Config | PostCSS — @tailwindcss/postcss (Tailwind v4, no autoprefixer) |
 | `.mcp.json` | Config | MCP server config — next-devtools-mcp per ADR-003 |
-| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 brand color tokens (navy `#00305a`, blue accent `#009ee3`; updated 2026-05-17 to match delivered logo); `@custom-variant dark`; imported in `globals.css` |
+| `src/styles/brand.css` | Style | Tailwind v4 `@theme` block — 12 brand color tokens (navy `#00305a`, blue accent `#009ee3`; updated 2026-05-17 to match delivered logo); `@custom-variant dark`; `btn-3d-primary` @layer utility (inset top highlight + ambient glow + drop shadow, dark mode variants); imported in `globals.css` |
 | `src/app/globals.css` | Style | Tailwind v4 CSS-first entry — imports tailwindcss + brand.css |
 | `.env.example` | Config | Env var reference — `NEXT_PUBLIC_GA_ID=` placeholder with comment pointing to analytics.google.com |
-| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), header with LogoText + ThemeToggle, footer (copyright + social links), Providers wrapper, full `dark:` utility variants; `<GoogleAnalytics>` conditional render |
+| `src/lib/nav.ts` | Config | Navigation config — `navLinks`, `serviceLinks`, `servicesOverviewHref`, `socialLinks`, `siteEmail`, `cta`, `repoUrl`; single source of truth for Header and Footer |
+| `src/components/ClientShell.tsx` | Component | `'use client'` conditional shell — uses `usePathname()`; renders Header + Footer on all pages except `/`; wraps children in `<main>` |
+| `src/components/Header.tsx` | Component | `'use client'` scroll-triggered floating header — at top: full-width docked glass bar; after scroll (>4px): floating pill with `mx-4 mt-4 rounded-2xl border shadow-lg`; transition-all 300ms; logo + desktop nav (Home/About + Services dropdown) + pill "Book a call" CTA with `btn-3d-primary` + ThemeToggle; text-[15px] nav links; mobile hamburger overlay |
+| `src/components/Footer.tsx` | Component | Server component rich footer — 4-column grid (Brand+social icons only, Explore, Services, Connect with email only — LinkedIn/GitHub removed from text links); bottom bar; dark-mode, responsive |
+| `src/app/layout.tsx` | App | Root layout — Inter + DM Sans fonts, metadata (title template, OG, Twitter), wraps children in `<ClientShell>` (replaces direct Header/Footer), Providers wrapper, `<GoogleAnalytics>` conditional render |
 | `src/__tests__/layout.test.tsx` | Test | Vitest unit test for RootLayout — mocks next/font/google, asserts footer copyright text |
-| `src/app/page.tsx` | App | Home — Coming Soon page with OG metadata (`title.absolute`), branded hero section, light + dark mode variants, LinkedIn/GitHub lucide icon buttons + About me link |
+| `src/app/page.tsx` | App | Home — Coming Soon page; LogoText (h-20), "COMING SOON" label, subtitle, description, "About Me →" amber pill button to `/about`; no header/footer (ClientShell hides them); no social icons |
 | `src/app/about/page.tsx` | App | About — 10-section redesigned page: Hero (asymmetric), Companies Band, Impact Stats, The Story, Career Journey (timeline), Selected Work, Featured Projects, Skills, Testimonials (6), Talks+CTA; static server component; content as typed arrays |
 | `e2e/about.spec.ts` | Test | 6 Playwright E2E tests: title, H1, stats (17+), testimonial (Yaniv Bigger), journey heading (The Journey), project title (Oracle Aurora) |
 | `src/app/services/page.tsx` | App | Services overview — hero, persona band (5 audience chips), 4 ServiceCards (Mentoring/Career/Resume/LinkedIn), process strip (4 steps), 3 StatCards (18+ yrs, 100+ mentored, Director), Consulting Hour (soft strip), mailto CTA; server component, FadeInSection animations, no pricing |
 | `e2e/services.spec.ts` | Test | Playwright E2E smoke test — asserts `/services` title, H1 heading, "How we'll work together" heading, and "Mid-career engineers" persona chip |
-| `src/app/services/consulting/page.tsx` | App | Consulting Hour — hero (navy/dot pattern), 6-topic grid (Layers/Cloud/GitBranch/Gauge/Bot/Sparkles icons), 4-step "How it works" (reuses ProcessStep), mailto closing; no pricing |
+| `src/app/services/consulting/page.tsx` | App | Consulting Hour — hero (navy/dot pattern), 6-topic grid (Layers/Cloud/GitBranch/Gauge/Bot/Sparkles icons), 4-step "How it works" (ProcessFlow horizontal stepper), mailto closing; no pricing |
 | `e2e/services-consulting.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/consulting` title and H1 heading |
 | `src/app/services/mentoring/page.tsx` | App | Mentoring — hero (navy/dot pattern), 4-topic "What we can work on" grid (TrendingUp/Wallet/Terminal/Briefcase icons), 3-tier "Engagement options" (Clock/CalendarDays/Target icons), mailto closing; no pricing |
 | `src/app/services/career/page.tsx` | App | Career Guidance — hero (navy/dot pattern), 2-offering "How we can work together" grid (Compass/Map icons), "Who this is for" section with 4 persona chips, mailto closing; no pricing |
@@ -90,8 +94,9 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `e2e/services-resume-review.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/resume-review` title and H1 heading (exact match; `exact: true` guards against tier headings containing "Review") |
 | `src/app/services/linkedin-review/page.tsx` | App | LinkedIn Review — hero (navy/dot pattern), "What's included" section (5 CheckCircle2 icon cards: section audit, guided suggestions, 60-min session, written plan, email follow-up), "How it works" section (5 numbered + icon step cards), mailto closing with standalone-service note; no pricing |
 | `e2e/services-linkedin-review.spec.ts` | Test | Playwright E2E smoke test — asserts `/services/linkedin-review` title and H1 heading (`exact: true` per learning 009) |
-| `src/components/services/ServiceCard.tsx` | Component | Service card — amber icon tile, heading, body text, Check-icon highlights list; hover amber border + lift |
-| `src/components/services/PersonaChip.tsx` | Component | Audience persona chip — icon + label in rounded pill; used in "Who this is for" band |
+| `src/components/services/ProcessFlow.tsx` | Component | Dual-layout process flow — vertical numbered timeline (mobile always; desktop for 5+ steps) + horizontal stepper with dashed-arrow connectors (desktop ≤4 steps); used by services/page, consulting, resume-review, linkedin-review |
+| `src/components/services/ServiceCard.tsx` | Component | Service card — `h-full flex flex-col`; amber icon tile, heading, body text, Check-icon highlights list; resting shadow + `hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-amber/10` |
+| `src/components/services/PersonaChip.tsx` | Component | Audience persona chip — icon + label in rounded pill; 3D resting shadow (`0_3px_0_0_rgba(0,0,0,0.08)`) for slight lift effect |
 | `src/components/services/ProcessStep.tsx` | Component | Process step — numbered amber badge, icon, title, description; used in "How we'll work together" section |
 | `developer/phase-1-foundation/prompts/007a-services-page-redesign.md` | Phase prompt | Services page visual redesign — full section spec, icon mapping, stat values |
 | `src/components/about/FadeInSection.tsx` | Component | `'use client'` — framer-motion `whileInView` fade+rise wrapper; `useReducedMotion()` guard |
@@ -104,12 +109,12 @@ Next.js 16 scaffold, testing infrastructure, and brand system complete (Prompts 
 | `public/about/companies/broadcom.svg` | Asset | Broadcom wordmark SVG — used in CompaniesBand |
 | `public/about/companies/amdocs.svg` | Asset | Amdocs wordmark SVG — used in CompaniesBand |
 | `public/about/companies/sap.svg` | Asset | SAP logo SVG (blue gradient bg) — used in CompaniesBand; SAP naming allowed on About page only |
-| `src/components/about/StatCard.tsx` | Component | Icon + gradient-text stat number + label; accepts `LucideIcon` prop + optional `testId` |
+| `src/components/about/StatCard.tsx` | Component | Icon + gradient-text stat number + label; `h-full flex flex-col`; resting shadow + `hover:-translate-y-1.5` lift; accepts `LucideIcon` prop + optional `testId` |
 | `src/components/about/TimelineAct.tsx` | Component | Career timeline card — alternates left/right via `side` prop; Act badge, year, companies, narrative |
-| `src/components/about/StoryCard.tsx` | Component | Before→after impact card with gradient metric; `variant="featured"` for 2-col-span wide card |
-| `src/components/about/ProjectCard.tsx` | Component | Project card — challenge + result block + tech-stack pill tags |
-| `src/components/about/SkillGroup.tsx` | Component | Skill group card — title icon + list of skills each with lucide icon |
-| `src/components/about/TestimonialCard.tsx` | Component | Quote card — amber quote mark, body, initials avatar, name + role/company |
+| `src/components/about/StoryCard.tsx` | Component | Before→after impact card; `h-full flex flex-col`; resting shadow + `hover:-translate-y-2` glow lift; `variant="featured"` for 2-col-span wide card |
+| `src/components/about/ProjectCard.tsx` | Component | Project card — `h-full flex flex-col`; challenge + result block + tech-stack pill tags (with subtle shadows); resting shadow + `hover:-translate-y-2` lift |
+| `src/components/about/SkillGroup.tsx` | Component | Skill group card — `h-full flex flex-col`; title icon + skills list; resting shadow + `hover:-translate-y-1.5` lift |
+| `src/components/about/TestimonialCard.tsx` | Component | Quote card — `h-full flex flex-col`; amber quote mark, body (`flex-1`), initials avatar, name + role/company; resting shadow + `hover:-translate-y-2` lift |
 | `developer/adr/011-animation-and-icons.md` | ADR | ADR-011: Framer Motion chosen over Motion One/GSAP; Lucide chosen over Heroicons/React Icons; implementation pattern; bundle considerations |
 | `src/components/Providers.tsx` | Component | `'use client'` ThemeProvider wrapper — next-themes, `attribute="class"`, `defaultTheme="system"`, `enableSystem` |
 | `src/components/ThemeToggle.tsx` | Component | `'use client'` dark/light mode toggle — `mounted` guard, `resolvedTheme`, sun/moon inline SVG icons |

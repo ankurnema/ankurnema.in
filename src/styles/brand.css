@@ -31,3 +31,50 @@
 @media (prefers-reduced-motion: reduce) {
   .motion-safe\:animate-fade-in-up { animation: none; }
 }
+
+@layer utilities {
+  /* Glowing lift button — light mode */
+  .btn-3d-primary {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 4px 14px rgba(0, 158, 227, 0.45),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  .btn-3d-primary:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 6px 22px rgba(0, 158, 227, 0.6),
+      0 4px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+  .btn-3d-primary:active {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 2px 8px rgba(0, 158, 227, 0.3),
+      0 1px 2px rgba(0, 0, 0, 0.08);
+    transform: translateY(1px);
+  }
+  /* Glowing lift button — dark mode */
+  .dark .btn-3d-primary {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 4px 16px rgba(56, 189, 248, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+  .dark .btn-3d-primary:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 6px 24px rgba(56, 189, 248, 0.55),
+      0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+  .dark .btn-3d-primary:active {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 2px 8px rgba(56, 189, 248, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+  }
+}

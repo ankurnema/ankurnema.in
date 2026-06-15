@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter, DM_Sans } from 'next/font/google'
-import Link from 'next/link'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { LogoText } from '@/components/LogoText'
 import { Providers } from '@/components/Providers'
-import { ThemeToggle } from '@/components/ThemeToggle'
+import { ClientShell } from '@/components/ClientShell'
 import './globals.css'
 
 const inter = Inter({
@@ -51,18 +49,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <body className="bg-brand-canvas dark:bg-brand-canvas-dark text-brand-charcoal dark:text-brand-charcoal-dark font-sans min-h-dvh flex flex-col">
         <Providers>
-          <header className="w-full px-6 md:px-8 lg:px-12 xl:px-16 py-4 md:py-5 bg-brand-surface dark:bg-brand-surface-dark border-b border-brand-slate/20 dark:border-brand-slate-dark/20">
-            <div className="flex items-center justify-between">
-              <Link href="/" aria-label="Ankur Nema — home">
-                <LogoText className="h-8 w-auto sm:h-10 md:h-12" />
-              </Link>
-              <ThemeToggle />
-            </div>
-          </header>
-          <main className="flex-1 flex flex-col">{children}</main>
-          <footer className="w-full px-6 md:px-8 lg:px-12 xl:px-16 py-6 md:py-8 bg-brand-surface dark:bg-brand-surface-dark border-t border-brand-slate/20 dark:border-brand-slate-dark/20 text-brand-slate dark:text-brand-slate-dark text-sm md:text-lg">
-            <p>© {new Date().getFullYear()} Ankur Nema</p>
-          </footer>
+          <ClientShell>{children}</ClientShell>
         </Providers>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />

@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { FadeInSection } from '@/components/about/FadeInSection'
-import { ProcessStep } from '@/components/services/ProcessStep'
+import { ProcessFlow } from '@/components/services/ProcessFlow'
 
 export const metadata: Metadata = {
   title: 'Consulting Hour',
@@ -110,7 +110,7 @@ export default function ConsultingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {topics.map(({ icon: Icon, label }, i) => (
               <FadeInSection key={label} delay={i * 0.06}>
-                <div className="flex items-center gap-3 bg-brand-surface dark:bg-brand-surface-dark border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-xl px-4 py-3.5">
+                <div className="flex items-center gap-3 bg-brand-surface dark:bg-brand-surface-dark border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-xl px-4 py-3.5 shadow-[0_2px_6px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)]">
                   <Icon
                     className="w-4 h-4 text-brand-amber dark:text-brand-amber-dark flex-shrink-0"
                     strokeWidth={1.5}
@@ -137,18 +137,9 @@ export default function ConsultingPage() {
             </h2>
           </FadeInSection>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-4">
-            {steps.map((step, i) => (
-              <FadeInSection key={step.title} delay={i * 0.1}>
-                <ProcessStep
-                  step={i + 1}
-                  icon={step.icon}
-                  title={step.title}
-                  description={step.description}
-                />
-              </FadeInSection>
-            ))}
-          </div>
+          <FadeInSection>
+            <ProcessFlow steps={steps} />
+          </FadeInSection>
         </div>
       </section>
 

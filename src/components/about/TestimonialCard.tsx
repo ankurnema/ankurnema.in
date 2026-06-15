@@ -22,9 +22,11 @@ function Initials({ name }: { name: string }) {
 export function TestimonialCard({ quote, name, role, company }: TestimonialCardProps) {
   return (
     <div className="
-      bg-brand-surface dark:bg-brand-surface-dark rounded-2xl p-6 border border-brand-slate/10 dark:border-brand-slate-dark/10
-      hover:border-brand-amber/30 dark:hover:border-brand-amber-dark/30 hover:-translate-y-0.5 transition-all duration-200
-      flex flex-col gap-4
+      h-full bg-brand-surface dark:bg-brand-surface-dark rounded-2xl p-6 border border-brand-slate/10 dark:border-brand-slate-dark/10
+      hover:border-brand-amber/30 dark:hover:border-brand-amber-dark/30
+      shadow-[0_2px_8px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.25)]
+      hover:-translate-y-2 hover:shadow-[0_12px_28px_rgba(0,0,0,0.1),0_4px_8px_rgba(0,158,227,0.08)] dark:hover:shadow-[0_12px_28px_rgba(0,0,0,0.35),0_4px_8px_rgba(56,189,248,0.08)]
+      transition-all duration-200 flex flex-col gap-4
     ">
       {/* Opening quote mark */}
       <div className="text-brand-amber/30 dark:text-brand-amber-dark/30 font-heading text-5xl leading-none select-none" aria-hidden="true">

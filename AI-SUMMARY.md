@@ -25,6 +25,9 @@
 
 ## Recent Completions
 
+- [2026-06-15] 3D design pass: scroll-triggered floating pill header (docked at top, `rounded-2xl mx-4 mt-4` pill after scroll, transition-all 300ms); `btn-3d-primary` CSS utility (inset top highlight + ambient glow, soft not brick); home page simplified to logo+Coming Soon+About Me button, no header/footer via ClientShell; footer social text links removed (icons only); PersonaChip 3D shadow; all card components upgraded with resting shadows + `hover:-translate-y-{1.5|2}` lifts + `h-full flex flex-col`; testimonials switched from CSS columns to grid for equal-height rows
+- [2026-06-14] ProcessFlow component created; all 4 service process sections (services overview, consulting, resume-review, linkedin-review) migrated from inline card grids to dual-layout ProcessFlow (horizontal stepper ≤4 steps on desktop, vertical timeline otherwise); dropdown hover fixed with 200ms grace timer; lint + build clean
+- [2026-06-14] Prompt 004a: Header & footer redesigned — sticky-glass nav with Services dropdown (5 links + "View all"), "Book a call" CTA, mobile hamburger overlay; rich 4-column footer; `src/lib/nav.ts` central config; lint + build clean
 - [2026-06-14] Prompt 011b: /services/linkedin-review page built with What's included, How it works, and CTA sections; 5/5 E2E pass across all browsers, build clean
 - [2026-06-14] Prompt 011: /services/resume-review page built with 6-step process section and 4-tier review cards (Quick/Deep/Full Makeover/JD-Based add-on); 5/5 E2E pass, build clean
 - [2026-06-14] Prompt 010: /services/career page built with Career Strategy Session + Career Audit Package offerings, target audience section, and mailto CTA; E2E smoke test passes, build clean

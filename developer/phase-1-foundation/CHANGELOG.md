@@ -1,5 +1,25 @@
 # CHANGELOG — Phase 1: Foundation
 
+## [2026-06-14] ProcessFlow component + services process-section refactor
+
+- Created `src/components/services/ProcessFlow.tsx` — dual-layout process flow component: vertical numbered timeline (mobile always; desktop for 5+ steps) and horizontal stepper with dashed-arrow connectors (desktop only; ≤4 steps); Fragment + key pattern for step+connector pairs; `h-14 flex items-center` aligns connector line with circle centers without manual margin
+- Replaced inline step-card grids across 4 pages:
+  - `src/app/services/page.tsx` — 4-step "How we'll work together" → ProcessFlow (horizontal on desktop)
+  - `src/app/services/consulting/page.tsx` — 4-step "How it works" → ProcessFlow (horizontal on desktop)
+  - `src/app/services/resume-review/page.tsx` — 6-step "How it works" → ProcessFlow (vertical)
+  - `src/app/services/linkedin-review/page.tsx` — 5-step "How it works" → ProcessFlow (vertical)
+- Fixed dropdown hover: moved onMouseEnter/onMouseLeave to wrapper div with 200ms `closeTimerRef` delay so the gap between button and panel doesn't close the menu
+- Lint clean, `npm run build` clean (10/10 static pages); verified visually — horizontal stepper (Consulting) and vertical timeline (LinkedIn Review) both render correctly
+
+## [2026-06-14] Prompt 004a — Header & Footer Redesign
+
+- Extracted inline header/footer from `layout.tsx` into dedicated `Header.tsx` and `Footer.tsx` components
+- Created `src/lib/nav.ts` — single typed config for navLinks, serviceLinks, socialLinks, siteEmail, cta, repoUrl
+- Header: sticky-glass (backdrop-blur-md + border/shadow fades in on scroll), logo + Home/About nav + Services dropdown (all 5 + "View all"), "Book a call" CTA, ThemeToggle; mobile hamburger opens full-screen overlay menu with Escape/X/body-scroll-lock
+- Footer: 4-column grid (Brand+social, Explore, Services, Connect) + bottom bar (© year · Built with Next.js · Source ↗); stacks to 1 col on mobile, 2 col on sm
+- Fixed: `react-hooks/set-state-in-effect` lint error — removed `useEffect` that reset dropdown on route change; rely on `onClick` handlers already present on all nav links
+- Lint clean, `npm run build` clean (10/10 static pages, TypeScript passes)
+
 ## [2026-06-14] Prompt 011b — Services: LinkedIn Review Page
 
 - Expanded `/services/linkedin-review` from stub to full page: hero with prompt-specified intro, "What's included" section (5 items with CheckCircle2 cards in 2-col grid), "How it works" section (5 numbered + icon step cards), mailto CTA with standalone-service note

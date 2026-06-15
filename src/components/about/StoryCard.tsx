@@ -11,8 +11,12 @@ export function StoryCard({ before, after, metric, headline, narrative, variant 
   const isFeatured = variant === 'featured'
   return (
     <div className={`
+      h-full flex flex-col
       bg-brand-surface dark:bg-brand-surface-dark rounded-2xl border border-brand-slate/10 dark:border-brand-slate-dark/10
-      hover:border-brand-amber/40 dark:hover:border-brand-amber-dark/40 hover:-translate-y-0.5 transition-all duration-200
+      hover:border-brand-amber/40 dark:hover:border-brand-amber-dark/40
+      shadow-[0_2px_8px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.25)]
+      hover:-translate-y-2 hover:shadow-[0_12px_28px_rgba(0,0,0,0.1),0_4px_8px_rgba(0,158,227,0.08)] dark:hover:shadow-[0_12px_28px_rgba(0,0,0,0.35),0_4px_8px_rgba(56,189,248,0.08)]
+      transition-all duration-200
       ${isFeatured ? 'md:col-span-2 p-8' : 'p-6'}
     `}>
       {/* Before → After */}

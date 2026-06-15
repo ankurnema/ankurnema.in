@@ -1,7 +1,7 @@
 # Building ankurnema.in with AI: The Honest Numbers
 
-> **Last updated:** 2026-06-14 (Prompt 011b: LinkedIn Review page; Phase v0.1 sessions S01–S21 logged)
-> **Sessions logged:** 29
+> **Last updated:** 2026-06-15 (3D design pass + learnings documented; Phase v0.1 sessions S01–S23 logged)
+> **Sessions logged:** 31
 > **Current phase:** Phase v0.1 — Foundation (In Progress)
 > **Pro plan:** Claude Pro — $20/month flat
 
@@ -155,14 +155,16 @@ The reference system is paying off.
 | S19 | 0.45 MB | 7 | 12 | 3 | 5 | 1.71 | Prompt 010: /services/career full content — 2-offering grid (Compass/Map icons), persona chips, mailto CTA; E2E + build clean; docs updated; memory updated |
 | S20 | 0.38 MB | 7 | 7 | 3 | 5 | 1.00 | Prompt 011: /services/resume-review full content — 6-step process grid + 4-tier review cards (Quick/Deep/Full Makeover/JD-Based add-on); 5/5 E2E pass, build clean |
 | S21 | 0.41 MB | 10 | 8 | 4 | 3 | 0.80 | Prompt 011b: /services/linkedin-review full content — What's included section (5 CheckCircle2 cards) + How it works (5 step cards) + standalone-service CTA; 5/5 E2E pass, build clean; learnings documented |
-| **Total** | **10.57 MB** | **189** | **300** | **87** | **129** | **1.59** | — |
+| S22 | 3.91 MB | 49 | 29 | 9 | 22 | 0.59 | ProcessFlow component (dual-layout: horizontal stepper ≤4 steps, vertical timeline 5+); 4 service process sections migrated; Header dropdown hover gap fixed (wrapper-level handlers + 200ms grace timer); 2 learnings documented |
+| S23 | 5.67 MB | 46 | 57 | 5 | 18 | 1.24 | 3D design pass: ClientShell conditional header/footer, scroll-triggered floating pill header, btn-3d-primary glow effect, card 3D lifts, equal-height grids, home page redesign, 3 learnings documented |
+| **Total** | **20.15 MB** | **284** | **386** | **101** | **169** | **1.36** | — |
 
 > Transcript MB is an activity indicator, not billable tokens. Cost figures use real `usage` token counts (see Aggregate Numbers).
 
 ### Aggregate Numbers
 
-IDE sessions S01–S21 in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` context (21 sessions total). 
-Token metrics include all Phase v0.1 IDE sessions. Run `scripts/efficiency-metrics.py` from workspace root for precise token counts:
+IDE sessions S01–S23 in `~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in/` context (23 sessions total). 
+Token metrics include Phase v0.1 IDE sessions through S22; S23 token counts pending script run. Run `scripts/efficiency-metrics.py` from workspace root for precise token counts:
 ```
 python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in --since 2026-05-09
 ```
@@ -180,7 +182,7 @@ python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-
 | Edit-to-Read ratio | **1.66** |
 | Read/(Edit+Bash) ratio | **0.42** |
 
-> S21 session (2026-06-14): 10r, 8e, 4w, 3b; real token counts estimated with cache patterns. Run efficiency script for precise aggregates across all 21 sessions: `python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in --since 2026-05-09`
+> S01–S22 token counts are finalized. S23 session (2026-06-15): 46r, 57e, 5w, 18b; token counts pending. Run efficiency script for precise aggregates across all 23 sessions: `python3 ../../scripts/efficiency-metrics.py ~/.claude/projects/-Users-ankurnema-ankur-consulting-repo-ankurnema-in --since 2026-05-09`
 
 ---
 
@@ -214,11 +216,11 @@ All costs are Sonnet 4.6-equivalent floor, cache-aware, from real `usage` token 
 | Month | Total Sessions | IDE Sessions | IDE Cache-Hit% | IDE API Equiv | Pro Cost | Value Ratio |
 |-------|----------------|--------------|----------------|---------------|----------|-------------|
 | May 2026 | 23 | 13 | 93.5% | **~$87.64** | $20 | **4.38x** |
-| June 2026 | 8 | 8 | ~94.1% | **~$67–73** (est. after S21) | $20 | **3.35–3.65x** |
+| June 2026 | 9 | 9 | ~94.1% | **~$75–82** (est. after S23) | $20 | **3.75–4.10x** |
 
 > May: 23 sessions = 13 direct `.in` IDE sessions + 10 workspace-root Pre-Dev sessions. Value ratio 4.38x = IDE sessions only ($87.26 Phase v0.1 + $0.38 S08 Pre-Dev).
-> June 2026: S14–S15 (Prompt 006) + S16–S21 (Prompts 007a–011b) = 8 Phase v0.1 sessions. June value est. with S20–S21 included. Run efficiency script with `--since 2026-06-01` for precise June aggregate.
-> **Combined May–June Phase v0.1 total (19 IDE sessions):** ~94.1% cache-hit, ~$137.92 API equiv, ~6.90x subscription value ratio.
+> June 2026: S14–S15 (Prompt 006) + S16–S23 (Prompts 007a–011b + 3D design pass) = 9 Phase v0.1 sessions. June value est. with S23 included. Run efficiency script with `--since 2026-06-01` for precise June aggregate.
+> **Combined May–June Phase v0.1 total (20 IDE sessions):** ~94.1% cache-hit, est. ~$145–155 API equiv, est. ~7.25–7.75x subscription value ratio (pending efficiency-metrics.py run).
 
 ---
 

@@ -10,6 +10,7 @@ import {
   Mail,
 } from 'lucide-react'
 import { FadeInSection } from '@/components/about/FadeInSection'
+import { ProcessFlow } from '@/components/services/ProcessFlow'
 
 export const metadata: Metadata = {
   title: 'LinkedIn Review',
@@ -111,7 +112,7 @@ export default function LinkedInReviewPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {included.map((text, i) => (
               <FadeInSection key={text} delay={i * 0.08}>
-                <div className="bg-brand-surface dark:bg-brand-surface-dark border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-xl p-6 h-full flex gap-4">
+                <div className="bg-brand-surface dark:bg-brand-surface-dark border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-xl p-6 h-full flex gap-4 shadow-[0_2px_6px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)]">
                   <CheckCircle2
                     className="w-5 h-5 text-brand-amber dark:text-brand-amber-dark flex-shrink-0 mt-0.5"
                     strokeWidth={1.5}
@@ -138,35 +139,9 @@ export default function LinkedInReviewPage() {
             </h2>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {steps.map(({ icon: Icon, title, description }, i) => (
-              <FadeInSection key={title} delay={i * 0.08}>
-                <div className="bg-brand-canvas dark:bg-brand-canvas-dark border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-xl p-6 h-full flex gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-9 h-9 rounded-full bg-brand-amber/15 dark:bg-brand-amber-dark/15 flex items-center justify-center">
-                      <span className="text-xs font-bold font-sans text-brand-amber dark:text-brand-amber-dark">
-                        {i + 1}
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Icon
-                        className="w-4 h-4 text-brand-amber dark:text-brand-amber-dark flex-shrink-0"
-                        strokeWidth={1.5}
-                      />
-                      <h3 className="text-base font-semibold font-heading text-brand-navy dark:text-brand-charcoal-dark leading-snug">
-                        {title}
-                      </h3>
-                    </div>
-                    <p className="text-brand-slate dark:text-brand-slate-dark text-sm font-sans leading-relaxed">
-                      {description}
-                    </p>
-                  </div>
-                </div>
-              </FadeInSection>
-            ))}
-          </div>
+          <FadeInSection>
+            <ProcessFlow steps={steps} />
+          </FadeInSection>
         </div>
       </section>
 

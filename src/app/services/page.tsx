@@ -20,7 +20,7 @@ import { FadeInSection } from '@/components/about/FadeInSection'
 import { StatCard } from '@/components/about/StatCard'
 import { ServiceCard } from '@/components/services/ServiceCard'
 import { PersonaChip } from '@/components/services/PersonaChip'
-import { ProcessStep } from '@/components/services/ProcessStep'
+import { ProcessFlow } from '@/components/services/ProcessFlow'
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -209,7 +209,7 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {primaryServices.map((service, i) => (
-              <FadeInSection key={service.name} delay={i * 0.08}>
+              <FadeInSection key={service.name} delay={i * 0.08} className="h-full">
                 <ServiceCard
                   icon={service.icon}
                   name={service.name}
@@ -235,18 +235,9 @@ export default function ServicesPage() {
             </h2>
           </FadeInSection>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-4">
-            {processSteps.map((step, i) => (
-              <FadeInSection key={step.title} delay={i * 0.1}>
-                <ProcessStep
-                  step={i + 1}
-                  icon={step.icon}
-                  title={step.title}
-                  description={step.description}
-                />
-              </FadeInSection>
-            ))}
-          </div>
+          <FadeInSection>
+            <ProcessFlow steps={processSteps} />
+          </FadeInSection>
         </div>
       </section>
 

@@ -7,6 +7,7 @@
 | 003 | [003-branding.md](003-branding.md) | Color system, CSS text logo, favicon (AN monogram), OG image, brand guidelines doc | ✅ Done [2026-05-17] |
 | 003b | [003b-logo-assets.md](003b-logo-assets.md) | **Run when logo SVGs are ready** — swap CSS text logo for designer SVGs, update favicon + OG image | ✅ Done [2026-05-17] |
 | 004 | [004-root-layout.md](004-root-layout.md) | Root `layout.tsx` — header, footer, fonts, metadata | ✅ Done [2026-05-17] |
+| 004a | [004a-header-footer-redesign.md](004a-header-footer-redesign.md) | Header redesign (sticky-glass, nav, Services dropdown, CTA) + rich multi-column footer + `src/lib/nav.ts` config | ✅ Done [2026-06-14] |
 | 005 | [005-coming-soon-homepage.md](005-coming-soon-homepage.md) | Coming Soon page at `/` with OG metadata + E2E smoke test | ✅ Done [2026-05-17] |
 | 005b | [005b-ga4-integration.md](005b-ga4-integration.md) | **Run after creating GA4 property** — Install `@next/third-parties`, wire `<GoogleAnalytics>` into `layout.tsx` | ✅ Done [2026-05-31] |
 | 018 | [018-cicd-workflows.md](018-cicd-workflows.md) | **Run after step 005b + GitHub secrets set** — `.github/workflows/ci.yml` + `deploy.yml`; then raise PR → merge → site live | ✅ Done [2026-05-31] |

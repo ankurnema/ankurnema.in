@@ -14,6 +14,7 @@ import {
   Briefcase,
 } from 'lucide-react'
 import { FadeInSection } from '@/components/about/FadeInSection'
+import { ProcessFlow } from '@/components/services/ProcessFlow'
 
 export const metadata: Metadata = {
   title: 'Resume Review',
@@ -148,35 +149,9 @@ export default function ResumeReviewPage() {
             </h2>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {steps.map(({ icon: Icon, title, description }, i) => (
-              <FadeInSection key={title} delay={i * 0.08}>
-                <div className="bg-brand-surface dark:bg-brand-surface-dark border border-brand-slate/10 dark:border-brand-slate-dark/10 rounded-xl p-6 h-full flex gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-9 h-9 rounded-full bg-brand-amber/15 dark:bg-brand-amber-dark/15 flex items-center justify-center">
-                      <span className="text-xs font-bold font-sans text-brand-amber dark:text-brand-amber-dark">
-                        {i + 1}
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <Icon
-                        className="w-4 h-4 text-brand-amber dark:text-brand-amber-dark flex-shrink-0"
-                        strokeWidth={1.5}
-                      />
-                      <h3 className="text-base font-semibold font-heading text-brand-navy dark:text-brand-charcoal-dark leading-snug">
-                        {title}
-                      </h3>
-                    </div>
-                    <p className="text-brand-slate dark:text-brand-slate-dark text-sm font-sans leading-relaxed">
-                      {description}
-                    </p>
-                  </div>
-                </div>
-              </FadeInSection>
-            ))}
-          </div>
+          <FadeInSection>
+            <ProcessFlow steps={steps} />
+          </FadeInSection>
         </div>
       </section>
 
@@ -195,7 +170,7 @@ export default function ResumeReviewPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {tiers.map(({ icon: Icon, name, turnaround, description, addon }, i) => (
               <FadeInSection key={name} delay={i * 0.1}>
-                <div className={`bg-brand-canvas dark:bg-brand-canvas-dark border rounded-xl p-6 h-full flex flex-col ${addon ? 'border-brand-amber/30 dark:border-brand-amber-dark/30' : 'border-brand-slate/10 dark:border-brand-slate-dark/10'}`}>
+                <div className={`bg-brand-canvas dark:bg-brand-canvas-dark border rounded-xl p-6 h-full flex flex-col shadow-[0_2px_8px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.25)] hover:-translate-y-1.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.09)] dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.3)] transition-all duration-200 ${addon ? 'border-brand-amber/30 dark:border-brand-amber-dark/30' : 'border-brand-slate/10 dark:border-brand-slate-dark/10'}`}>
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-10 h-10 rounded-lg bg-brand-navy/8 dark:bg-brand-navy-dark/10 flex items-center justify-center flex-shrink-0">
                       <Icon

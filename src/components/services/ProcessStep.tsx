@@ -11,7 +11,7 @@ export function ProcessStep({ step, icon: Icon, title, description }: ProcessSte
   return (
     <div className="flex flex-col items-center text-center">
       <div className="relative mb-4">
-        <div className="w-12 h-12 rounded-full bg-brand-amber/10 dark:bg-brand-amber-dark/10 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-brand-amber/10 dark:bg-brand-amber-dark/10 flex items-center justify-center shadow-[0_0_0_3px_rgba(0,158,227,0.08),0_4px_12px_rgba(0,158,227,0.14)] dark:shadow-[0_0_0_3px_rgba(56,189,248,0.08),0_4px_12px_rgba(56,189,248,0.1)]">
           <Icon className="w-5 h-5 text-brand-amber dark:text-brand-amber-dark" strokeWidth={1.5} />
         </div>
         <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-brand-amber dark:bg-brand-amber-dark text-brand-navy text-xs font-bold flex items-center justify-center font-sans leading-none">

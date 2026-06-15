@@ -359,7 +359,7 @@ export default function AboutPage() {
               ].map(({ icon: Icon, label, sub }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-3 bg-brand-surface dark:bg-brand-surface-dark rounded-xl border border-brand-slate/10 dark:border-brand-slate-dark/10 px-4 py-3 hover:border-brand-amber/30 dark:hover:border-brand-amber-dark/30 transition-colors"
+                  className="flex items-center gap-3 bg-brand-surface dark:bg-brand-surface-dark rounded-xl border border-brand-slate/10 dark:border-brand-slate-dark/10 px-4 py-3 hover:border-brand-amber/30 dark:hover:border-brand-amber-dark/30 shadow-[0_2px_6px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)] transition-all duration-200"
                 >
                   <div className="w-8 h-8 rounded-lg bg-brand-amber/10 dark:bg-brand-amber-dark/10 flex items-center justify-center flex-shrink-0">
                     <Icon className="w-4 h-4 text-brand-amber dark:text-brand-amber-dark" strokeWidth={1.5} />
@@ -433,7 +433,7 @@ export default function AboutPage() {
           </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {storyCards.map((card, i) => (
-              <FadeInSection key={card.metric} delay={i * 0.08} className={card.variant === 'featured' ? 'md:col-span-2' : ''}>
+              <FadeInSection key={card.metric} delay={i * 0.08} className={card.variant === 'featured' ? 'md:col-span-2 h-full' : 'h-full'}>
                 <StoryCard {...card} />
               </FadeInSection>
             ))}
@@ -457,7 +457,7 @@ export default function AboutPage() {
           </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {projects.map((project, i) => (
-              <FadeInSection key={project.title} delay={i * 0.08}>
+              <FadeInSection key={project.title} delay={i * 0.08} className="h-full">
                 <ProjectCard {...project} />
               </FadeInSection>
             ))}
@@ -478,7 +478,7 @@ export default function AboutPage() {
           </FadeInSection>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {skillGroups.map((group, i) => (
-              <FadeInSection key={group.title} delay={i * 0.08}>
+              <FadeInSection key={group.title} delay={i * 0.08} className="h-full">
                 <SkillGroup
                   title={group.title}
                   titleIcon={group.titleIcon}
@@ -501,10 +501,10 @@ export default function AboutPage() {
               What People Say
             </h2>
           </FadeInSection>
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.map((t, i) => (
-              <FadeInSection key={t.name} delay={i * 0.06} className="break-inside-avoid">
-                <figure>
+              <FadeInSection key={t.name} delay={i * 0.06} className="h-full">
+                <figure className="h-full">
                   <TestimonialCard {...t} />
                 </figure>
               </FadeInSection>
@@ -527,7 +527,7 @@ export default function AboutPage() {
               I share what I know publicly. Here are recordings from recent sessions.
             </p>
           </FadeInSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-stretch mb-20">
             {[
               {
                 title: 'Monitoring & Observability',
@@ -540,19 +540,19 @@ export default function AboutPage() {
                 href: 'https://www.youtube.com/watch?v=A1N0iwjZ7JE',
               },
             ].map((talk, i) => (
-              <FadeInSection key={talk.title} delay={i * 0.08}>
-                <div className="bg-brand-canvas dark:bg-brand-canvas-dark rounded-2xl p-6 border border-brand-slate/10 dark:border-brand-slate-dark/10 hover:border-brand-amber/40 dark:hover:border-brand-amber-dark/40 transition-colors">
+              <FadeInSection key={talk.title} delay={i * 0.08} className="h-full">
+                <div className="h-full flex flex-col bg-brand-canvas dark:bg-brand-canvas-dark rounded-2xl p-6 border border-brand-slate/10 dark:border-brand-slate-dark/10 hover:border-brand-amber/40 dark:hover:border-brand-amber-dark/40 shadow-[0_2px_8px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:shadow-[0_12px_28px_rgba(0,0,0,0.1),0_4px_8px_rgba(0,158,227,0.08)] dark:hover:shadow-[0_12px_28px_rgba(0,0,0,0.35),0_4px_8px_rgba(56,189,248,0.08)] transition-all duration-200">
                   <h3 className="text-lg font-semibold font-heading text-brand-navy dark:text-brand-charcoal-dark mb-2">
                     {talk.title}
                   </h3>
-                  <p className="text-brand-charcoal dark:text-brand-charcoal-dark/80 text-sm font-sans mb-4 leading-relaxed">
+                  <p className="text-brand-charcoal dark:text-brand-charcoal-dark/80 text-sm font-sans mb-4 leading-relaxed flex-1">
                     {talk.description}
                   </p>
                   <a
                     href={talk.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-amber dark:text-brand-amber-dark font-semibold text-sm font-sans transition-opacity hover:opacity-80"
+                    className="text-brand-amber dark:text-brand-amber-dark font-semibold text-sm font-sans transition-opacity hover:opacity-80 mt-auto"
                   >
                     Watch on YouTube →
                   </a>
@@ -581,7 +581,7 @@ export default function AboutPage() {
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <a
                     href="mailto:ankur@ankurnema.in"
-                    className="inline-block bg-brand-amber dark:bg-brand-amber-dark text-brand-navy font-semibold px-8 py-3 font-sans transition-opacity hover:opacity-90 rounded-lg"
+                    className="inline-block bg-brand-amber dark:bg-brand-amber-dark text-brand-navy font-semibold px-8 py-3 font-sans rounded-full btn-3d-primary"
                   >
                     Get in touch →
                   </a>
